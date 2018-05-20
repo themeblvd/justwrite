@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './style.scss';
 
-export default class LoginForm extends Component {
+class LoginForm extends Component {
     constructor() {
         super();
         this.state = {
@@ -75,3 +76,12 @@ export default class LoginForm extends Component {
         );
     }
 }
+
+LoginForm.propTypes = {
+    handleSubmit: PropTypes.func,
+    website: PropTypes.string,
+    username: PropTypes.string,
+    password: PropTypes.string
+};
+
+export default LoginForm;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './style.scss';
 import LoginLogo from '../_components/login-logo';
 import LoginInfo from '../_components/login-info';
@@ -23,6 +24,11 @@ const LoginPage = props => {
             </section>
         </div>
     );
+};
+
+LoginPage.propTypes = {
+    handleSubmit: PropTypes.func,
+    errors: PropTypes.object
 };
 
 export default LoginPage;
