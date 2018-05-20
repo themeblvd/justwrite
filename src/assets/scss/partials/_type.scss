@@ -95,3 +95,18 @@ h6 {
         font-size: 1rem;
     }
 }
+
+//
+// Paragraphs
+//
+
+p {
+    margin: 0 0 24px 0;
+
+    &:first-child {
+        margin-top: 0;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
