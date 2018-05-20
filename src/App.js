@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './_assets/scss/main.scss'; // Must come before components.
 import Validate from './_actions/Validate';
+import User from './_actions/User';
 import LoginPage from './login-page';
 
 export default class App extends Component {
@@ -8,6 +9,7 @@ export default class App extends Component {
         super();
 
         this.validate = new Validate();
+        this.user = new User();
 
         this.state = {
             isLoggedIn: false,
@@ -37,7 +39,11 @@ export default class App extends Component {
 
         // There are no validation errors, so let's now
         // try to login.
-        console.log('login');
+        this.user.login(this, {
+            website: form.website.value,
+            username: form.website.username,
+            password: form.password.value
+        });
     };
 
     currentPage = () => {
