@@ -10,7 +10,7 @@ select,
 textarea {
     -webkit-appearance: none;
     background-color: #fff;
-    border-radius: 0;
+    border-radius: 2px;
     border: 1px solid rgba(176, 176, 176, 0.4);
     color: $clr-text;
     display: block;
@@ -60,22 +60,14 @@ button,
     white-space: nowrap;
 
     &:active,
-    &.active {
-        &:focus {
-            outline: 5px auto -webkit-focus-ring-color;
-            outline-offset: -2px;
-        }
-    }
-    &:hover,
+    &.active,
     &:focus {
-        background-color: $clr-secondary;
-    }
-    &:active,
-    &.active {
         outline: 0;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
     }
-    &.active {
-        border-color: transparent;
+    &:hover {
+        background-color: $clr-secondary;
     }
 }
 
@@ -85,10 +77,10 @@ button,
 
 label,
 .label {
-    // color: $clr-heading;
+    color: $clr-heading;
     display: inline-block;
-    // font-weight: 600;
-    font-size: $font-size-base - 2px;
+    font-weight: 600;
+    // font-size: $font-size-base - 2px;
     margin: 0 4px 10px 4px;
     max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
 
@@ -107,5 +99,22 @@ input,
 textarea {
     &::placeholder {
         color: lighten($clr-text, 40%);
+    }
+}
+
+//
+// Validation
+//
+
+.field-error {
+    input,
+    input:focus {
+        border-color: $clr-error;
+    }
+    .error-msg {
+        color: $clr-error;
+        display: block;
+        font-size: $font-size-base - 2px;
+        margin: -5px 4px 0 4px;
     }
 }

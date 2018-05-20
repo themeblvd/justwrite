@@ -15,7 +15,10 @@ const LoginPage = props => {
             <section className="login-section">
                 <div className="wrap">
                     <LoginInfo />
-                    <LoginForm handleSubmit={props.handleSubmit} />
+                    <LoginForm
+                        handleSubmit={props.handleSubmit}
+                        errors={props.errors}
+                    />
                 </div>
             </section>
         </div>
