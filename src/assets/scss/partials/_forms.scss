@@ -25,6 +25,14 @@ textarea {
         margin-bottom: 0;
     }
 }
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='search']:focus,
+input[type='url']:focus,
+textarea:focus {
+    border-color: $clr-border-active;
+    outline: 0;
+}
 
 //
 // Buttons
