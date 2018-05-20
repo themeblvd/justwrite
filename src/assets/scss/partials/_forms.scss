@@ -97,3 +97,14 @@ label,
         margin-left: 0;
     }
 }
+
+//
+// Placeholders
+//
+
+input,
+textarea {
+    &::placeholder {
+        color: lighten($clr-text, 40%);
+    }
+}
