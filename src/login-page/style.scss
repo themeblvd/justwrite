@@ -1,0 +1,43 @@
+//
+// Utilities
+//
+
+@import '../_assets/scss/partials/_variables.scss';
+
+//
+// Login Page
+//
+
+.login-page {
+    .login-header {
+        background-image: linear-gradient(-225deg, #00f2fe 0%, #4facfe 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+    }
+    .login-section {
+        display: flex;
+        justify-content: center;
+        padding: 40px;
+    }
+    .login-section > .wrap {
+        max-width: 450px;
+    }
+}
+@media (min-width: $bp-login-page) {
+    .login-page {
+        display: flex;
+        min-height: 100vh;
+
+        .login-header {
+            width: 33.33%;
+        }
+        .login-section {
+            align-items: center;
+            width: 66.66%;
+        }
+        .login-section > .wrap {
+        }
+    }
+}

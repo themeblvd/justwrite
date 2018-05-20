@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
-import './assets/scss/main.scss'; // Must come before components.
-import logo from './assets/img/logo.svg';
-import Example from './components/example';
+import './_assets/scss/main.scss'; // Must come before components.
+import LoginPage from './login-page';
 
 export default class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            loggedIn: false
+        };
+    }
+
+    handleLoginSubmit = event => {
+        event.preventDefault();
+        console.log('login!');
+    };
+
     render() {
         return (
             <div className="app">
-                <header>
-                    <img
-                        src={logo}
-                        alt="My React App"
-                        width="100"
-                        height="100"
-                    />
-                    <h1>My React App</h1>
-                </header>
-                <Example />
+                <LoginPage handleSubmit={this.handleLoginSubmit} />
             </div>
         );
     }
