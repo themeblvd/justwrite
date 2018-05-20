@@ -1,3 +1,97 @@
+//
+// Fonts
+//
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-weight: 300;
+    src: url('../font/SourceSansPro-Light.ttf');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-weight: 400;
+    src: url('../font/SourceSansPro-Regular.ttf');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-weight: 600;
+    src: url('../font/SourceSansPro-SemiBold.ttf');
+}
+
+//
+// General Typography
+//
+
 body {
-    font-family: sans-serif;
+    color: $clr-text;
+    font-family: 'Source Sans Pro';
+    font-weight: 400;
+    font-size: $font-size-base;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $clr-heading;
+    line-height: 1.2;
+    margin: 30px 0 24px 0;
+}
+h1,
+h2 {
+    font-weight: 300;
+}
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+
+//
+// Heading Sizes
+//
+
+h1 {
+    font-size: 28px;
+}
+h2 {
+    font-size: 22px;
+}
+h3 {
+    font-size: 20px;
+}
+h4 {
+    font-size: 18px;
+}
+h5 {
+    font-size: 17px;
+}
+h6 {
+    font-size: 16px;
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2.75rem;
+    }
+    h2 {
+        font-size: 2.25rem;
+    }
+    h3 {
+        font-size: 1.75rem;
+    }
+    h4 {
+        font-size: 1.5rem;
+    }
+    h5 {
+        font-size: 1.25rem;
+    }
+    h6 {
+        font-size: 1rem;
+    }
 }

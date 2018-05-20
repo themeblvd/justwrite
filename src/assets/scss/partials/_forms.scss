@@ -1,0 +1,71 @@
+//
+// Form Fields
+//
+
+input[type='text'],
+input[type='password'],
+input[type='search'],
+input[type='url'],
+select,
+textarea {
+    -webkit-appearance: none;
+    background-color: #fff;
+    border-radius: 0;
+    border: 1px solid rgba(176, 176, 176, 0.4);
+    color: $clr-text;
+    display: block;
+    font-size: 14px;
+    height: 50px;
+    line-height: 16px;
+    margin: 0 0 15px 0;
+    padding: 16px 18px;
+    width: 100%;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+//
+// Buttons
+//
+
+button,
+.button {
+    background-color: $clr-primary;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: $font-size-btn;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    padding: 19px 22px;
+    text-align: center;
+    text-decoration: none;
+    touch-action: manipulation;
+    transition: background-color 0.2s ease-in-out;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    &:active,
+    &.active {
+        &:focus {
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: -2px;
+        }
+    }
+    &:hover,
+    &:focus {
+        background-color: $clr-secondary;
+    }
+    &:active,
+    &.active {
+        outline: 0;
+    }
+    &.active {
+        border-color: transparent;
+    }
+}
