@@ -40,6 +40,13 @@ h6 {
     color: $clr-heading;
     line-height: 1.2;
     margin: 30px 0 24px 0;
+
+    &:first-child {
+        margin-top: 0;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 h1,
 h2 {
