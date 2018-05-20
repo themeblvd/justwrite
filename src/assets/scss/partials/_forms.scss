@@ -14,7 +14,7 @@ textarea {
     border: 1px solid rgba(176, 176, 176, 0.4);
     color: $clr-text;
     display: block;
-    font-size: 14px;
+    font-size: $font-size-base - 2px;
     height: 50px;
     line-height: 16px;
     margin: 0 0 15px 0;
@@ -67,5 +67,25 @@ button,
     }
     &.active {
         border-color: transparent;
+    }
+}
+
+//
+// Labels/Legends
+//
+
+label,
+.label {
+    // color: $clr-heading;
+    display: inline-block;
+    // font-weight: 600;
+    font-size: $font-size-base - 2px;
+    margin: 0 4px 15px 4px;
+    max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
+
+    label,
+    .label {
+        margin-right: 0;
+        margin-left: 0;
     }
 }
