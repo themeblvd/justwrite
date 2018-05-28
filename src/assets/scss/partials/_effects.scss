@@ -1,27 +1,78 @@
 //
-// Ripple
+// Loading
 //
 
-.ripple {
-    position: relative;
-    overflow: hidden;
+$gradient-width: 20px;
+$total-width: $gradient-width + ($gradient-width / 2);
+$key-frame-offset: $gradient-width / 10;
 
-    span {
-        background: rgba(255, 255, 255, 0.5);
-        border-radius: 50%;
+button.has-loader,
+.button.has-loader {
+    overflow: hidden;
+    position: relative;
+
+    &.loading {
+        cursor: wait;
+    }
+    &:after {
+        content: '';
+        opacity: 0;
+        transition: opacity 0.25s ease-in;
+    }
+    &.loading:after {
+        animation-name: btn-loading;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        background: repeating-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.25) 0,
+            rgba(255, 255, 255, 0.25) ($gradient-width/2),
+            rgba(0, 0, 0, 0) ($gradient-width/2),
+            rgba(0, 0, 0, 0) $gradient-width
+        );
         display: block;
         opacity: 1;
-        padding-top: 120%;
         position: absolute;
+        left: -$total-width;
+        right: 0;
         top: 0;
-        left: 0;
-        transform: scale(0) translate(-50%, -50%);
-        transform-origin: 0 0;
-        width: 120%;
+        bottom: 0;
+        z-index: 1;
     }
-    &.animating span {
-        opacity: 0;
-        transition: all 0.4s ease-in;
-        transform: scale(1) translate(-50%, -50%);
+}
+
+@keyframes btn-loading {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate($total-width - $key-frame-offset, 0);
+    }
+}
+
+//
+// Form Field Error Shake
+//
+
+.error-shake input {
+    animation-name: error-shake;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    // animation-iteration-count: infinite;
+}
+
+@keyframes error-shake {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(-2px, 0);
+    }
+    75% {
+        transform: translate(2px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
     }
 }

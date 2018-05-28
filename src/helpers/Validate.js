@@ -1,31 +1,43 @@
 class Validate {
-    loginForm = form => {
+    loginForm = (inputs, value) => {
+        var singleInputName = typeof inputs == 'string' ? inputs : null;
+
+        if (singleInputName) {
+            var inputs = {
+                [singleInputName]: value
+            };
+        }
+
         var errors = {
             website: null,
             username: null,
             password: null
         };
 
-        if (!form.website.value) {
+        if (!inputs.website) {
             errors.website =
                 'Website URL for your WordPress website is required.';
-        } else if (!this.url(form.website.value)) {
+        } else if (!this.url(inputs.website)) {
             errors.website = 'Enter a valid Website URL.';
-        } else if (!form.website.value.includes('https')) {
+        } else if (!inputs.website.includes('https')) {
             errors.website = 'The website must be secured with https.';
         }
 
-        if (!form.username.value) {
+        if (!inputs.username) {
             errors.username =
                 'Username for your WordPress website is required.';
         }
 
-        if (!form.password.value) {
+        if (!inputs.password) {
             errors.password =
                 'Password for your WordPress website is required.';
         }
 
-        return errors;
+        if (singleInputName) {
+            return errors[singleInputName];
+        } else {
+            return errors;
+        }
     };
 
     url = value => {
