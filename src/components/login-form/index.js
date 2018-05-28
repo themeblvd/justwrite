@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Button from '../button';
 import './style.scss';
 
 class LoginForm extends Component {
@@ -71,7 +72,7 @@ class LoginForm extends Component {
                     />
                     {this.errorMsg('password')}
                 </p>
-                <button>Log In</button>
+                <Button>Log In</Button>
             </form>
         );
     }
