@@ -42,6 +42,9 @@ button,
 .button {
     background-color: $clr-primary;
     border: none;
+    border-radius: 2px;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+        0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     color: #fff;
     cursor: pointer;
     display: inline-block;
@@ -49,12 +52,13 @@ button,
     font-weight: 600;
     letter-spacing: 0.12em;
     line-height: 1;
-    padding: 19px 22px;
+    padding: 16px 20px;
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
     touch-action: manipulation;
-    transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out,
+        box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     user-select: none;
     vertical-align: middle;
     white-space: nowrap;
@@ -62,12 +66,12 @@ button,
     &:active,
     &.active,
     &:focus {
-        outline: 0;
-        outline: 5px auto -webkit-focus-ring-color;
-        outline-offset: -2px;
+        outline: none;
     }
     &:hover {
-        background-color: $clr-secondary;
+        background-color: lighten($clr-primary, 5%);
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
+            0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
     }
 }
 

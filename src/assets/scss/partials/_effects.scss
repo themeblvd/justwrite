@@ -1,0 +1,27 @@
+//
+// Ripple
+//
+
+.ripple {
+    position: relative;
+    overflow: hidden;
+
+    span {
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        display: block;
+        opacity: 1;
+        padding-top: 120%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: scale(0) translate(-50%, -50%);
+        transform-origin: 0 0;
+        width: 120%;
+    }
+    &.animating span {
+        opacity: 0;
+        transition: all 0.4s ease-in;
+        transform: scale(1) translate(-50%, -50%);
+    }
+}
