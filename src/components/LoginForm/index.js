@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Button from '../button';
+import Button from '../Button';
 import './style.scss';
 
 class LoginForm extends Component {

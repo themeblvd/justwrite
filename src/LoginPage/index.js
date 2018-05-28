@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
-import LoginLogo from '../_components/login-logo';
-import LoginInfo from '../_components/login-info';
-import LoginForm from '../_components/login-form';
+import LoginLogo from '../components/LoginLogo';
+import LoginInfo from '../components/LoginInfo';
+import LoginForm from '../components/LoginForm';
 
 const LoginPage = props => {
     return (
