@@ -1,0 +1,72 @@
+//
+// Loader
+//
+
+.loader {
+    background: $clr-primary;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+
+    span {
+        display: block;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 100px;
+        height: 100px;
+    }
+    span:before,
+    span:after {
+        content: '';
+        border-radius: 100%;
+        border: 10px solid transparent;
+        border-top-color: #fff;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: 100%;
+        height: 100%;
+    }
+    span:before {
+        z-index: 100;
+        animation: loader-spin 1s infinite;
+    }
+    span:after {
+        border: 10px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
+@keyframes loader-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+//
+// App Loader Animation (to-level)
+//
+
+.app {
+    .loader {
+        top: -9999px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+    }
+    &.is-loading .loader {
+        top: 0;
+    }
+    &.show-loader .loader {
+        opacity: 1;
+        transition: none;
+    }
+    &.hide-loader .loader {
+        opacity: 0;
+    }
+}
