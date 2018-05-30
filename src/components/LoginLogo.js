@@ -1,6 +1,5 @@
 import React from 'react';
-import './style.scss';
-import logo from '../../assets/img/logo.svg';
+import logo from '../assets/img/logo.svg';
 
 const LoginLogo = () => {
     return (
@@ -17,7 +16,7 @@ const LoginLogo = () => {
                 </a>{' '}
                 and{' '}
                 <a
-                    href="https://themeblvd.com"
+                    href="http://themeblvd.com"
                     title="WordPress Themes"
                     target="_blank"
                 >

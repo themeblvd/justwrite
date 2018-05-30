@@ -1,18 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Button = props => {
-    const btnClass = classNames({
+    const classes = classNames({
         'has-loader': true,
         loading: props.isLoading
     });
 
-    return <button className={btnClass}>{props.children}</button>;
+    return <button className={classes}>{props.children}</button>;
 };
-
-// Button.propTypes = {
-//     // ... @TODO
-// };
 
 export default Button;
