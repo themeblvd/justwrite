@@ -1,65 +1,67 @@
 import React, { Component } from 'react';
-import './_assets/scss/main.scss'; // Must come before components.
-import Validate from './_actions/Validate';
-import User from './_actions/User';
-import LoginPage from './login-page';
 
-export default class App extends Component {
+// Application Styles
+import './assets/scss/main.scss';
+
+// Store
+import { connect } from 'react-redux';
+import { verify } from './store/auth';
+
+// Utilities
+import classNames from 'classnames';
+
+// Routing & Transitions
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
+
+// Components
+import Loading from './components/Loading';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+
+class App extends Component {
     constructor() {
         super();
-
-        this.validate = new Validate();
-        this.user = new User();
-
-        this.state = {
-            isLoggedIn: false,
-            loginErrors: {
-                website: null,
-                username: null,
-                password: null
-            }
-        };
     }
 
-    handleLoginSubmit = event => {
-        event.preventDefault();
-        const form = event.target;
-        const errors = this.validate.loginForm(form);
+    getAppClassNames = () => {
+        switch (this.props.appStatus) {
+            case 'showing-loader':
+            case 'is-loading':
+                return 'app is-loading show-loader';
 
-        this.setState({
-            loginErrors: errors
-        });
+            case 'hiding-loader':
+                return 'app is-loading hide-loader';
 
-        // If there are any errors, bail out.
-        for (let prop in errors) {
-            if (errors[prop]) {
-                return false;
-            }
-        }
-
-        // There are no validation errors, so let's now
-        // try to login.
-        this.user.login(this, {
-            website: form.website.value,
-            username: form.website.username,
-            password: form.password.value
-        });
-    };
-
-    currentPage = () => {
-        if (this.state.isLoggedIn) {
-            return <h1>Dashboard...</h1>;
-        } else {
-            return (
-                <LoginPage
-                    handleSubmit={this.handleLoginSubmit}
-                    errors={this.state.loginErrors}
-                />
-            );
+            default:
+                return 'app';
         }
     };
+
+    componentDidMount() {
+        this.props.verify();
+    }
 
     render() {
-        return <div className="app">{this.currentPage()}</div>;
+        const { isLoading, hasVerified, isAuthenticated } = this.props;
+
+        return (
+            <div className={this.getAppClassNames()}>
+                {hasVerified && (
+                    <Switch>
+                        <PrivateRoute exact path="/" component={Dashboard} />
+                        <Route path="/login" component={Login} />
+                        <Redirect to="/" />
+                    </Switch>
+                )}
+                <Loading />
+            </div>
+        );
     }
 }
+
+export default withRouter(
+    connect(state => ({ ...state.auth, appStatus: state.status.app }), {
+        verify
+    })(App)
+);
