@@ -7,5 +7,6 @@ browserSync({
     server: {
         baseDir: './public',
         middleware: [historyFallback()] // Important! Allows react router to work properly.
-    }
+    },
+    https: true
 });
