@@ -1,0 +1,100 @@
+//
+// Login Page
+//
+
+.login-page {
+    .login-header {
+        background-image: $gradient-primary;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+    }
+    .login-section {
+        display: flex;
+        justify-content: center;
+        padding: 40px;
+    }
+    .login-section > .wrap {
+        max-width: 450px;
+    }
+}
+@media (min-width: $bp-login-page) {
+    .login-page {
+        display: flex;
+        min-height: 100vh;
+
+        .login-header {
+            width: 33.33%;
+        }
+        .login-section {
+            align-items: center;
+            width: 66.66%;
+        }
+        .login-section > .wrap {
+        }
+    }
+}
+
+//
+// Login Logo
+//
+
+.login-logo {
+    text-align: center;
+
+    img {
+        display: inline-block;
+        margin: 10px 0;
+        width: 150px;
+    }
+    .tagline {
+        color: #fff;
+        display: block;
+        // font-weight: 300;
+    }
+    a {
+        color: rgba(255, 255, 255, 0.8);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+    }
+    a:hover {
+        border-color: #fff;
+        color: #fff;
+    }
+}
+
+@media (min-width: $bp-login-page) {
+    .login-logo img {
+        margin-bottom: 5px;
+        width: 210px;
+    }
+}
+
+//
+// Login Info
+//
+
+.login-section h1 {
+    font-size: 30px;
+    margin-bottom: 14px;
+}
+
+//
+// Login Form Error
+//
+
+.form-error {
+    background: lighten($clr-error, 50%);
+    border-left: 5px solid lighten($clr-error, 25%);
+    color: $clr-error;
+    padding: 10px 14px;
+}
+
+//
+// Already Logged-in Message
+//
+
+.alread-logged-in {
+    text-align: center;
+}
