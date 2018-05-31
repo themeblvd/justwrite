@@ -25,28 +25,24 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 [action.context]: 'showing-loader'
             };
-            break;
 
         case IS_LOADING:
             return {
                 ...state,
                 [action.context]: 'is-loading'
             };
-            break;
 
         case HIDING_LOADER:
             return {
                 ...state,
                 [action.context]: 'hiding-loader'
             };
-            break;
 
         case HAS_LOADED:
             return {
                 ...state,
                 [action.context]: 'has-loaded'
             };
-            break;
 
         default:
             return state;

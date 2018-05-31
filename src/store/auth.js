@@ -49,7 +49,6 @@ export default function reducer(state = initialState, action) {
                 isAuthenticated: true,
                 hasVerified: true
             };
-            break;
 
         case AUTH_ERROR:
             return {
@@ -66,7 +65,6 @@ export default function reducer(state = initialState, action) {
                 ...initialState,
                 hasVerified: true
             };
-            break;
 
         default:
             return state;
