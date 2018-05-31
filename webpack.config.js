@@ -75,7 +75,7 @@ module.exports = {
              *    into a file, configured above.
              */
             {
-                test: /\.scss$/,
+                test: /\.(scss|css)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
@@ -101,7 +101,7 @@ module.exports = {
              */
             {
                 test: /\.(svg|png|jpg|gif)$/,
-                issuer: /\.scss$/,
+                issuer: /\.(scss|css)$/,
                 use: [
                     {
                         loader: 'file-loader',

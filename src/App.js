@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 // Application Styles
+import './assets/css/simple-line-icons.css';
 import './assets/scss/main.scss';
 
 // Store
