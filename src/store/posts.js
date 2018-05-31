@@ -15,12 +15,15 @@ postsAxios.interceptors.request.use(config => {
 // Initial State
 
 const initialState = {
-    list: []
+    list: [],
+    action: 'add-new' // add-new, update, publish
 };
 
 // Action Types
 
 const UPDATE_POSTS = 'UPDATE_POSTS';
+
+const UPDATE_ACTION = 'UPDATE_ACTION';
 
 // Reducer
 
@@ -30,6 +33,12 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 list: action.posts
+            };
+
+        case UPDATE_ACTION:
+            return {
+                ...state,
+                action: action.value
             };
 
         default:
@@ -43,6 +52,13 @@ function updatePosts(posts) {
     return {
         type: UPDATE_POSTS,
         posts
+    };
+}
+
+export function updateAction(value) {
+    return {
+        type: UPDATE_ACTION,
+        value
     };
 }
 

@@ -50,9 +50,8 @@ class App extends Component {
             <div className={this.getAppClassNames()}>
                 {hasVerified && (
                     <Switch>
-                        <PrivateRoute exact path="/" component={Dashboard} />
                         <Route path="/login" component={Login} />
-                        <Redirect to="/" />
+                        <PrivateRoute path="/" component={Dashboard} />
                     </Switch>
                 )}
                 <Loading />

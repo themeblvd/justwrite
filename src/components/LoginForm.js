@@ -247,7 +247,7 @@ class LoginForm extends Component {
                         />
                         {this.errorMsg('password')}
                     </p>
-                    <Button isLoading={this.state.isLoading}>
+                    <Button primary isLoading={this.state.isLoading}>
                         {this.state.isLoading ? 'Logging In...' : 'Log In'}
                     </Button>
                 </form>

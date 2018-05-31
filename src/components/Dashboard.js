@@ -6,6 +6,9 @@ import { endLoading } from '../store/status';
 import { loadProfile } from '../store/profile';
 import { loadPosts } from '../store/posts';
 
+// Routing
+import { Route, Switch, Redirect } from 'react-router-dom';
+
 // Components
 import DashboardHeader from './DashboardHeader';
 import Home from './Home';
@@ -27,7 +30,11 @@ class Dashboard extends Component {
         return (
             <div className="dashboard-page">
                 <DashboardHeader />
-                <Home />
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/edit/:id" component={EditPost} />
+                    <Redirect to="/" />
+                </Switch>
             </div>
         );
     }

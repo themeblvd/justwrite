@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { toggleMobileMenuDuration } from '../config';
+import ActionMenu from './ActionMenu';
 import UserMenu from './UserMenu';
 import Button from './Button';
 
@@ -32,7 +33,7 @@ class DashboardHeader extends Component {
                         {this.props.first_name} {this.props.last_name}
                         <i className="icon-arrow-down" />
                     </a>
-                    <Button>New Post</Button>
+                    <ActionMenu />
                 </div>
                 <UserMenu
                     name={`${this.props.first_name} ${this.props.last_name}`}
@@ -45,6 +46,7 @@ class DashboardHeader extends Component {
     }
 }
 
-export default connect(state => ({ ...state.auth, ...state.profile }))(
-    DashboardHeader
-);
+export default connect(state => ({
+    ...state.auth,
+    ...state.profile
+}))(DashboardHeader);

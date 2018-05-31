@@ -3,7 +3,11 @@
 //
 
 .dashboard-header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
 }
 
 //
@@ -22,11 +26,6 @@
 
     .menu-icon {
         margin-right: 18px;
-    }
-    button {
-        font-size: 11px;
-        margin-left: auto;
-        padding: 10px 14px 9px 14px;
     }
 }
 @media (min-width: 992px) {
@@ -76,6 +75,21 @@
     }
     .user-menu-on .user-menu-trigger .icon-arrow-down {
         transform: rotate(180deg);
+    }
+}
+
+//
+// Action Menu
+//
+
+.action-menu {
+    margin-left: auto;
+    display: flex;
+
+    button {
+        font-size: 11px;
+        margin-left: 10px;
+        padding: 10px 14px 9px 14px;
     }
 }
 

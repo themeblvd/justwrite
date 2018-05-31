@@ -22,7 +22,8 @@ module.exports = {
          */
         new HtmlWebpackPlugin({
             title: 'My App',
-            template: './src/index.html'
+            template: './src/index.html',
+            inject: false
         })
     ],
     module: {

@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import Post from './Post';
 
 class PostList extends Component {
-    constructor() {
-        super();
-    }
     render() {
         if (!this.props.posts.length) {
             return <div className="no-posts">No posts to display.</div>;

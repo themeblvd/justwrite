@@ -35,43 +35,6 @@ textarea:focus {
 }
 
 //
-// Buttons
-//
-
-button,
-.button {
-    background-color: $clr-primary;
-    border: none;
-    border-bottom: 1px solid darken($clr-primary, 20%);
-    border-radius: 2px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-size: $font-size-btn;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    line-height: 1;
-    padding: 13px 18px 12px 18px;
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: none;
-    touch-action: manipulation;
-    transition: background-color 0.2s ease-in-out;
-    user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;
-
-    &:active,
-    &.active,
-    &:focus {
-        outline: none;
-    }
-    &:hover {
-        background-color: lighten($clr-primary, 5%);
-    }
-}
-
-//
 // Labels/Legends
 //
 
