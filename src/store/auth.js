@@ -95,7 +95,7 @@ function authError(key, message) {
 
 export function logout(event) {
     event.preventDefault();
-
+    document.body.classList.remove('user-menu-on');
     localStorage.removeItem('user');
 
     return {

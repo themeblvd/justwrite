@@ -10,7 +10,7 @@ const LogoutLink = props => {
             title="Log out"
             onClick={props.logout}
         >
-            Log out
+            {props.children ? props.children : 'Log out'}
         </a>
     );
 };
