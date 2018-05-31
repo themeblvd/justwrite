@@ -4,10 +4,10 @@ import thunk from 'redux-thunk';
 import auth from './auth';
 import status from './status';
 import profile from './profile';
-// import posts from "./posts"; @TODO
+import posts from './posts';
 
 const reducer = combineReducers({
-    // posts, @TODO
+    posts,
     status,
     auth,
     profile
