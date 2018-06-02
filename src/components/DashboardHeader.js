@@ -4,12 +4,33 @@ import ActionMenu from './ActionMenu';
 import UserMenu from './UserMenu';
 import Button from './Button';
 
+/**
+ * Dashboard Header
+ *
+ * Displays the header used across the
+ * entire app.
+ */
 class DashboardHeader extends Component {
+    /**
+     * Toggles the display of the user menu, for
+     * both desktop and mobile.
+     *
+     * This works by just toggling on and off the
+     * `user-menu-on` class and the rest is handled
+     * through CSS.
+     *
+     * @param {Event} event
+     */
     handleUserMenuToggle = event => {
         event.preventDefault();
         document.body.classList.toggle('user-menu-on');
     };
 
+    /**
+     * Render component.
+     *
+     * @return {Component}
+     */
     render() {
         return (
             <div className="dashboard-header">
