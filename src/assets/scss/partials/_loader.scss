@@ -3,21 +3,12 @@
 //
 
 .loader {
-    background: $clr-primary;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 10;
+    position: relative;
+    width: 50px;
+    height: 50px;
 
     span {
         display: block;
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, 0);
-        width: 100px;
-        height: 100px;
     }
     span:before,
     span:after {
@@ -50,23 +41,36 @@
 }
 
 //
-// App Loader Animation (to-level)
+// App Loader Animation (top-level)
 //
 
 .app {
-    .loader {
-        top: -9999px;
+    .app-loader {
+        background: $clr-primary;
+        position: fixed;
+        left: -9999px;
         opacity: 0;
         transition: opacity 0.5s ease-in;
+        width: 100vw;
+        height: 100vh;
+        z-index: 10;
     }
-    &.is-loading .loader {
-        top: 0;
+    .app-loader span {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 100px;
+        height: 100px;
     }
-    &.show-loader .loader {
+    &.is-loading .app-loader {
+        left: 0;
+    }
+    &.show-loader .app-loader {
         opacity: 1;
         transition: none;
     }
-    &.hide-loader .loader {
+    &.hide-loader .app-loader {
         opacity: 0;
     }
 }

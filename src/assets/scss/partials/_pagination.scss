@@ -1,0 +1,21 @@
+//
+// Pagination
+//
+
+.post-list .pagination {
+    display: block;
+    margin-top: 20px;
+
+    .button {
+        background-color: #fff;
+        margin: 0 2px;
+        padding: 6px 12px;
+    }
+    .button:hover {
+        background-color: $clr-bg-hover;
+    }
+    .button.active {
+        background-color: $clr-primary;
+        color: #fff;
+    }
+}

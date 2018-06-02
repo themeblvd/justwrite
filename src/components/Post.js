@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
 import ReactHtmlParser from 'react-html-parser';
-import fecha from 'fecha';
+import Meta from './Meta';
+import TagList from './TagList';
 
+/**
+ * Individual post component.
+ *
+ * Displays an individual component within the
+ * post overview list in the dashboard homepage.
+ */
 class Post extends Component {
+    /**
+     * When a post in the list is clicked, redirect
+     * to editing that post.
+     *
+     * @param {Event} event
+     */
     handleClick = event => {
         this.props.history.push(`edit/${this.props.id}`);
     };
 
+    /**
+     * Render component.
+     *
+     * @return {Component}
+     */
     render() {
-        var excerpt = this.props.content
-            .split(' ')
-            .filter((word, i) => i <= 25)
-            .join(' ');
-
         return (
             <li
                 id={`post-${this.props.id}`}
@@ -23,11 +37,11 @@ class Post extends Component {
                 <h2 className="post-title">
                     {ReactHtmlParser(this.props.title)}
                 </h2>
-                <span className="post-meta">
-                    {fecha.format(new Date(this.props.date), 'longDate')}
-                </span>
-                <div className="post-excerpt">
-                    {ReactHtmlParser(excerpt + '...')}
+                <div className="post-meta">
+                    <Meta author={this.props.author} date={this.props.date} />
+                </div>
+                <div className="post-tags">
+                    <TagList tags={this.props.tags} />
                 </div>
             </li>
         );

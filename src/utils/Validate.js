@@ -48,20 +48,6 @@ class Validate {
             return errors;
         }
     };
-
-    static queryArgs = obj => {
-        var parts = [];
-
-        for (var i in obj) {
-            if (obj.hasOwnProperty(i)) {
-                parts.push(
-                    encodeURIComponent(i) + '=' + encodeURIComponent(obj[i])
-                );
-            }
-        }
-
-        return parts.join('&');
-    };
 }
 
 export default Validate;

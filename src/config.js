@@ -6,7 +6,8 @@ export const endpoints = {
     users: `${apiExtension}/wp/v2/users`,
     posts: `${apiExtension}/wp/v2/posts`,
     tags: `${apiExtension}/wp/v2/tags`,
-    cats: `${apiExtension}/wp/v2/categories`
+    categories: `${apiExtension}/wp/v2/categories`,
+    authors: `${apiExtension}/wp/v2/users`
 };
 
 export const animationDuration = {

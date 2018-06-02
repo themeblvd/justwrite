@@ -2,46 +2,69 @@ import React, { Component } from 'react';
 
 // Store
 import { connect } from 'react-redux';
-import { endLoading } from '../store/status';
 import { loadProfile } from '../store/profile';
-import { loadPosts } from '../store/posts';
+import { loadPostData } from '../store/posts';
 
 // Routing
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 // Components
 import DashboardHeader from './DashboardHeader';
 import Home from './Home';
 import EditPost from './EditPost';
 
+/**
+ * Dashboard
+ *
+ * This component is responsible for
+ * displaying the top-level dashboard.
+ */
 class Dashboard extends Component {
+    /**
+     * Pull async data.
+     *
+     * Once the component has mounted, we can
+     * start pulling all the data needed from
+     * the separate endpoints of the WordPress site.
+     */
     componentDidMount() {
-        this.props
-            .loadProfile()
-            .then(() => {
-                return this.props.loadPosts();
-            })
-            .then(() => {
-                this.props.endLoading('app');
-            });
+        this.props.loadProfile();
+        this.props.loadPostData('authors');
+        this.props.loadPostData('categories');
+        this.props.loadPostData('tags');
+        this.props.loadPostData('posts');
     }
 
+    /**
+     * Render component.
+     *
+     * @return {Component}
+     */
     render() {
         return (
             <div className="dashboard-page">
                 <DashboardHeader />
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/edit/:id" component={EditPost} />
-                    <Redirect to="/" />
-                </Switch>
+                <TransitionGroup component={null}>
+                    <CSSTransition
+                        key={this.props.location.key}
+                        classNames="fade"
+                        timeout={250}
+                    >
+                        <Switch location={this.props.location}>
+                            <Route exact path="/" component={Home} />
+                            <Route path="/edit/:id" component={EditPost} />
+                            <Route path="/new/" component={EditPost} />
+                            <Redirect to="/" />
+                        </Switch>
+                    </CSSTransition>
+                </TransitionGroup>
             </div>
         );
     }
 }
 
 export default connect(state => ({ appStatus: state.status.app }), {
-    endLoading,
     loadProfile,
-    loadPosts
+    loadPostData
 })(Dashboard);

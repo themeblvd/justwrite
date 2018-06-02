@@ -8,7 +8,7 @@
 }
 
 @media (min-width: 768px) {
-    .post-list ul {
+    .post-list > ul {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 20px;
@@ -17,7 +17,7 @@
 }
 
 @media (min-width: 992px) {
-    .post-list ul {
+    .post-list > ul {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 40px;
@@ -92,5 +92,24 @@
 @media (min-width: 768px) {
     .post {
         margin-bottom: 0;
+    }
+}
+
+//
+// Tag List
+//
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -4px;
+
+    li {
+        background: $clr-bg-body;
+        border-radius: 2px;
+        font-size: 14px;
+        line-height: 1;
+        margin: 4px;
+        padding: 4px 6px;
     }
 }

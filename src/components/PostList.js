@@ -1,29 +1,61 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { endLoading } from '../store/status';
 import Post from './Post';
+import Loading from './Loading';
+import Pagination from './Pagination';
 
-class PostList extends Component {
-    render() {
-        if (!this.props.posts.length) {
-            return <div className="no-posts">No posts to display.</div>;
-        }
-
-        return (
-            <div className="post-list">
-                <ul>
-                    {this.props.posts.map(post => (
-                        <Post
-                            key={`post-${post.id}`}
-                            id={post.id}
-                            title={post.title.rendered}
-                            content={post.content.raw}
-                            date={post.date}
-                        />
-                    ))}
-                </ul>
-            </div>
-        );
+/**
+ * Post List Component
+ *
+ * Displays an the post overview list in the
+ * dashboard homepage.
+ *
+ * @param  {Object}    props
+ * @param  {Array}     props.posts     Group os Post objects from WordPress.
+ * @param  {String}    props.appStatus Loading status of top-level application.
+ * @return {Component}
+ */
+const PostList = props => {
+    if (
+        !props.posts.length ||
+        !props.authors.length ||
+        !props.categories.length ||
+        !props.tags.length
+    ) {
+        return <Loading className="post-list-loader" />;
     }
-}
 
-export default connect(state => ({ posts: state.posts.list }))(PostList);
+    if (props.appStatus != 'has-loaded') {
+        props.endLoading('app');
+    }
+    return (
+        <div className="post-list">
+            <ul>
+                {props.posts.map(post => (
+                    <Post
+                        key={`post-${post.id}`}
+                        id={post.id}
+                        title={post.title.rendered}
+                        excerpt={post.excerpt.raw}
+                        date={post.date}
+                        author={post.author}
+                        tags={post.tags}
+                    />
+                ))}
+            </ul>
+            <Pagination />
+        </div>
+    );
+};
+
+export default connect(
+    state => ({
+        appStatus: state.status.app,
+        posts: state.posts.list,
+        authors: state.posts.authors,
+        categories: state.posts.categories,
+        tags: state.posts.tags
+    }),
+    { endLoading }
+)(PostList);
