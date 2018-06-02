@@ -1,5 +1,10 @@
 import React from 'react';
 import LogoutLink from './LogoutLink';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faFileAlt from '@fortawesome/fontawesome-free-solid/faFileAlt';
+import faUser from '@fortawesome/fontawesome-free-solid/faUser';
+import faExternalLinkAlt from '@fortawesome/fontawesome-free-solid/faExternalLinkAlt';
+import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt';
 
 const UserMenu = props => {
     return (
@@ -10,22 +15,22 @@ const UserMenu = props => {
             <ul>
                 <li>
                     <a href={'#'}>
-                        <i className="icon-docs" />My Posts
+                        <FontAwesomeIcon icon={faFileAlt} />My Posts
                     </a>
                 </li>
                 <li>
                     <a href={'#'}>
-                        <i className="icon-user" />Edit Profile
+                        <FontAwesomeIcon icon={faUser} />Edit Profile
                     </a>
                 </li>
                 <li>
                     <a href={props.website} target="_blank">
-                        <i className="icon-link" />View Website
+                        <FontAwesomeIcon icon={faExternalLinkAlt} />View Website
                     </a>
                 </li>
                 <li>
                     <LogoutLink>
-                        <i className="icon-logout" />Log Out
+                        <FontAwesomeIcon icon={faSignOutAlt} />Log Out
                     </LogoutLink>
                 </li>
             </ul>

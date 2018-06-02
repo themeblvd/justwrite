@@ -41,39 +41,32 @@
 //
 
 .user-menu-trigger {
-    color: $clr-text;
-    display: flex;
-    align-items: center;
-
-    &:hover {
-        color: $clr-text-darken;
-    }
-    img {
-        border-radius: 50%;
-        margin-right: 10px;
-        width: 34px;
-        height: auto;
-    }
-    .icon-arrow-down {
-        display: none;
-    }
+    display: none;
 }
-
 @media (min-width: 992px) {
     .user-menu-trigger {
+        color: $clr-text;
+        display: flex;
+        align-items: center;
         position: relative;
 
-        img {
-            width: 40px;
+        &:hover {
+            color: $clr-text-darken;
         }
-        .icon-arrow-down {
+        img {
+            border-radius: 50%;
+            margin-right: 10px;
+            width: 40px;
+            height: auto;
+        }
+        .svg-inline--fa {
             display: block;
-            font-size: 10px;
             margin-left: 10px;
             transition: transform 0.2s ease-in-out;
+            width: 8px;
         }
     }
-    .user-menu-on .user-menu-trigger .icon-arrow-down {
+    .user-menu-on .user-menu-trigger .svg-inline--fa {
         transform: rotate(180deg);
     }
 }
@@ -100,13 +93,14 @@
 .user-menu {
     background: #fff;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+    opacity: 0;
     padding: 20px;
     position: fixed;
     top: 5px;
     bottom: 0;
     left: -200px;
     width: 200px;
-    transition: transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
     z-index: 10;
 
     a {
@@ -120,7 +114,7 @@
     a:hover {
         color: $clr-text-darken;
     }
-    li i {
+    .svg-inline--fa {
         display: inline-block;
         margin-right: 10px;
         text-align: center;
@@ -139,6 +133,7 @@
     }
 }
 .user-menu-on .user-menu {
+    opacity: 1;
     transform: translate(200px, 0);
 }
 
@@ -151,7 +146,8 @@
         left: 0;
         bottom: initial;
         transform: translate(0, -100%);
-        transition: box-shadow 0.4s ease-in-out, transform 0.4s ease-in-out;
+        transition: box-shadow 0.4s ease-in-out, transform 0.4s ease-in-out,
+            opacity 0.4s ease-in-out;
         z-index: 1;
 
         li:last-child {

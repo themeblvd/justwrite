@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import ActionMenu from './ActionMenu';
 import UserMenu from './UserMenu';
 import Button from './Button';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faChevronDown from '@fortawesome/fontawesome-free-solid/faChevronDown';
 
 /**
  * Dashboard Header
@@ -51,7 +53,7 @@ class DashboardHeader extends Component {
                     >
                         <img src={this.props.avatar} />
                         {this.props.first_name} {this.props.last_name}
-                        <i className="icon-arrow-down" />
+                        <FontAwesomeIcon icon={faChevronDown} />
                     </a>
                     <ActionMenu />
                 </div>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 // Application Styles
-import './assets/css/simple-line-icons.css';
 import './assets/scss/main.scss';
 
 // Store
@@ -21,10 +20,6 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 
 class App extends Component {
-    constructor() {
-        super();
-    }
-
     getAppClassNames = () => {
         switch (this.props.appStatus) {
             case 'showing-loader':
@@ -54,7 +49,7 @@ class App extends Component {
                         <PrivateRoute path="/" component={Dashboard} />
                     </Switch>
                 )}
-                <Loading />
+                <Loading className="app-loader" />
             </div>
         );
     }
