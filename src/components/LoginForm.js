@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // Utilities
-import { errorShakeDuration, fadeAppDuration } from '../config';
+import { animationDuration } from '../config';
 import Validate from '../utils/Validate';
 import classNames from 'classnames';
 
@@ -100,7 +100,7 @@ class LoginForm extends Component {
                         })
                     }
                 });
-            }, errorShakeDuration);
+            }, animationDuration.errorShake);
 
             return errors;
         }
@@ -131,7 +131,7 @@ class LoginForm extends Component {
                         [name]: 'field-error' // remove "error-shake"
                     }
                 }));
-            }, errorShakeDuration);
+            }, animationDuration.errorShake);
         }
     };
 
@@ -172,7 +172,7 @@ class LoginForm extends Component {
                         this.props.startLoading('app');
                         setTimeout(() => {
                             this.props.history.push('/');
-                        }, fadeAppDuration);
+                        }, animationDuration.fadeApp);
                     }
                 })
                 .catch(error => {

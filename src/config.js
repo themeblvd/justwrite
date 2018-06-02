@@ -1,9 +1,16 @@
-module.exports = {
-    loginEndpoint: 'wp-json/jwt-auth/v1/token',
-    verifyEndpoint: 'wp-json/jwt-auth/v1/token/validate',
-    usersEndpoint: 'wp-json/wp/v2/users',
-    postsEndpoint: 'wp-json/wp/v2/posts',
-    errorShakeDuration: 250,
-    fadeAppDuration: 500,
-    toggleMobileMenuDuration: 500
+var apiExtension = 'wp-json';
+
+export const endpoints = {
+    login: `${apiExtension}/jwt-auth/v1/token`,
+    verify: `${apiExtension}/jwt-auth/v1/token/validate`,
+    users: `${apiExtension}/wp/v2/users`,
+    posts: `${apiExtension}/wp/v2/posts`,
+    tags: `${apiExtension}/wp/v2/tags`,
+    cats: `${apiExtension}/wp/v2/categories`
+};
+
+export const animationDuration = {
+    errorShake: 250,
+    fadeApp: 500,
+    toggleUserMenu: 500
 };

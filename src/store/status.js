@@ -1,4 +1,4 @@
-import { fadeAppDuration } from '../config';
+import { animationDuration } from '../config';
 
 // Initial State
 
@@ -95,7 +95,7 @@ export function endLoading(context) {
 
             setTimeout(() => {
                 dispatch(hasLoaded(context));
-            }, fadeAppDuration);
-        }, fadeAppDuration);
+            }, animationDuration.fadeApp);
+        }, animationDuration.fadeApp);
     };
 }

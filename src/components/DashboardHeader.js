@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { toggleMobileMenuDuration } from '../config';
 import ActionMenu from './ActionMenu';
 import UserMenu from './UserMenu';
 import Button from './Button';

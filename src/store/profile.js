@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Validate from '../utils/Validate';
-import { usersEndpoint } from '../config';
+import { endpoints } from '../config';
 
 // Pre-configure secure request header.
 
@@ -61,7 +61,7 @@ function getProfile(data) {
 export function loadProfile() {
     return dispatch => {
         var user = JSON.parse(localStorage.getItem('user'));
-        var apiUrl = Validate.stripSlash(user.website) + '/' + usersEndpoint;
+        var apiUrl = Validate.stripSlash(user.website) + '/' + endpoints.users;
 
         return profileAxios
             .get(`${apiUrl}?search=${user.user_nicename}`)
