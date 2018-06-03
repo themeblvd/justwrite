@@ -30,7 +30,7 @@ input[type='password']:focus,
 input[type='search']:focus,
 input[type='url']:focus,
 textarea:focus {
-    border-color: $clr-border-active;
+    border-color: $clr-primary;
     outline: 0;
 }
 

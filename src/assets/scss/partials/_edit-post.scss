@@ -1,5 +1,73 @@
+//
+// Edit Post Screen
+//
+
 .dashboard-edit-post {
-    background: #ddd;
     padding: (40px + 65px) 40px 40px 40px;
-    min-height: 100vh;
+
+    .field {
+        margin: 0 auto 24px auto;
+        max-width: 800px;
+    }
+    textarea {
+        line-height: 1.5;
+        min-height: 100px;
+    }
+    .title-field {
+        margin-bottom: 10px;
+
+        .post-title {
+            color: $clr-heading;
+            font-size: 20px;
+            font-weight: 300;
+        }
+    }
+    .permalink-field {
+        font-size: 14px;
+        margin-bottom: 30px;
+        padding: 0 10px;
+
+        .svg-inline--fa {
+            display: none;
+        }
+    }
+    .content-field {
+        background: #fff;
+        // border: 1px solid rgba(176, 176, 176, 0.4);
+        // border-right: none;
+        // border-left: none;
+        margin: 0 -40px 30px -40px;
+        max-width: none;
+        padding: 0;
+        position: relative;
+
+        .toggle-view {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+        }
+        .markdown-editor,
+        .raw-editor {
+            border: none;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 0;
+        }
+        .raw-editor {
+            min-height: 400px;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .dashboard-edit-post {
+        .title-field .post-title {
+            font-size: 28px;
+            padding: 34px 20px;
+        }
+        .permalink-field .svg-inline--fa {
+            display: inline;
+            margin-right: 10px;
+        }
+    }
 }

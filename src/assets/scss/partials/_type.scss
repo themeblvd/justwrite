@@ -104,6 +104,22 @@ h6 {
 }
 
 //
+// Bold Text
+//
+
+strong {
+    font-weight: 600;
+}
+
+//
+// Italics
+//
+
+em {
+    font-style: italic;
+}
+
+//
 // Paragraphs
 //
 
@@ -123,5 +139,47 @@ p {
 //
 
 a {
+    color: darken($clr-primary, 25%);
     text-decoration: none;
+
+    &:hover {
+        color: $clr-primary;
+    }
+}
+
+//
+// Code
+//
+
+code {
+    background: #f0f2f1;
+    color: #f4645f;
+    padding: 1px 5px;
+    border-radius: 3px;
+}
+
+//
+// Blockquote
+//
+
+blockquote {
+    border-left: 5px solid #ddd;
+    display: block;
+    font-style: italic;
+}
+
+//
+// Lists
+//
+
+ul,
+ol {
+    margin: 0 0 24px 0;
+    padding: 0 0 0 40px;
+}
+ul {
+    list-style: disc;
+}
+ol {
+    list-style: decimal;
 }

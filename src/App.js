@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 // Application Styles
+import 'react-mde/lib/styles/css/react-mde-all.css';
 import './assets/scss/main.scss';
 
 // Store
@@ -19,7 +20,21 @@ import Loading from './components/Loading';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 
+/**
+ * Top Level Application
+ */
 class App extends Component {
+    /**
+     * App classes.
+     *
+     * The application monitors a global status in
+     * the store, and this triggers the CSS class
+     * changes here.
+     *
+     * For the most part, this just toggles the
+     * top-level applicatoin loader and handles its
+     * animation.
+     */
     getAppClassNames = () => {
         switch (this.props.appStatus) {
             case 'showing-loader':
@@ -34,10 +49,24 @@ class App extends Component {
         }
     };
 
+    /**
+     * Verify the user data.
+     *
+     * If there is user data saved in local storage
+     * (i.e. the user has already logged in), we'll
+     * do an API request to make sure the JWT token
+     * is still valid. And if it's not valid, they
+     * need to login again.
+     */
     componentDidMount() {
         this.props.verify();
     }
 
+    /**
+     * Render component.
+     *
+     * @return {Component}
+     */
     render() {
         const { isLoading, hasVerified, isAuthenticated } = this.props;
 

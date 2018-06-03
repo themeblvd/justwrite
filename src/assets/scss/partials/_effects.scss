@@ -16,10 +16,6 @@ button.has-loader,
     }
     &:after {
         content: '';
-        opacity: 0;
-        transition: opacity 0.25s ease-in;
-    }
-    &.loading:after {
         animation-name: btn-loading;
         animation-duration: 1s;
         animation-timing-function: linear;
@@ -32,13 +28,17 @@ button.has-loader,
             rgba(0, 0, 0, 0) $gradient-width
         );
         display: block;
-        opacity: 1;
+        opacity: 0;
         position: absolute;
         left: -$total-width;
         right: 0;
         top: 0;
         bottom: 0;
         z-index: 1;
+        transition: opacity 0.25s ease-in;
+    }
+    &.loading:after {
+        opacity: 1;
     }
 }
 

@@ -20,6 +20,12 @@ const initialState = {
     totalPages: 0,
     currentPage: 1,
     current: null,
+    toSave: {
+        id: 0,
+        title: '',
+        content: '',
+        excerpt: ''
+    },
     authors: [],
     tags: [],
     categories: []
@@ -42,6 +48,8 @@ const UPDATE_TOTAL_PAGES = 'UPDATE_TOTAL_PAGES';
 const UPDATE_CURRENT_PAGE = 'UPDATE_CURRENT_PAGE';
 
 const EDIT_POST = 'EDIT_POST';
+
+const TO_SAVE = 'TO_SAVE';
 
 const SAVE_POST = 'SAVE_POST';
 
@@ -101,6 +109,15 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 current: action.post
+            };
+
+        case TO_SAVE:
+            return {
+                ...state,
+                toSave: {
+                    ...state.toSave,
+                    [action.key]: action.value
+                }
             };
 
         case CLEAR_POSTS:
@@ -178,8 +195,12 @@ function editPost(post) {
     };
 }
 
-function savePost() {
-    // ...
+export function toSave(key, value) {
+    return {
+        type: TO_SAVE,
+        key,
+        value
+    };
 }
 
 export function clearPosts() {
@@ -253,15 +274,21 @@ export function loadPost(postID) {
     };
 }
 
-export function savePost(postID, data) {
+export function savePost(data) {
     return dispatch => {
         var user = JSON.parse(localStorage.getItem('user'));
         var apiUrl = Validate.stripSlash(user.website) + '/' + endpoints.posts; // prettier-ignore
+        var postID = data.id;
+        var post = {
+            title: data.title,
+            content: data.content,
+            excerpt: data.excerpt
+        };
 
         return postsAxios
-            .put(apiUrl + `/${postID}`, data)
+            .put(apiUrl + `/${postID}`, post)
             .then(response => {
-                console.log(response);
+                // @TODO need to do anything on succes?
             })
             .catch(error => {
                 console.log(error);
