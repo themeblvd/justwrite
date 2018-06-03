@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import ActionMenu from './ActionMenu';
 import UserMenu from './UserMenu';
 import Button from './Button';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import faChevronDown from '@fortawesome/fontawesome-free-solid/faChevronDown';
+// import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+// import faChevronDown from '@fortawesome/fontawesome-free-solid/faChevronDown';
+import FontAwesomeIcon from './FontAwesomeIcon';
+const faChevronDown = 'chevron-down'; // @TODO Temporary
 
 /**
  * Dashboard Header
