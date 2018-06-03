@@ -17,6 +17,7 @@ import PrivateRoute from './components/PrivateRoute';
 
 // Components
 import Loading from './components/Loading';
+import Notification from './components/Notification';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 
@@ -68,7 +69,12 @@ class App extends Component {
      * @return {Component}
      */
     render() {
-        const { isLoading, hasVerified, isAuthenticated } = this.props;
+        const {
+            isLoading,
+            hasVerified,
+            hasNotification,
+            isAuthenticated
+        } = this.props;
 
         return (
             <div className={this.getAppClassNames()}>
@@ -78,6 +84,7 @@ class App extends Component {
                         <PrivateRoute path="/" component={Dashboard} />
                     </Switch>
                 )}
+                {hasNotification && <Notification />}
                 <Loading className="app-loader" />
             </div>
         );
@@ -85,7 +92,14 @@ class App extends Component {
 }
 
 export default withRouter(
-    connect(state => ({ ...state.auth, appStatus: state.status.app }), {
-        verify
-    })(App)
+    connect(
+        state => ({
+            ...state.auth,
+            hasNotification: !!state.status.notification.message,
+            appStatus: state.status.app
+        }),
+        {
+            verify
+        }
+    )(App)
 );

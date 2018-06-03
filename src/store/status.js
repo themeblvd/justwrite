@@ -3,7 +3,11 @@ import { animationDuration } from '../config';
 // Initial State
 
 const initialState = {
-    app: 'is-loading' // showing-loader, is-loading, hiding-loader, has-loaded
+    app: 'is-loading', // showing-loader, is-loading, hiding-loader, has-loaded
+    notification: {
+        type: '',
+        message: ''
+    }
 };
 
 // Action Types
@@ -15,6 +19,10 @@ const IS_LOADING = 'IS_LOADING';
 const HIDING_LOADER = 'HIDING_LOADER';
 
 const HAS_LOADED = 'HAS_LOADED';
+
+const ADD_NOTIFICATION = 'ADD_NOTIFICATION';
+
+const REMOVE_NOTIFICATION = 'REMVOVE_NOTIFICATION';
 
 // Reducer
 
@@ -42,6 +50,24 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 [action.context]: 'has-loaded'
+            };
+
+        case ADD_NOTIFICATION:
+            return {
+                ...state,
+                notification: {
+                    type: action.messageType,
+                    message: action.message
+                }
+            };
+
+        case REMOVE_NOTIFICATION:
+            return {
+                ...state,
+                notification: {
+                    type: '',
+                    message: ''
+                }
             };
 
         default:
@@ -76,6 +102,20 @@ function hasLoaded(context) {
     return {
         type: HAS_LOADED,
         context
+    };
+}
+
+export function addNotification(message, messageType) {
+    return {
+        type: ADD_NOTIFICATION,
+        message,
+        messageType
+    };
+}
+
+export function removeNotification() {
+    return {
+        type: REMOVE_NOTIFICATION
     };
 }
 
