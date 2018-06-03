@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateAction } from '../store/posts';
 import PostList from './PostList';
+import PostSearch from './PostSearch';
 
 /**
  * Dashboard Homepage
@@ -16,7 +17,7 @@ class Home extends Component {
      * action button in the dashboard header
      * will do when clicked.
      *
-     * Since we're now on the homeage, the
+     * Since we're now on the homepage, the
      * button will be starting a new post.
      */
     componentDidMount() {
@@ -31,6 +32,7 @@ class Home extends Component {
     render() {
         return (
             <div className="dashboard-home">
+                <PostSearch />
                 <PostList />
             </div>
         );

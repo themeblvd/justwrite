@@ -19,6 +19,7 @@ const initialState = {
     list: [],
     totalPages: 0,
     currentPage: 1,
+    currentSearchTerm: '',
     current: null,
     toSave: {
         id: 0,
@@ -46,6 +47,8 @@ const UPDATE_POSTS = 'UPDATE_POSTS';
 const UPDATE_TOTAL_PAGES = 'UPDATE_TOTAL_PAGES';
 
 const UPDATE_CURRENT_PAGE = 'UPDATE_CURRENT_PAGE';
+
+const UPDATE_CURRENT_SEARCH_TERM = 'UPDATE_CURRENT_SEARCH_TERM';
 
 const EDIT_POST = 'EDIT_POST';
 
@@ -101,6 +104,12 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 currentPage: parseInt(action.num)
+            };
+
+        case UPDATE_CURRENT_SEARCH_TERM:
+            return {
+                ...state,
+                currentSearchTerm: action.term
             };
 
         case EDIT_POST:
@@ -165,7 +174,7 @@ function updateTags(tags) {
     };
 }
 
-function updatePosts(posts) {
+export function updatePosts(posts) {
     return {
         type: UPDATE_POSTS,
         posts
@@ -183,6 +192,13 @@ export function updateCurrentPage(num) {
     return {
         type: UPDATE_CURRENT_PAGE,
         num
+    };
+}
+
+export function updateCurrentSearchTerm(term) {
+    return {
+        type: UPDATE_CURRENT_SEARCH_TERM,
+        term
     };
 }
 

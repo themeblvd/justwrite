@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { loadPostData, savePost, publishNewPost, updateCurrentPage } from '../store/posts'; // prettier-ignore
+import {
+    loadPostData,
+    savePost,
+    publishNewPost,
+    updateCurrentPage,
+    updateCurrentSearchTerm
+} from '../store/posts';
 import { addNotification, removeNotification } from '../store/status';
 import Button from './Button';
 
@@ -45,8 +51,8 @@ class ActionMenu extends Component {
                     'Your post must have a title.',
                     'error'
                 );
+                return;
             }
-            return;
         }
 
         switch (this.props.action) {
@@ -61,6 +67,7 @@ class ActionMenu extends Component {
                     .savePost(this.props.toSave)
                     .then(() => {
                         this.props.updateCurrentPage(1);
+                        this.props.updateCurrentSearchTerm('');
                         this.props.loadPostData('posts');
                         this.setState({ doingAction: false });
                         this.props.addNotification(
@@ -90,6 +97,7 @@ class ActionMenu extends Component {
                     .then(response => {
                         var postID = response.data.id;
                         this.props.updateCurrentPage(1);
+                        this.props.updateCurrentSearchTerm('');
                         this.props.loadPostData('posts');
                         this.setState({ doingAction: false });
                         this.props.history.push(`/edit/${postID}`);
@@ -170,6 +178,7 @@ export default withRouter(
             savePost,
             publishNewPost,
             updateCurrentPage,
+            updateCurrentSearchTerm,
             addNotification,
             removeNotification
         }

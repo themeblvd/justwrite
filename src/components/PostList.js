@@ -17,6 +17,14 @@ import Pagination from './Pagination';
  * @return {Component}
  */
 const PostList = props => {
+    if (props.posts == 'no-results') {
+        return (
+            <p className="no-results">
+                Dagnabit! No posts matched your search query.
+            </p>
+        );
+    }
+
     if (
         !props.posts.length ||
         !props.authors.length ||
@@ -29,6 +37,7 @@ const PostList = props => {
     if (props.appStatus != 'has-loaded') {
         props.endLoading('app');
     }
+
     return (
         <div className="post-list">
             <ul>
@@ -44,12 +53,13 @@ const PostList = props => {
                     />
                 ))}
             </ul>
-            {props.totalPages > 1 && (
-                <Pagination
-                    total={props.totalPages}
-                    current={props.currentPage}
-                />
-            )}
+            {props.totalPages > 1 &&
+                !props.isSearch && (
+                    <Pagination
+                        total={props.totalPages}
+                        current={props.currentPage}
+                    />
+                )}
         </div>
     );
 };
@@ -62,7 +72,8 @@ export default connect(
         categories: state.posts.categories,
         tags: state.posts.tags,
         totalPages: state.posts.totalPages,
-        currentPage: state.posts.currentPage
+        currentPage: state.posts.currentPage,
+        isSearch: !!state.posts.currentSearchTerm
     }),
     { endLoading }
 )(PostList);
