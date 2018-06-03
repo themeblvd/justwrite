@@ -53,8 +53,6 @@ const TO_SAVE = 'TO_SAVE';
 
 const SAVE_POST = 'SAVE_POST';
 
-// const SAVE_NEW_POST = 'SAVE_NEW_POST'; // @TODO
-
 const CLEAR_POSTS = 'CLEAR_POSTS';
 
 const CLEAR_EDIT_POST = 'CLEAR_EDIT_POST';
@@ -267,24 +265,34 @@ export function loadPost(postID) {
             .get(apiUrl + `/${postID}?context=edit`)
             .then(response => {
                 dispatch(editPost(response.data));
-            })
-            .catch(error => {
-                console.log(error);
             });
     };
 }
 
-export function savePost(data) {
+export function savePost(post) {
     return dispatch => {
         var user = JSON.parse(localStorage.getItem('user'));
         var apiUrl = Validate.stripSlash(user.website) + '/' + endpoints.posts; // prettier-ignore
-        var postID = data.id;
-        var post = {
-            title: data.title,
-            content: data.content,
-            excerpt: data.excerpt
+        var postID = post.id;
+        var data = {
+            ...post
         };
+        delete data.id;
 
-        return postsAxios.put(apiUrl + `/${postID}`, post); // Promise handling in <ActionMenu>
+        return postsAxios.put(apiUrl + `/${postID}`, data); // Promise handling in <ActionMenu>
+    };
+}
+
+export function publishNewPost(post) {
+    return dispatch => {
+        var user = JSON.parse(localStorage.getItem('user'));
+        var apiUrl = Validate.stripSlash(user.website) + '/' + endpoints.posts; // prettier-ignore
+        var data = {
+            status: 'publish',
+            ...post
+        };
+        delete data.id;
+
+        return postsAxios.post(apiUrl, data); // Promise handling in <ActionMenu>
     };
 }

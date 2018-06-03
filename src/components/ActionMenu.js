@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { loadPostData, savePost, updateCurrentPage } from '../store/posts';
+import { loadPostData, savePost, publishNewPost, updateCurrentPage } from '../store/posts'; // prettier-ignore
 import { addNotification, removeNotification } from '../store/status';
 import Button from './Button';
 
@@ -38,10 +38,24 @@ class ActionMenu extends Component {
      * 3. `publish` - Update an existing post, when being edited.
      */
     handlePrimaryAction = event => {
+        // Make sure post has a title before trying to save/publish.
+        if (this.props.action == 'update' || this.props.action == 'publish') {
+            if (!this.props.toSave.title) {
+                this.props.addNotification(
+                    'Your post must have a title.',
+                    'error'
+                );
+            }
+            return;
+        }
+
         switch (this.props.action) {
+            /*
+             * Update existing post.
+             */
             case 'update':
                 this.setState({ doingAction: true });
-                this.props.removeNotification();
+                this.props.removeNotification(); // Just in case user hits Update again right away.
 
                 this.props
                     .savePost(this.props.toSave)
@@ -63,9 +77,39 @@ class ActionMenu extends Component {
                     });
 
                 break;
+
+            /*
+             * Publish new post.
+             */
             case 'publish':
-                // @TODO ...
+                this.setState({ doingAction: true });
+                this.props.removeNotification(); // Just in case user hits Update again right away.
+
+                this.props
+                    .publishNewPost(this.props.toSave)
+                    .then(response => {
+                        var postID = response.data.id;
+                        this.props.updateCurrentPage(1);
+                        this.props.loadPostData('posts');
+                        this.setState({ doingAction: false });
+                        this.props.history.push(`/edit/${postID}`);
+                        this.props.addNotification(
+                            'New post published successfully.',
+                            'success'
+                        );
+                    })
+                    .catch(error => {
+                        this.setState({ doingAction: false });
+                        this.props.addNotification(
+                            `Post creation failed. ${error.message}`,
+                            'error'
+                        );
+                    });
                 break;
+
+            /*
+             * Redirect to new post screen.
+             */
             default:
                 this.props.history.push('/new');
         }
@@ -124,6 +168,7 @@ export default withRouter(
         {
             loadPostData,
             savePost,
+            publishNewPost,
             updateCurrentPage,
             addNotification,
             removeNotification

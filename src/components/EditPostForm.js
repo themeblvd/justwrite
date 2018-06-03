@@ -32,13 +32,20 @@ class EditPostForm extends Component {
      * be controlled from.
      */
     componentDidMount() {
-        this.props.toSave('id', this.props.id);
-        this.props.toSave('title', this.props.title.raw);
-        this.props.toSave('content', this.props.content.raw);
-        this.props.toSave('excerpt', this.props.excerpt.raw);
-        // @TODO Post settings. => toSave()
-        this.props.endLoading('app');
+        if (this.props.id) {
+            this.props.toSave('id', this.props.id);
+            this.props.toSave('title', this.props.title.raw);
+            this.props.toSave('content', this.props.content.raw);
+            this.props.toSave('excerpt', this.props.excerpt.raw);
+        } else {
+            this.props.toSave('id', 0);
+            this.props.toSave('title', '');
+            this.props.toSave('content', 'Just write...');
+            this.props.toSave('excerpt', '');
+        }
+
         this.setState({ isDataReady: true });
+        this.props.endLoading('app');
     }
 
     /**
@@ -67,36 +74,38 @@ class EditPostForm extends Component {
      * @return {Component}
      */
     render() {
+        const { inputs, isNewPost } = this.props;
+        const { isDataReady } = this.state;
         return (
             <form name="post" onSubmit={this.handleSubmit}>
-                <input name="id" type="hidden" value={this.props.inputs.id} />
+                <input name="id" type="hidden" value={inputs.id} />
                 <div className="field title-field">
                     <input
                         name="title"
                         className="post-title"
                         type="text"
                         placeholder="Post Title"
-                        value={this.props.inputs.title}
+                        value={inputs.title}
                         onChange={this.handleChange}
                     />
                 </div>
-                <div className="field permalink-field">
-                    <FontAwesomeIcon icon="external-link-alt" />
-                    <a href={this.props.link} target="_blank">
-                        {this.props.link}
-                    </a>
-                </div>
+                {!isNewPost && (
+                    <div className="field permalink-field">
+                        <FontAwesomeIcon icon="external-link-alt" />
+                        <a href={this.props.link} target="_blank">
+                            {this.props.link}
+                        </a>
+                    </div>
+                )}
                 <div className="field content-field">
-                    {this.state.isDataReady && (
-                        <Editor content={this.props.inputs.content} />
-                    )}
+                    {isDataReady && <Editor content={inputs.content} />}
                 </div>
                 <div className="field excerpt-field">
                     <label>Excerpt</label>
                     <textarea
                         name="excerpt"
                         className="post-excerpt"
-                        value={this.props.inputs.excerpt}
+                        value={inputs.excerpt}
                         onChange={this.handleChange}
                     />
                 </div>

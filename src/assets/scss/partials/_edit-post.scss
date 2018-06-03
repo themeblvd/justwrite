@@ -24,7 +24,7 @@
     }
     .permalink-field {
         font-size: 14px;
-        margin-bottom: 30px;
+        margin-bottom: 0;
         padding: 0 10px;
 
         .svg-inline--fa {
@@ -33,10 +33,7 @@
     }
     .content-field {
         background: #fff;
-        // border: 1px solid rgba(176, 176, 176, 0.4);
-        // border-right: none;
-        // border-left: none;
-        margin: 0 -40px 30px -40px;
+        margin: 30px -40px;
         max-width: none;
         padding: 0;
         position: relative;
@@ -70,4 +67,17 @@
             margin-right: 10px;
         }
     }
+}
+
+//
+// Inline Error
+//
+
+.edit-error {
+    background: lighten($clr-error, 50%);
+    border-left: 5px solid lighten($clr-error, 25%);
+    color: $clr-error;
+    padding: 10px 14px;
+    margin: 80px auto 0 auto;
+    max-width: 800px;
 }
