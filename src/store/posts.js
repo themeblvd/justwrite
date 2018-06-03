@@ -285,13 +285,6 @@ export function savePost(data) {
             excerpt: data.excerpt
         };
 
-        return postsAxios
-            .put(apiUrl + `/${postID}`, post)
-            .then(response => {
-                // @TODO need to do anything on succes?
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        return postsAxios.put(apiUrl + `/${postID}`, post); // Promise handling in <ActionMenu>
     };
 }
