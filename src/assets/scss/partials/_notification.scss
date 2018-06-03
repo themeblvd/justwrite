@@ -16,7 +16,7 @@
     text-align: center;
     transform: translate(-50%, -10px);
     transition: opacity 0.2s ease-in, transform 0.2s ease-in;
-    z-index: 1000;
+    z-index: $z-index-notification;
 
     &.show {
         opacity: 1;

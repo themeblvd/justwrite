@@ -56,3 +56,11 @@ $clr-bg-hover: #edf1f2;
 
 $clr-border: #cfdadd;
 $clr-border-active: #01f1fe;
+
+// ==========================================================================
+// Top-Level Z-Indexing
+// ==========================================================================
+
+$z-index-header: 100;
+$z-index-app-loader: 200;
+$z-index-notification: 300;
