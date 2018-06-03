@@ -66,10 +66,6 @@ class Pagination extends Component {
     }
 }
 
-export default connect(
-    state => ({
-        total: state.posts.totalPages,
-        current: state.posts.currentPage
-    }),
-    { updateCurrentPage, clearPosts, loadPostData }
-)(Pagination);
+export default connect(null, { updateCurrentPage, clearPosts, loadPostData })(
+    Pagination
+);

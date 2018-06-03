@@ -44,7 +44,12 @@ const PostList = props => {
                     />
                 ))}
             </ul>
-            <Pagination />
+            {props.totalPages > 1 && (
+                <Pagination
+                    total={props.totalPages}
+                    current={props.currentPage}
+                />
+            )}
         </div>
     );
 };
@@ -55,7 +60,9 @@ export default connect(
         posts: state.posts.list,
         authors: state.posts.authors,
         categories: state.posts.categories,
-        tags: state.posts.tags
+        tags: state.posts.tags,
+        totalPages: state.posts.totalPages,
+        currentPage: state.posts.currentPage
     }),
     { endLoading }
 )(PostList);
