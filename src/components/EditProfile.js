@@ -122,6 +122,7 @@ class EditProfile extends Component {
                                 type="text"
                                 name="email"
                                 value={email}
+                                onChange={this.handleChange}
                             />
                         </p>
                         <p className="half">
