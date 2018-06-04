@@ -35,7 +35,7 @@ class EditPostForm extends Component {
         if (this.props.id) {
             this.props.toSave('id', this.props.id);
             this.props.toSave('title', this.props.title.raw);
-            this.props.toSave('content', this.props.content.raw);
+            this.props.toSave('content', this.props.content.rendered);
             // this.props.toSave('excerpt', this.props.excerpt.raw); // @TODO
         } else {
             this.props.toSave('id', 0);

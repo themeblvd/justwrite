@@ -9,6 +9,7 @@ import classNames from 'classnames';
 import TurndownService from 'turndown';
 import htmlToDraft from 'html-to-draftjs';
 import Showdown from 'showdown';
+import { unautop } from '../utils/formatting';
 
 // Editor Dependencies
 import { EditorState, ContentState } from 'draft-js';
@@ -96,7 +97,7 @@ class Editor extends Component {
      * so it's always ready to be PUT to the API (i.e. saved).
      */
     handleValueChange = (editorState: ReactMdeTypes.MdeState) => {
-        this.props.toSave('content', editorState.html);
+        this.props.toSave('content', unautop(editorState.html));
         this.setState({ editorState });
     };
 
