@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { updateAction } from '../store/posts';
 import PostList from './PostList';
 import PostSearch from './PostSearch';
+import PostFilter from './PostFilter';
 
 /**
  * Dashboard Homepage
@@ -33,6 +34,7 @@ class Home extends Component {
         return (
             <div className="dashboard-home">
                 <PostSearch />
+                <PostFilter />
                 <PostList />
             </div>
         );

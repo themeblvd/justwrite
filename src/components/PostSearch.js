@@ -21,16 +21,19 @@ class PostSearch extends Component {
         const term = event.target.value;
 
         this.props.updateCurrentSearchTerm(term);
+        this.props.updatePosts({}); // Trigger loader.
+        this.props.updateCurrentPage(1);
 
         if (term) {
-            this.props.updatePosts({}); // Gets the loading symbol to appear.
-            this.props.updateCurrentPage(1);
-
-            this.props.loadPostData('posts', { search: term }).then(() => {
-                if (!this.props.searchResults.length) {
-                    this.props.updatePosts('no-results'); // Breaks loading cycle.
-                }
-            });
+            this.props
+                .loadPostData('posts', { search: term, per_page: 100 })
+                .then(() => {
+                    if (!this.props.searchResults.length) {
+                        this.props.updatePosts('no-results'); // Breaks loading cycle.
+                    }
+                });
+        } else {
+            this.props.loadPostData('posts');
         }
     };
 
