@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { loadPostData, updatePosts } from '../store/posts';
 import LogoutLink from './LogoutLink';
 // import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 // import faFileAlt from '@fortawesome/fontawesome-free-solid/faFileAlt';
@@ -38,6 +41,26 @@ class UserMenu extends Component {
     };
 
     /**
+     * Filter the homepage posts to display
+     * just the user's.
+     */
+    handleShowPosts = event => {
+        event.preventDefault();
+
+        document.body.classList.remove('user-menu-on');
+
+        if (this.props.history.location.pathname != '/') {
+            this.props.history.push('/');
+        }
+
+        this.props.updatePosts({}); // Trigger loader.
+        this.props.loadPostData('posts', {
+            author: this.props.userID,
+            per_page: 100
+        });
+    };
+
+    /**
      * Render component.
      *
      * @return {Component}
@@ -57,7 +80,7 @@ class UserMenu extends Component {
                 </a>
                 <ul>
                     <li>
-                        <a href={'#'}>
+                        <a href="#" onClick={this.handleShowPosts}>
                             <FontAwesomeIcon icon={faFileAlt} />My Posts
                         </a>
                     </li>
@@ -83,4 +106,9 @@ class UserMenu extends Component {
     }
 }
 
-export default UserMenu;
+export default withRouter(
+    connect(state => ({ userID: state.profile.id }), {
+        loadPostData,
+        updatePosts
+    })(UserMenu)
+);
