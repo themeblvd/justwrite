@@ -36,12 +36,12 @@ class EditPostForm extends Component {
             this.props.toSave('id', this.props.id);
             this.props.toSave('title', this.props.title.raw);
             this.props.toSave('content', this.props.content.raw);
-            this.props.toSave('excerpt', this.props.excerpt.raw);
+            // this.props.toSave('excerpt', this.props.excerpt.raw); // @TODO
         } else {
             this.props.toSave('id', 0);
             this.props.toSave('title', '');
             this.props.toSave('content', 'Just write...');
-            this.props.toSave('excerpt', '');
+            // this.props.toSave('excerpt', ''); // @TODO
         }
 
         this.setState({ isDataReady: true });
@@ -100,7 +100,7 @@ class EditPostForm extends Component {
                 <div className="field content-field">
                     {isDataReady && <Editor content={inputs.content} />}
                 </div>
-                <div className="field excerpt-field">
+                {/*<div className="field excerpt-field">
                     <label>Excerpt</label>
                     <textarea
                         name="excerpt"
@@ -108,7 +108,7 @@ class EditPostForm extends Component {
                         value={inputs.excerpt}
                         onChange={this.handleChange}
                     />
-                </div>
+                </div>*/}
             </form>
         );
     }

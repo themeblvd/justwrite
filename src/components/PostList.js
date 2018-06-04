@@ -46,7 +46,6 @@ const PostList = props => {
                         key={`post-${post.id}`}
                         id={post.id}
                         title={post.title.rendered}
-                        excerpt={post.excerpt.raw}
                         date={post.date}
                         author={post.author}
                         tags={post.tags}

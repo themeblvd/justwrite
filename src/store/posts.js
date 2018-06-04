@@ -24,8 +24,8 @@ const initialState = {
     toSave: {
         id: 0,
         title: '',
-        content: '',
-        excerpt: ''
+        content: ''
+        // excerpt: '' // @TODO
     },
     authors: [],
     tags: [],
