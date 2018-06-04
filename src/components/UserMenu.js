@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import LogoutLink from './LogoutLink';
 // import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 // import faFileAlt from '@fortawesome/fontawesome-free-solid/faFileAlt';
@@ -23,36 +23,64 @@ const faTimes = 'times';
  *
  * @return {Component}
  */
-const UserMenu = props => {
-    return (
-        <div className="user-menu">
-            <a href="#" className="close-sub-menu" onClick={props.handleClose}>
-                <FontAwesomeIcon icon={faTimes} className="close-sub-menu" />
-            </a>
-            <ul>
-                <li>
-                    <a href={'#'}>
-                        <FontAwesomeIcon icon={faFileAlt} />My Posts
-                    </a>
-                </li>
-                <li>
-                    <a href={'#'}>
-                        <FontAwesomeIcon icon={faUser} />Edit Profile
-                    </a>
-                </li>
-                <li>
-                    <a href={props.website} target="_blank">
-                        <FontAwesomeIcon icon={faExternalLinkAlt} />View Website
-                    </a>
-                </li>
-                <li>
-                    <LogoutLink>
-                        <FontAwesomeIcon icon={faSignOutAlt} />Log Out
-                    </LogoutLink>
-                </li>
-            </ul>
-        </div>
-    );
-};
+class UserMenu extends Component {
+    /**
+     * Display the profile modal.
+     */
+    handleShowProfile = event => {
+        event.preventDefault();
+        document.body.classList.remove('user-menu-on');
+        const elem = document.getElementById('edit-profile');
+        elem.classList.add('show');
+        setTimeout(() => {
+            elem.classList.add('animate-in');
+        }, 10);
+    };
+
+    /**
+     * Render component.
+     *
+     * @return {Component}
+     */
+    render() {
+        return (
+            <div className="user-menu">
+                <a
+                    href="#"
+                    className="close-sub-menu"
+                    onClick={this.props.handleClose}
+                >
+                    <FontAwesomeIcon
+                        icon={faTimes}
+                        className="close-sub-menu"
+                    />
+                </a>
+                <ul>
+                    <li>
+                        <a href={'#'}>
+                            <FontAwesomeIcon icon={faFileAlt} />My Posts
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onClick={this.handleShowProfile}>
+                            <FontAwesomeIcon icon={faUser} />Edit Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a href={this.props.website} target="_blank">
+                            <FontAwesomeIcon icon={faExternalLinkAlt} />View
+                            Website
+                        </a>
+                    </li>
+                    <li>
+                        <LogoutLink>
+                            <FontAwesomeIcon icon={faSignOutAlt} />Log Out
+                        </LogoutLink>
+                    </li>
+                </ul>
+            </div>
+        );
+    }
+}
 
 export default UserMenu;

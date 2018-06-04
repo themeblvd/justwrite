@@ -32,11 +32,19 @@ const initialState = {
 
 const GET_PROFILE = 'GET_PROFILE';
 
+const UPDATE_PROFILE = 'UPDATE_PROFILE';
+
 // Reducer
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case GET_PROFILE:
+            return {
+                ...state,
+                ...action.data
+            };
+
+        case UPDATE_PROFILE:
             return {
                 ...state,
                 ...action.data
@@ -52,6 +60,13 @@ export default function reducer(state = initialState, action) {
 function getProfile(data) {
     return {
         type: GET_PROFILE,
+        data
+    };
+}
+
+export function updateProfile(data) {
+    return {
+        type: UPDATE_PROFILE,
         data
     };
 }
@@ -92,5 +107,14 @@ export function loadProfile() {
             .catch(error => {
                 console.log(error);
             });
+    };
+}
+
+export function saveProfile(userID, data) {
+    return dispatch => {
+        var user = JSON.parse(localStorage.getItem('user'));
+        var apiUrl = Validate.stripSlash(user.website) + '/' + endpoints.users;
+
+        return profileAxios.put(`${apiUrl}/${userID}`, data);
     };
 }

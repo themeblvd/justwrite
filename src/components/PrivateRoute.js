@@ -2,7 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 
+/**
+ * A wrapper for Route, to protect private
+ * routes.
+ */
 class PrivateRoute extends Component {
+    /**
+     * Render component.
+     *
+     * @return {Component}
+     */
     render() {
         const { isAuthenticated, path } = this.props;
         const Component = this.props.component;

@@ -13,5 +13,6 @@ export const endpoints = {
 export const animationDuration = {
     errorShake: 250,
     fadeApp: 500,
-    toggleUserMenu: 500
+    toggleUserMenu: 500,
+    fadeProfile: 250
 };

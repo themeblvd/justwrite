@@ -13,6 +13,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import DashboardHeader from './DashboardHeader';
 import Home from './Home';
 import EditPost from './EditPost';
+import EditProfile from './EditProfile';
 
 /**
  * Dashboard
@@ -45,6 +46,7 @@ class Dashboard extends Component {
         return (
             <div className="dashboard-page">
                 <DashboardHeader />
+                <EditProfile />
                 <TransitionGroup component={null}>
                     <CSSTransition
                         key={this.props.location.key}

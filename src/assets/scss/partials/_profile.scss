@@ -1,0 +1,97 @@
+//
+// Edit Profile
+//
+
+.edit-profile {
+    background: rgba(0, 0, 0, 0.75);
+    display: none;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity 0.2s ease-in;
+    z-index: $z-index-profile;
+
+    &.show {
+        display: block;
+    }
+    &.animate-in {
+        opacity: 1;
+    }
+    &.animate-out {
+        opacity: 0;
+    }
+    > .wrap {
+        background: #fff;
+        max-width: 800px;
+        overflow: scroll;
+        padding: 50px;
+    }
+    header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    h2 {
+        margin: 0;
+    }
+    .avatar {
+        border-radius: 50%;
+        margin-right: 20px;
+        width: 60px;
+    }
+    .close-btn {
+        display: block;
+        line-height: 2em;
+        position: absolute;
+        color: $clr-text;
+        top: 16px;
+        right: 16px;
+        text-align: center;
+        width: 2em;
+        height: 2em;
+    }
+    .close-btn:hover {
+        color: $clr-text-darken;
+    }
+    form {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    p {
+        width: 100%;
+    }
+    textarea {
+        height: 100px;
+    }
+}
+
+@media (min-width: 900px) {
+    .edit-profile {
+        > .wrap {
+            border-radius: 4px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            width: 100%;
+            transform: translate(-50%, -2%);
+            transition: transform 0.2s ease-in;
+        }
+        &.animate-in > .wrap {
+            transform: translate(-50%, 0);
+        }
+        &.animate-out > .wrap {
+            transform: translate(-50%, 2%);
+        }
+        .half {
+            width: 48%;
+            margin-right: 2%;
+        }
+        .half:nth-child(even) {
+            margin-right: 0;
+        }
+    }
+}
