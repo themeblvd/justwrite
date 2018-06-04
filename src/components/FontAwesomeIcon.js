@@ -19,7 +19,8 @@ import React from 'react';
  * @return {Component}
  */
 const FontAwesomeIcon = props => {
-    return <i className={`fas fa-${props.icon}`} />;
+    const style = props.style ? props.style : 'fas';
+    return <i className={`${style} fa-${props.icon}`} />;
 };
 
 export default FontAwesomeIcon;

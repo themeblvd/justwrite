@@ -3,7 +3,7 @@
 //
 
 .dashboard-edit-post {
-    padding: (40px + 65px) 40px 40px 40px;
+    padding: (40px + 65px) 40px 48px 40px;
 
     .field {
         margin: 0 auto 24px auto;
@@ -38,6 +38,9 @@
         padding: 0;
         position: relative;
 
+        &:last-child {
+            margin-bottom: 0;
+        }
         .toggle-view {
             position: absolute;
             top: 20px;

@@ -14,6 +14,7 @@ import DashboardHeader from './DashboardHeader';
 import Home from './Home';
 import EditPost from './EditPost';
 import EditProfile from './EditProfile';
+import DashboardFooter from './DashboardFooter';
 
 /**
  * Dashboard
@@ -46,7 +47,6 @@ class Dashboard extends Component {
         return (
             <div className="dashboard-page">
                 <DashboardHeader />
-                <EditProfile />
                 <TransitionGroup component={null}>
                     <CSSTransition
                         key={this.props.location.key}
@@ -61,6 +61,8 @@ class Dashboard extends Component {
                         </Switch>
                     </CSSTransition>
                 </TransitionGroup>
+                <EditProfile />
+                <DashboardFooter />
             </div>
         );
     }
