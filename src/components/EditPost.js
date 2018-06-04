@@ -46,7 +46,9 @@ class EditPost extends Component {
             this.postID = this.props.match.params.id;
             this.props.updateAction('update');
             this.props.loadPost(this.postID).catch(error => {
-                this.props.endLoading('app');
+                if (this.props.appStatus != 'has-loaded') {
+                    this.props.endLoading('app');
+                }
                 this.setState({
                     error: "The post you're trying to edit wasn't found."
                 });
@@ -98,9 +100,12 @@ class EditPost extends Component {
     }
 }
 
-export default connect(state => ({ post: state.posts.current }), {
-    endLoading,
-    updateAction,
-    loadPost,
-    clearEditPost
-})(EditPost);
+export default connect(
+    state => ({ post: state.posts.current, appStatus: state.status.app }),
+    {
+        endLoading,
+        updateAction,
+        loadPost,
+        clearEditPost
+    }
+)(EditPost);

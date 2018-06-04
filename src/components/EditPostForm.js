@@ -45,7 +45,10 @@ class EditPostForm extends Component {
         }
 
         this.setState({ isDataReady: true });
-        this.props.endLoading('app');
+
+        if (this.props.appStatus != 'has-loaded') {
+            this.props.endLoading('app');
+        }
     }
 
     /**
@@ -118,7 +121,8 @@ export default connect(
     state => ({
         inputs: {
             ...state.posts.toSave
-        }
+        },
+        appStatus: state.status.app
     }),
     { toSave, endLoading }
 )(EditPostForm);

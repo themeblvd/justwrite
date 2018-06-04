@@ -8,7 +8,7 @@ import classNames from 'classnames';
 // Store
 import { connect } from 'react-redux';
 import { login } from '../store/auth';
-import { startLoading, endLoading } from '../store/status';
+import { startLoading } from '../store/status';
 
 // Routing
 import { Redirect, withRouter, Link } from 'react-router-dom';
@@ -257,5 +257,5 @@ class LoginForm extends Component {
 }
 
 export default withRouter(
-    connect(state => state.auth, { login, startLoading, endLoading })(LoginForm)
+    connect(state => state.auth, { login, startLoading })(LoginForm)
 );
