@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadPostData, updatePosts } from '../store/posts';
 import LogoutLink from './LogoutLink';
-import FontAwesomeIcon from './FontAwesomeIcon';
+import Icon from './Icon';
 
 /**
  * User Menu Component
@@ -60,28 +60,28 @@ class UserMenu extends Component {
                     className="close-sub-menu"
                     onClick={this.props.handleClose}
                 >
-                    <FontAwesomeIcon icon="times" className="close-sub-menu" />
+                    <Icon icon="times" className="close-sub-menu" />
                 </a>
                 <ul>
                     <li>
                         <a href="#" onClick={this.handleShowPosts}>
-                            <FontAwesomeIcon icon="file-alt" />My Posts
+                            <Icon icon="file-alt" />My Posts
                         </a>
                     </li>
                     <li>
                         <a href="#" onClick={this.handleShowProfile}>
-                            <FontAwesomeIcon icon="user" />Edit Profile
+                            <Icon icon="user" />Edit Profile
                         </a>
                     </li>
                     <li>
                         <a href={this.props.website} target="_blank">
-                            <FontAwesomeIcon icon="external-link-alt" />View
+                            <Icon icon="external-link-alt" />View
                             Website
                         </a>
                     </li>
                     <li>
                         <LogoutLink>
-                            <FontAwesomeIcon icon="sign-out-alt" />Log Out
+                            <Icon icon="sign-out-alt" />Log Out
                         </LogoutLink>
                     </li>
                 </ul>

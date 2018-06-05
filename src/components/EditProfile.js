@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { animationDuration } from '../config';
 import { updateProfile, saveProfile } from '../store/profile';
 import { addNotification, removeNotification } from '../store/status';
-import FontAwesomeIcon from './FontAwesomeIcon';
+import Icon from './Icon';
 import Button from './Button';
 
 /**
@@ -92,7 +92,7 @@ class EditProfile extends Component {
                         onClick={this.handleClose}
                         className="close-btn"
                     >
-                        <FontAwesomeIcon icon="times" />
+                        <Icon icon="times" />
                     </a>
                     <form onSubmit={this.handleSubmit}>
                         <p className="half">

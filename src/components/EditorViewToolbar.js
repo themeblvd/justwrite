@@ -1,5 +1,5 @@
 import React from 'react';
-import FontAwesomeIcon from './FontAwesomeIcon';
+import Icon from './Icon';
 
 /**
  * View Toolbar
@@ -24,7 +24,7 @@ const EditorViewToolbar = props => {
                         props.handleChange('edit');
                     }}
                 >
-                    <FontAwesomeIcon icon="pencil-alt" />
+                    <Icon icon="pencil-alt" />
                 </a>
             </li>
             <li className={props.current == 'split' ? 'active' : ''}>
@@ -36,7 +36,7 @@ const EditorViewToolbar = props => {
                         props.handleChange('split');
                     }}
                 >
-                    <FontAwesomeIcon icon="columns" />
+                    <Icon icon="columns" />
                 </a>
             </li>
             <li className={props.current == 'preview' ? 'active' : ''}>
@@ -48,7 +48,7 @@ const EditorViewToolbar = props => {
                         props.handleChange('preview');
                     }}
                 >
-                    <FontAwesomeIcon icon="eye" />
+                    <Icon icon="eye" />
                 </a>
             </li>
         </ul>

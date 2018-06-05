@@ -1,5 +1,5 @@
 import React from 'react';
-import FontAwesomeIcon from './FontAwesomeIcon';
+import Icon from './Icon';
 import logo from '../assets/img/logo-dark.svg';
 
 /**
@@ -38,7 +38,7 @@ const DashboardFooter = props => {
                             href="https://github.com/themeblvd/just-write"
                             target="_blank"
                         >
-                            <FontAwesomeIcon style="fab" icon="github" />
+                            <Icon style="fab" icon="github" />
                         </a>
                     </li>
                 </ul>

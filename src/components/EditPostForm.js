@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { toSave } from '../store/posts';
 import { endLoading } from '../store/status';
 import Editor from './Editor';
-import FontAwesomeIcon from './FontAwesomeIcon';
+import Icon from './Icon';
 
 /**
  * Edit Post Form
@@ -94,7 +94,7 @@ class EditPostForm extends Component {
                 </div>
                 {!isNewPost && (
                     <div className="field permalink-field">
-                        <FontAwesomeIcon icon="external-link-alt" />
+                        <Icon icon="external-link-alt" />
                         <a href={this.props.link} target="_blank">
                             {this.props.link}
                         </a>

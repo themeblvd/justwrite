@@ -4,7 +4,7 @@ import React from 'react';
  * FontAwesome Component (Temporary!)
  *
  * The `react-mde` package we're using doesn't yet
- * use the new official FontAwesomeIcon component
+ * use the new official Icon component
  * provided by FortAwesome, which only includes the
  * icons you need.
  *
@@ -18,9 +18,9 @@ import React from 'react';
  * @param {String}     props.icon FontAwesome icon name.
  * @return {Component}
  */
-const FontAwesomeIcon = props => {
+const Icon = props => {
     const style = props.style ? props.style : 'fas';
     return <i className={`${style} fa-${props.icon}`} />;
 };
 
-export default FontAwesomeIcon;
+export default Icon;
