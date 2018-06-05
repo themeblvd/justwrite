@@ -5,9 +5,15 @@ const LoginInfo = () => {
         <React.Fragment>
             <h1>Start Writing</h1>
             <p>
-                Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium
-                dui. In malesuada enim in dolor euismod, id commodo mi
-                consectetur.
+                Manage your posts for any WordPress website that's secured with{' '}
+                <em>https</em> and has{' '}
+                <a
+                    href="https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/"
+                    target="_blank"
+                >
+                    JWT Authentication for WP REST API
+                </a>{' '}
+                setup.
             </p>
         </React.Fragment>
     );
