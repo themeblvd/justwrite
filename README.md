@@ -1,6 +1,6 @@
 # Just Write
 
-[Just Write](https://justwrite.app) is a client-side web application built in [React](https://reactjs.org/). It allows a user from any WordPress website to log in and manage posts via its REST API. The project structure and build process comes from my personal [React boilerplate](https://github.com/themeblvd/react-boilerplate).
+[Just Write](https://justwrite.app) is a client-side web application built in [React](https://reactjs.org/). It allows a user from any WordPress website to log in and manage posts via its REST API. The project structure and build process come from my personal [React boilerplate](https://github.com/themeblvd/react-boilerplate).
 
 ![](https://raw.githubusercontent.com/themeblvd/justwrite/master/screenshot-1.png)
 
@@ -21,7 +21,7 @@ If you'd like to fork or clone the project, after installing all of the node mod
 * `npm run server` &mdash; Start the development server.
 * `npm run build` &mdash; Build the project once, for development.
 * `npm run build:production` &mdash; Build the project once, for production.
-* `npm run watch` &mdash; Watch for changes and build automatically for development.
+* `npm run watch` &mdash; Watch for file changes and build continuously for development.
 
 ## Screenshots
 
@@ -29,13 +29,13 @@ If you'd like to fork or clone the project, after installing all of the node mod
 
 ![](https://raw.githubusercontent.com/themeblvd/justwrite/master/screenshot-2.png)
 
-### Edit Post Screen
-
-![](https://raw.githubusercontent.com/themeblvd/justwrite/master/screenshot-3.png)
-
 ### Edit Profile Modal
 
 ![](https://raw.githubusercontent.com/themeblvd/justwrite/master/screenshot-4.png)
+
+### Edit Post Screen
+
+![](https://raw.githubusercontent.com/themeblvd/justwrite/master/screenshot-3.png)
 
 ## Creator
 
