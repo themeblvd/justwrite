@@ -1,9 +1,47 @@
 # Just Write
 
+This is a client-side web application built with React DOM. It allows a user from any WordPress website to login, and manage its posts, via the REST API.
+
 ![](https://raw.githubusercontent.com/themeblvd/justwrite/master/screenshot-1.png)
+
+## Using the Application
+
+In order for a user to log in through the application, the WordPress website needs to be on `https` and have the [JWT Authentication for WP REST API](https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/) plugin set up.
+
+## How it Works
+
+It's important to note that *Just Write* is purely a client-side application, with no backend. When you log in, a POST request is sent to your WordPress website to generate a JWT authentication token. If successful, *Just Write* then saves this token to the user's local browser storage.
+
+Every time *Just Write* loads, this token is verified through the WordPress API to maintain the user's logged-in state within the application. This authentication token is then sent in the Header with every API request, giving the user the ability to edit content of the website.
+
+## Developing the Application
+
+If you'd like to fork or clone the project, after installing all of the node modules, here are the project's relevant commands:
+
+* `npm run server` &mdash; Start the development server.
+* `npm run build` &mdash; Build the project once, for development.
+* `npm run build:production` &mdash; Build the project once, for production.
+* `npm run watch` &mdash; Watch for changes and build automatically for development.
+
+## Screenshots
+
+### Dashboard Home
 
 ![](https://raw.githubusercontent.com/themeblvd/justwrite/master/screenshot-2.png)
 
+### Edit Post Screen
+
 ![](https://raw.githubusercontent.com/themeblvd/justwrite/master/screenshot-3.png)
 
+### Edit Profile Modal
+
 ![](https://raw.githubusercontent.com/themeblvd/justwrite/master/screenshot-4.png)
+
+## Creator
+
+**Jason Bobich**
+
+* <http://jasonbobich.com>
+* <https://twitter.com/jasonbobich>
+* <http://themeblvd.com>
+* <http://wpjumpstart.com>

@@ -4,9 +4,10 @@
     "description": "A client-side React app to edit the posts of your WordPress blogs.",
     "main": "index.js",
     "scripts": {
-        "build": "NODE_ENV=development webpack",
-        "watch": "NODE_ENV=development webpack --watch",
         "server": "node server.js",
+        "watch": "NODE_ENV=development webpack --watch",
+        "build": "NODE_ENV=development webpack",
+        "build:production": "NODE_ENV=production webpack",
         "js-lint": "eslint src/**/*.js",
         "js-lint-fix": "eslint src/**/*.js --fix"
     },
