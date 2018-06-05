@@ -151,6 +151,10 @@
     blockquote {
         margin: 30px 0;
     }
+    p > img,
+    p > blockquote {
+        margin: 0;
+    }
     ul,
     ol {
         padding: 0 0 0 40px;
