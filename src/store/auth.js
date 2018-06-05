@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Validate from '../utils/Validate';
+import { stripSlash } from '../utils/formatting';
 import { endpoints } from '../config';
 
 // Pre-configure secure request header.
@@ -103,7 +103,7 @@ export function logout(event) {
 
 export function login(website, creds) {
     return dispatch => {
-        var url = Validate.stripSlash(website) + '/' + endpoints.login;
+        var url = stripSlash(website) + '/' + endpoints.login;
 
         return axios
             .post(url, { username: creds.username, password: creds.password })
@@ -136,7 +136,7 @@ export function verify() {
             });
         }
 
-        var apiUrl = Validate.stripSlash(user.website) + '/' + endpoints.verify;
+        var apiUrl = stripSlash(user.website) + '/' + endpoints.verify;
 
         return authAxios
             .post(apiUrl)

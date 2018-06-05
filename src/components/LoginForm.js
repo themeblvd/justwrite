@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // Utilities
 import { animationDuration } from '../config';
-import Validate from '../utils/Validate';
+import { validateLoginForm } from '../utils/validate';
 import classNames from 'classnames';
 
 // Store
@@ -65,7 +65,7 @@ class LoginForm extends Component {
 
         // Handle validation passed from submit event.
         if (event.type == 'submit') {
-            var errors = Validate.loginForm(this.state.inputs);
+            var errors = validateLoginForm(this.state.inputs);
 
             this.setState({
                 fieldClasses: {
@@ -107,7 +107,7 @@ class LoginForm extends Component {
 
         // Handle validation for each individual form field, when focused off.
         var name = event.target.name;
-        var error = Validate.loginForm(name, this.state.inputs[name]);
+        var error = validateLoginForm(name, this.state.inputs[name]);
 
         this.setState(prevState => ({
             fieldClasses: {

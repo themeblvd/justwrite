@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Validate from '../utils/Validate';
+import { stripSlash } from '../utils/formatting';
 import { endpoints } from '../config';
 
 // Pre-configure secure request header.
@@ -76,7 +76,7 @@ export function updateProfile(data) {
 export function loadProfile() {
     return dispatch => {
         var user = JSON.parse(localStorage.getItem('user'));
-        var apiUrl = Validate.stripSlash(user.website) + '/' + endpoints.users;
+        var apiUrl = stripSlash(user.website) + '/' + endpoints.users;
 
         return profileAxios
             .get(`${apiUrl}?search=${user.user_nicename}`)
@@ -113,7 +113,7 @@ export function loadProfile() {
 export function saveProfile(userID, data) {
     return dispatch => {
         var user = JSON.parse(localStorage.getItem('user'));
-        var apiUrl = Validate.stripSlash(user.website) + '/' + endpoints.users;
+        var apiUrl = stripSlash(user.website) + '/' + endpoints.users;
 
         return profileAxios.put(`${apiUrl}/${userID}`, data);
     };

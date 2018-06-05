@@ -43,3 +43,17 @@ export function unautop(content) {
 
     return content;
 }
+
+/**
+ * Strip the trailing slash from a URL.
+ *
+ * This formatting allows us to easily append to a
+ * URL, ensuring that it will be formatted without
+ * a trailing slash.
+ *
+ * @param  {String} url URL to strip slash from.
+ * @return {String}     URL without trailing slash.
+ */
+export function stripSlash(url) {
+    return url.replace(/\/$/, '');
+}

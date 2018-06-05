@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Validate from '../utils/Validate';
+import { stripSlash } from '../utils/formatting';
 import { endpoints } from '../config';
 
 // Pre-configure secure request header.
@@ -234,7 +234,7 @@ export function clearEditPost() {
 export function loadPostData(endpoint, params = {}) {
     return dispatch => {
         var user = JSON.parse(localStorage.getItem('user'));
-        var apiUrl = Validate.stripSlash(user.website) + '/' + endpoints[endpoint]; // prettier-ignore
+        var apiUrl = stripSlash(user.website) + '/' + endpoints[endpoint]; // prettier-ignore
 
         if (endpoint === 'posts') {
             params = {
@@ -275,7 +275,7 @@ export function loadPostData(endpoint, params = {}) {
 export function loadPost(postID) {
     return dispatch => {
         var user = JSON.parse(localStorage.getItem('user'));
-        var apiUrl = Validate.stripSlash(user.website) + '/' + endpoints.posts; // prettier-ignore
+        var apiUrl = stripSlash(user.website) + '/' + endpoints.posts; // prettier-ignore
 
         return postsAxios
             .get(apiUrl + `/${postID}?context=edit`)
@@ -288,7 +288,7 @@ export function loadPost(postID) {
 export function savePost(post) {
     return dispatch => {
         var user = JSON.parse(localStorage.getItem('user'));
-        var apiUrl = Validate.stripSlash(user.website) + '/' + endpoints.posts; // prettier-ignore
+        var apiUrl = stripSlash(user.website) + '/' + endpoints.posts; // prettier-ignore
         var postID = post.id;
         var data = {
             ...post
@@ -302,7 +302,7 @@ export function savePost(post) {
 export function publishNewPost(post) {
     return dispatch => {
         var user = JSON.parse(localStorage.getItem('user'));
-        var apiUrl = Validate.stripSlash(user.website) + '/' + endpoints.posts; // prettier-ignore
+        var apiUrl = stripSlash(user.website) + '/' + endpoints.posts; // prettier-ignore
         var data = {
             status: 'publish',
             ...post
