@@ -1,6 +1,11 @@
 import React from 'react';
 import logo from '../assets/img/logo.svg';
 
+/**
+ * Login Page Logo
+ *
+ * @return {Component}
+ */
 const LoginLogo = () => {
     return (
         <div className="login-logo">

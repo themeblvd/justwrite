@@ -2,6 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../store/auth';
 
+/**
+ * Logout Link
+ *
+ * @param  {Object}    props           Component props.
+ * @param  {Number}    props.logout    Handle log out functionality, from store.
+ * @param  {Object}    props.children  Optional. Custom text for link.
+ * @return {Component}
+ */
 const LogoutLink = props => {
     return (
         <a

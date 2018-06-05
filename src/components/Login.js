@@ -5,13 +5,30 @@ import { endLoading } from '../store/status';
 import LoginLogo from './LoginLogo';
 import LoginForm from './LoginForm';
 
+/**
+ * Login Page
+ *
+ * This component displays the top-level admin
+ * screen. It's connected to the /login route,
+ * which is redirected to whenever the user
+ * isn't logged in.
+ */
 class Login extends Component {
+    /**
+     * Once the component mounts, we can tell
+     * the store everything is done loading.
+     */
     componentDidMount = () => {
         if (this.props.appStatus == 'is-loading') {
             this.props.endLoading('app');
         }
     };
 
+    /**
+     * Render component.
+     *
+     * @return {Component}
+     */
     render() {
         return (
             <div className="login-page">

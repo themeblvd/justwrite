@@ -1,5 +1,10 @@
 import React from 'react';
 
+/**
+ * Login Page Information
+ *
+ * @return {Component}
+ */
 const LoginInfo = () => {
     return (
         <React.Fragment>
