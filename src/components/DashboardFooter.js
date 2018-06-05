@@ -13,10 +13,10 @@ import logo from '../assets/img/logo-dark.svg';
 const DashboardFooter = props => {
     return (
         <div className="dashboard-footer">
-            <div class="item">
-                <img src={logo} class="site-logo" />
+            <div className="item">
+                <img src={logo} className="site-logo" />
             </div>
-            <div class="item">
+            <div className="item">
                 <span className="copyright">
                     &copy; {new Date().getFullYear()} {'<'}justwrite.app{'>'}{' '}
                     &mdash; A Project by{' '}
@@ -25,7 +25,7 @@ const DashboardFooter = props => {
                     </a>.
                 </span>
             </div>
-            <div class="item">
+            <div className="item">
                 <ul>
                     <li>
                         <a href="">Help</a>
@@ -33,7 +33,7 @@ const DashboardFooter = props => {
                     <li>
                         <a href="">Privacy</a>
                     </li>
-                    <li class="has-icon">
+                    <li className="has-icon">
                         <a
                             href="https://github.com/themeblvd/just-write"
                             target="_blank"
