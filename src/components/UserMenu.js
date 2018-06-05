@@ -60,10 +60,7 @@ class UserMenu extends Component {
                     className="close-sub-menu"
                     onClick={this.props.handleClose}
                 >
-                    <FontAwesomeIcon
-                        icon={faTimes}
-                        className="close-sub-menu"
-                    />
+                    <FontAwesomeIcon icon="times" className="close-sub-menu" />
                 </a>
                 <ul>
                     <li>
