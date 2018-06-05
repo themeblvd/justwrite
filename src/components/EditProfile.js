@@ -145,7 +145,7 @@ class EditProfile extends Component {
                             />
                         </p>
                         <input type="hidden" value={id} />
-                        <Button isLoading={this.state.isLoading} primary>
+                        <Button isLoading={this.state.isLoading} isPrimary>
                             Save
                         </Button>
                     </form>

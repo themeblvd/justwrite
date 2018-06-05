@@ -160,7 +160,7 @@ class ActionMenu extends Component {
                     <Button
                         onClick={this.handlePrimaryAction}
                         isLoading={this.state.doingAction}
-                        primary
+                        isPrimary
                     >
                         {this.btnText(this.props.action)}
                     </Button>

@@ -1,20 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
-class Button extends Component {
-    render() {
-        const classes = classNames({
-            'has-loader': true,
-            loading: this.props.isLoading,
-            primary: this.props.primary
-        });
+/**
+ * Button
+ *
+ * @param  {Object}    props           Component props.
+ * @param  {Boolean}   props.isLoading Whether button has loading animation state.
+ * @param  {Boolean}   props.isPrimary Whether button has primary styling.
+ * @param  {Function}  props.onClick   Button click handler.
+ * @return {Component}
+ */
+const Button = props => {
+    const classes = classNames({
+        'has-loader': true,
+        loading: props.isLoading,
+        primary: props.isPrimary
+    });
 
-        return (
-            <button onClick={this.props.onClick} className={classes}>
-                {this.props.children}
-            </button>
-        );
-    }
-}
+    return (
+        <button onClick={props.onClick} className={classes}>
+            {props.children}
+        </button>
+    );
+};
 
 export default Button;
