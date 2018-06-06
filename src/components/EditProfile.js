@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { animationDuration } from '../config';
 import { updateProfile, saveProfile } from '../store/profile';
 import { addNotification, removeNotification } from '../store/status';
+import { hideModal } from '../utils/timing';
 import Icon from './Icon';
 import Button from './Button';
 
@@ -20,11 +20,7 @@ class EditProfile extends Component {
      */
     handleClose = event => {
         event.preventDefault();
-        const elem = document.getElementById('edit-profile');
-        elem.classList.add('animate-out');
-        setTimeout(() => {
-            elem.classList.remove('animate-in', 'animate-out', 'show');
-        }, animationDuration.fadeProfile);
+        hideModal('profile');
     };
 
     /**
@@ -81,7 +77,7 @@ class EditProfile extends Component {
         } = this.props;
 
         return (
-            <div id="edit-profile" className="edit-profile">
+            <div id="edit-profile" className="modal edit-profile">
                 <div className="wrap">
                     <header>
                         <img className="avatar" src={avatar} />

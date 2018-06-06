@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadPostData, updatePosts } from '../store/posts';
+import { showModal } from '../utils/timing';
 import LogoutLink from './LogoutLink';
 import Icon from './Icon';
 
@@ -19,12 +20,7 @@ class UserMenu extends Component {
      */
     handleShowProfile = event => {
         event.preventDefault();
-        document.body.classList.remove('user-menu-on');
-        const elem = document.getElementById('edit-profile');
-        elem.classList.add('show');
-        setTimeout(() => {
-            elem.classList.add('animate-in');
-        }, 10);
+        showModal('profile');
     };
 
     /**
@@ -75,8 +71,7 @@ class UserMenu extends Component {
                     </li>
                     <li>
                         <a href={this.props.website} target="_blank">
-                            <Icon icon="external-link-alt" />View
-                            Website
+                            <Icon icon="external-link-alt" />View Website
                         </a>
                     </li>
                     <li>

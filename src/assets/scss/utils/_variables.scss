@@ -69,6 +69,7 @@ $shadow-card: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
 // ==========================================================================
 
 $z-index-header: 100;
-$z-index-profile: 200;
-$z-index-notification: 300;
-$z-index-app-loader: 400;
+$z-index-modal-backdrop: 200;
+$z-index-modal: 300;
+$z-index-notification: 400;
+$z-index-app-loader: 500;

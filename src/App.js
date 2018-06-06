@@ -84,6 +84,7 @@ class App extends Component {
                         <PrivateRoute path="/" component={Dashboard} />
                     </Switch>
                 )}
+                <div className="modal-backdrop" />
                 {hasNotification && <Notification />}
                 <Loading className="app-loader" />
             </div>
