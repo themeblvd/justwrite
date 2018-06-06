@@ -20,6 +20,7 @@ import Loading from './components/Loading';
 import Notification from './components/Notification';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import InfoModal from './components/InfoModal';
 
 /**
  * Top Level Application
@@ -84,6 +85,8 @@ class App extends Component {
                         <PrivateRoute path="/" component={Dashboard} />
                     </Switch>
                 )}
+                <InfoModal id="help" />
+                <InfoModal id="privacy" />
                 <div className="modal-backdrop" />
                 {hasNotification && <Notification />}
                 <Loading className="app-loader" />

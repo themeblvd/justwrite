@@ -131,6 +131,13 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            /*
+             * Allow importing markdown files to strings.
+             */
+            {
+                test: /\.md$/,
+                use: 'raw-loader'
             }
         ]
     }
