@@ -18,6 +18,13 @@ import Button from './Button';
 import LogoutLink from './LogoutLink';
 import LoginInfo from './LoginInfo';
 
+/**
+ * Login Form
+ *
+ * @TODO I'm very much open to suggestions on
+ * how to improve this component's state management
+ * and organization.
+ */
 class LoginForm extends Component {
     constructor(props) {
         super(props);
@@ -43,21 +50,18 @@ class LoginForm extends Component {
         };
     }
 
-    handleChange = event => {
-        if (this.state.isLoading) {
-            return false; // Don't let user click submit again, while processing.
-        }
-
-        var { name, value } = event.target;
-
-        this.setState(prevState => ({
-            inputs: {
-                ...prevState.inputs,
-                [name]: value
-            }
-        }));
-    };
-
+    /**
+     * Handle general validation.
+     *
+     * This method is a bit convaluted because
+     * it gets used in different scenarios.
+     *
+     * It's envoked on individual form fields
+     * upon changing (onBlur) and on the entire
+     * form upon submission.
+     *
+     * @see /src/utils/validate.js
+     */
     handleValidate = event => {
         if (this.state.isLoading) {
             return false;
@@ -135,8 +139,39 @@ class LoginForm extends Component {
         }
     };
 
+    /**
+     * Handle individual input changes, binded
+     * to onChange.
+     *
+     * Note: Field validation is NOT handled
+     * here, but instead with handleValidate(),
+     * which is binded to the onBlur event.
+     */
+    handleChange = event => {
+        var { name, value } = event.target;
+
+        this.setState(prevState => ({
+            inputs: {
+                ...prevState.inputs,
+                [name]: value
+            }
+        }));
+    };
+
+    /**
+     * Handle form submission.
+     *
+     * This passes form data through handleValidate()
+     * even though in theory the data should be
+     * already validated individually for each
+     * field.
+     */
     handleSubmit = event => {
         event.preventDefault();
+
+        if (this.state.isLoading) {
+            return false; // Don't let user click submit again, while processing.
+        }
 
         var errors = this.handleValidate(event);
         var isValid = true;
@@ -181,11 +216,19 @@ class LoginForm extends Component {
         }
     };
 
+    /**
+     * Displays individual field error message.
+     */
     errorMsg = field => {
         var msg = this.state.errors[field];
         return msg ? <span className="error-msg">{msg}</span> : null;
     };
 
+    /**
+     * Render component.
+     *
+     * @return {Component}
+     */
     render() {
         const { isAuthenticated } = this.props;
 
