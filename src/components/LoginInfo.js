@@ -10,7 +10,7 @@ const LoginInfo = () => {
         <React.Fragment>
             <h1>Start Writing</h1>
             <p>
-                Manage your posts for any WordPress website that's secured with{' '}
+                Manage posts from any WordPress website that's secured with{' '}
                 <em>https</em> and has{' '}
                 <a
                     href="https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/"

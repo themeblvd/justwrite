@@ -1,4 +1,5 @@
 import React from 'react';
+import { project } from '../config';
 import logo from '../assets/img/logo.svg';
 
 /**
@@ -10,24 +11,7 @@ const LoginLogo = () => {
     return (
         <div className="login-logo">
             <img src={logo} alt="Just Write" />
-            <span className="tagline">
-                A project by{' '}
-                <a
-                    href="https://jasonbobich.com"
-                    title="Jason Bobich"
-                    target="_blank"
-                >
-                    Jason Bobich
-                </a>{' '}
-                and{' '}
-                <a
-                    href="http://themeblvd.com"
-                    title="WordPress Themes"
-                    target="_blank"
-                >
-                    Theme Blvd
-                </a>
-            </span>
+            <span className="tagline">{project.description}</span>
         </div>
     );
 };
