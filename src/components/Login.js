@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { endLoading } from '../store/status';
 import LoginLogo from './LoginLogo';
 import LoginForm from './LoginForm';
+import DashboardFooter from './DashboardFooter';
 
 /**
  * Login Page
@@ -42,6 +43,7 @@ class Login extends Component {
                         <LoginForm />
                     </div>
                 </section>
+                <DashboardFooter />
             </div>
         );
     }
