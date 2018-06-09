@@ -4,11 +4,21 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><%= htmlWebpackPlugin.options.title %></title>
+        <meta name="description" content="Just Write is client-side web application that provides a decoupled WordPress blog editing experience.">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,600i" rel="stylesheet">
         <link href="/assets/css/main.css" rel="stylesheet">
     </head>
     <body>
+        <!-- Application -->
         <div id="root"></div>
+
+        <!-- Static Information -->
+        <div class="static-content">
+            <p>Just Write is client-side web application that provides a decoupled WordPress blog editing experience. Through the application, a user can gain remote access to a personal WordPress website, in order to manage its blog posts.</p>
+            <p>This is an <a href="https://github.com/themeblvd/justwrite" title="Just Write Code Repository">open source</a> project built in React, by <a href="https://jasonbobich.com" title="Jason Bobich, Full-Stack Web Engineer">Jason Bobich</a>, the owner and lead web engineer at <a href="https://themeblvd.com" title="WordPress Themes and Plugin" target="_blank">Theme Blvd</a>. It works by utilizing the power of the WordPress REST API of a given WordPress website. It uses <a href="https://jwt.io/" title="About JWT Tokens">JWT token authentication</a> to verify access on the user's behalf when making requests to the given WordPress's site REST API.</p>
+        </div>
+
+        <!-- Assets -->
         <script type="text/javascript" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <script type="text/javascript" src="/assets/js/app.js"></script>
     </body>
