@@ -1,8 +1,14 @@
 {
-    "name": "just-write",
+    "name": "justwrite",
+    "title": "&lt;justwrite.app&gt;",
     "version": "1.0.0",
-    "description": "A client-side React app to edit the posts of your WordPress blogs.",
+    "description": "Decoupled WordPress Blog Editing Experience",
     "main": "index.js",
+    "author": {
+        "name" : "Jason Bobich",
+        "email" : "info@themeblvd.com",
+        "url" : "https://jasonbobich.com"
+    },
     "scripts": {
         "server": "node server.js",
         "watch": "NODE_ENV=development webpack --watch",
@@ -11,7 +17,6 @@
         "js-lint": "eslint src/**/*.js",
         "js-lint-fix": "eslint src/**/*.js --fix"
     },
-    "author": "Jason Bobich",
     "license": "ISC",
     "dependencies": {
         "autoprefixer": "^8.4.1",

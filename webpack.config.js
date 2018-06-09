@@ -1,6 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const packageJSON = require('./package.json');
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -21,7 +22,7 @@ module.exports = {
          * Generate index.html page for the app.
          */
         new HtmlWebpackPlugin({
-            title: 'My App',
+            title: `${packageJSON.title} - ${packageJSON.description}`,
             template: './src/index.html',
             inject: false
         })

@@ -1,3 +1,17 @@
+import packageJSON from '../package.json';
+
+/**
+ * Project information.
+ */
+export const project = {
+    name: packageJSON.name,
+    version: packageJSON.version,
+    title: packageJSON.title,
+    description: packageJSON.description,
+    authorName: packageJSON.author.name,
+    authorUrl: packageJSON.author.url
+};
+
 /**
  * API endpoints.
  */

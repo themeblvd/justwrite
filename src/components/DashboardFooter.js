@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { showModal } from '../utils/timing';
+import { copyright } from '../utils/formatting';
 import Icon from './Icon';
 import logo from '../assets/img/logo-dark.svg';
 
@@ -8,7 +9,8 @@ import logo from '../assets/img/logo-dark.svg';
  */
 class DashboardFooter extends Component {
     /**
-     *
+     * Open a information modal, when corresponding
+     * link is clicked.
      */
     handleOpenModal = (event, type) => {
         event.preventDefault();
@@ -27,15 +29,10 @@ class DashboardFooter extends Component {
                     <img src={logo} className="site-logo" />
                 </div>
                 <div className="item">
-                    <span className="copyright">
-                        &copy; {new Date().getFullYear()} {'<'}justwrite.app{
-                            '>'
-                        }{' '}
-                        &mdash; A Project by{' '}
-                        <a href="https://jasonbobich.com" target="_blank">
-                            Jason Bobich
-                        </a>.
-                    </span>
+                    <span
+                        className="copyright"
+                        dangerouslySetInnerHTML={{ __html: copyright() }}
+                    />
                 </div>
                 <div className="item">
                     <ul>

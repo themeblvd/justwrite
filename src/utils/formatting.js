@@ -1,3 +1,5 @@
+import { project } from '../config';
+
 /**
  * Strip paragraph tags and breaks from HTML content.
  *
@@ -56,4 +58,18 @@ export function unautop(content) {
  */
 export function stripSlash(url) {
     return url.replace(/\/$/, '');
+}
+
+/**
+ * Formatted copyright message for application
+ * footer.
+ */
+export function copyright() {
+    var year = new Date().getFullYear();
+    var copyright = `&copy; ${year} ${project.title}`;
+    var author = `<a href="${project.authorUrl}" target="_blank">${
+        project.authorName
+    }</a>`;
+
+    return `${copyright} &mdash; A project by ${author}.`;
 }
