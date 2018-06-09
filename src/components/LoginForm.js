@@ -17,6 +17,7 @@ import { Redirect, withRouter, Link } from 'react-router-dom';
 import Button from './Button';
 import LogoutLink from './LogoutLink';
 import LoginInfo from './LoginInfo';
+import LoginToSandbox from './LoginToSandbox';
 
 /**
  * Login Form
@@ -293,6 +294,7 @@ class LoginForm extends Component {
                     <Button isPrimary isLoading={this.state.isLoading}>
                         {this.state.isLoading ? 'Logging In...' : 'Log In'}
                     </Button>
+                    <LoginToSandbox />
                 </form>
             </React.Fragment>
         );

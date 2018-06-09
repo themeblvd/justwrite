@@ -73,7 +73,7 @@ export default function reducer(state = initialState, action) {
 
 // Action Functions
 
-function authenticate(user) {
+export function authenticate(user) {
     return {
         type: AUTHENTICATE,
         website: user.website,
@@ -83,7 +83,7 @@ function authenticate(user) {
     };
 }
 
-function authError(key, message) {
+export function authError(key, message) {
     return {
         type: AUTH_ERROR,
         key,
