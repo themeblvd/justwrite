@@ -65,11 +65,11 @@ export function stripSlash(url) {
  * footer.
  */
 export function copyright() {
-    var year = new Date().getFullYear();
-    var copyright = `&copy; ${year} ${project.title}`;
-    var author = `<a href="${project.authorUrl}" target="_blank">${
-        project.authorName
-    }</a>`;
+    var year      = new Date().getFullYear(),
+        copyright = `&copy; ${year} ${project.title}`,
+        version   = `<a href="${project.repo}/releases" target="_blank">${project.version}</a>`, // prettier-ignore
+        open      = `<a href="${project.repo}" target="_blank">open source</a>`, // prettier-ignore
+        author    = `<a href="${project.authorUrl}" target="_blank">${project.authorName}</a>`; // prettier-ignore
 
-    return `${copyright} &mdash; A project by ${author}.`;
+    return `${copyright} ${version} &mdash; An ${open} project by ${author}.`;
 }

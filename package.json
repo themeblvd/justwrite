@@ -2,12 +2,16 @@
     "name": "justwrite",
     "title": "&lt;justwrite.app&gt;",
     "version": "1.0.0",
-    "description": "Decoupled WordPress Blog Editing Experience",
+    "description": "Decoupled WordPress Blogging",
     "main": "index.js",
     "author": {
         "name" : "Jason Bobich",
         "email" : "info@themeblvd.com",
         "url" : "https://jasonbobich.com"
+    },
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/themeblvd/justwrite.git"
     },
     "scripts": {
         "server": "node server.js",

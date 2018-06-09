@@ -9,7 +9,16 @@ export const project = {
     title: packageJSON.title,
     description: packageJSON.description,
     authorName: packageJSON.author.name,
-    authorUrl: packageJSON.author.url
+    authorUrl: packageJSON.author.url,
+    repo: packageJSON.repository.url.slice(0, -4) // Expecting .git at the end.
+};
+
+/**
+ * Sandbox information.
+ */
+export const sandbox = {
+    url: 'https://sandbox.justwrite.app',
+    auth: 'https://justwrite.app/sandbox-auth.php'
 };
 
 /**
