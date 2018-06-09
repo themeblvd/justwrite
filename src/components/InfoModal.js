@@ -13,7 +13,7 @@ import Icon from './Icon';
  */
 class InfoModal extends Component {
     /**
-     *
+     * Close the modal.
      */
     handleCloseModal = (event, type) => {
         event.preventDefault();
