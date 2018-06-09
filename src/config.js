@@ -1,3 +1,6 @@
+/**
+ * API endpoints.
+ */
 var apiExtension = 'wp-json';
 
 export const endpoints = {
@@ -10,6 +13,13 @@ export const endpoints = {
     authors: `${apiExtension}/wp/v2/users`
 };
 
+/**
+ * Animation durations.
+ *
+ * These millisecond values are used in CSS, and
+ * so this object lets us match our JavaScript
+ * timing functions.
+ */
 export const animationDuration = {
     errorShake: 250,
     fadeApp: 500,
