@@ -8,6 +8,16 @@
     right: 0;
     left: 0;
     z-index: $z-index-header;
+
+    .header-content {
+        height: $height-mobile-header;
+    }
+}
+
+@media (min-width: 992px) {
+    .dashboard-header .header-content {
+        height: $height-header; // Should match natural height.
+    }
 }
 
 //
