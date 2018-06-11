@@ -3,9 +3,11 @@
 //
 
 .editor {
+    border-top: 1px solid $clr-border;
+    padding-top: 45px;
+
     .react-mde {
         border: none;
-        border-top: 1px solid $clr-border;
         border-bottom: 1px solid $clr-border;
     }
     .mde-header {
@@ -13,6 +15,11 @@
         border-bottom: 1px solid $clr-border;
         border-radius: 0;
         padding: 0 30px;
+        position: absolute;
+        top: 1px;
+        right: 0;
+        left: 0;
+        z-index: 1;
     }
     .react-mde-horizontal-layout .mde-content .mde-preview {
         border-left: 1px solid $clr-border;
@@ -49,6 +56,7 @@
         position: absolute;
         top: 0;
         right: 40px;
+        z-index: 2;
 
         li {
             margin: 0 4px;
@@ -63,6 +71,25 @@
         }
         li.active a {
             color: darken($clr-primary, 20%);
+        }
+    }
+}
+
+//
+// Sticky Toolbar
+//
+
+@media (min-width: 992px) {
+    .stick-editor-toolbar .editor {
+        .mde-header {
+            position: fixed;
+            top: $height-header;
+            right: 0;
+            left: 0;
+        }
+        .view-toolbar {
+            position: fixed;
+            top: $height-header;
         }
     }
 }

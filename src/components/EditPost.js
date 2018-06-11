@@ -72,6 +72,27 @@ class EditPost extends Component {
     }
 
     /**
+     * When scrolling, stick the editor's toolbar
+     * just below the dashboard header, before it
+     * travels outside of the viewport.
+     *
+     * Note: Remember that in our app, the window
+     * doesn't actually scroll, but instead the
+     * .dashboard-edit-post DIV does.
+     */
+    stickEditorToolbar = event => {
+        const toolbar = document.querySelector('.editor');
+        const rect = toolbar.getBoundingClientRect();
+        const headerHeight = 65;
+
+        if (rect.top <= headerHeight) {
+            document.body.classList.add('stick-editor-toolbar');
+        } else {
+            document.body.classList.remove('stick-editor-toolbar');
+        }
+    };
+
+    /**
      * Render component.
      *
      * @return {Component}
@@ -86,7 +107,10 @@ class EditPost extends Component {
         }
 
         return (
-            <div className="dashboard-edit-post">
+            <div
+                className="dashboard-edit-post"
+                onScroll={this.stickEditorToolbar}
+            >
                 {!this.props.post && !this.isNewPost ? (
                     <Loading />
                 ) : (
