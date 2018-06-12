@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { stripSlash } from '../utils/formatting';
-import { endpoints } from '../config';
+import { dashboard, endpoints } from '../config';
 
 // Pre-configure secure request header.
 
@@ -270,7 +270,7 @@ export function loadPostData(endpoint, params = {}) {
 
         if (endpoint === 'posts') {
             params = {
-                per_page: 12,
+                per_page: dashboard.perPage,
                 context: 'edit',
                 ...params
             };

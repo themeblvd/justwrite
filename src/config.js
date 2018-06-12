@@ -14,6 +14,13 @@ export const project = {
 };
 
 /**
+ * Dashboard settings.
+ */
+export const dashboard = {
+    perPage: 9
+};
+
+/**
  * Sandbox information.
  */
 export const sandbox = {
