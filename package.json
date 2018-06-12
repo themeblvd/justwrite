@@ -5,21 +5,22 @@
     "description": "Decoupled WordPress Blogging",
     "main": "index.js",
     "author": {
-        "name" : "Jason Bobich",
-        "email" : "info@themeblvd.com",
-        "url" : "https://jasonbobich.com"
+        "name": "Jason Bobich",
+        "email": "info@themeblvd.com",
+        "url": "https://jasonbobich.com"
     },
-    "repository" : {
-        "type" : "git",
-        "url" : "https://github.com/themeblvd/justwrite.git"
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/themeblvd/justwrite.git"
     },
     "scripts": {
-        "server": "node server.js",
+        "start": "concurrently 'npm run server' 'npm run watch'",
         "watch": "NODE_ENV=development webpack --watch",
+        "server": "node server.js",
         "build": "NODE_ENV=development webpack",
-        "build:production": "NODE_ENV=production webpack",
+        "build:prod": "NODE_ENV=production webpack",
         "js-lint": "eslint src/**/*.js",
-        "js-lint-fix": "eslint src/**/*.js --fix"
+        "js-lint:fix": "eslint src/**/*.js --fix"
     },
     "license": "ISC",
     "dependencies": {
@@ -61,6 +62,7 @@
     },
     "devDependencies": {
         "browser-sync": "^2.24.4",
+        "concurrently": "^3.5.1",
         "connect-history-api-fallback": "^1.5.0",
         "eslint": "^4.19.1",
         "eslint-config-prettier": "^2.9.0",

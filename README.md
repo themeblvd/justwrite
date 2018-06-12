@@ -18,10 +18,8 @@ Every time *Just Write* loads, this token is verified through the WordPress API 
 
 If you'd like to fork or clone the project, after installing all of the node modules, here are the project's relevant commands:
 
-* `npm run server` &mdash; Start the development server.
-* `npm run build` &mdash; Build the project once, for development.
-* `npm run build:production` &mdash; Build the project once, for production.
-* `npm run watch` &mdash; Watch for file changes and build continuously for development.
+* `npm run start` - Start development server, watch for changes & continuously build into the `/public` directory.
+* `npm run build:prod` - Re-build the `/public` directory for production.
 
 ## Screenshots
 
