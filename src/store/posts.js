@@ -16,6 +16,8 @@ postsAxios.interceptors.request.use(config => {
 
 const initialState = {
     action: 'add-new', // add-new, update, publish
+    filteredBy: '',
+    query: {}, // Needed for pagination.
     list: [],
     totalPages: 0,
     currentPage: 1,
@@ -41,6 +43,10 @@ const UPDATE_AUTHORS = 'UPDATE_AUTHORS';
 const UPDATE_TAGS = 'UPDATE_TAGS';
 
 const UPDATE_CATEGORIES = 'UPDATE_CATEGORIES';
+
+const UPDATE_FILTERED_BY = 'UPDATE_FILTERED_BY';
+
+const UPDATE_POSTS_QUERY = 'UPDATE_POSTS_QUERY';
 
 const UPDATE_POSTS = 'UPDATE_POSTS';
 
@@ -86,6 +92,18 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 tags: action.tags
+            };
+
+        case UPDATE_FILTERED_BY:
+            return {
+                ...state,
+                filteredBy: action.value
+            };
+
+        case UPDATE_POSTS_QUERY:
+            return {
+                ...state,
+                query: action.query
             };
 
         case UPDATE_POSTS:
@@ -171,6 +189,20 @@ function updateTags(tags) {
     return {
         type: UPDATE_TAGS,
         tags
+    };
+}
+
+export function updateFilteredBy(value) {
+    return {
+        type: UPDATE_FILTERED_BY,
+        value
+    };
+}
+
+export function updatePostsQuery(query) {
+    return {
+        type: UPDATE_POSTS_QUERY,
+        query
     };
 }
 

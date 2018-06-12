@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateCurrentPage, clearPosts, loadPostData } from '../store/posts';
+import {
+    updateCurrentPage,
+    clearPosts,
+    updatePostsQuery,
+    loadPostData
+} from '../store/posts';
 
 /**
  * Pagination
@@ -15,13 +20,18 @@ class Pagination extends Component {
      * Each page will require a new api call
      * to retrieve the posts.
      *
-     * @param {Event} event
+     * @param {Number} page Current page number.
      */
-    handleClick = event => {
-        var page = event.target.value;
-        this.props.updateCurrentPage(event.target.value);
+    handleClick = page => {
+        var query = {
+            ...this.props.currentQuery,
+            page
+        };
+
         this.props.clearPosts();
-        this.props.loadPostData('posts', { page });
+        this.props.updatePostsQuery(query);
+        this.props.updateCurrentPage(event.target.value);
+        this.props.loadPostData('posts', query);
     };
 
     /**
@@ -40,9 +50,8 @@ class Pagination extends Component {
             items.push(
                 <li
                     key={`paginate-button-${i}`}
-                    value={i}
                     className={className}
-                    onClick={this.handleClick}
+                    onClick={() => this.handleClick(i)}
                 >
                     {i}
                 </li>
@@ -66,6 +75,9 @@ class Pagination extends Component {
     }
 }
 
-export default connect(null, { updateCurrentPage, clearPosts, loadPostData })(
-    Pagination
-);
+export default connect(state => ({ currentQuery: state.posts.query }), {
+    updateCurrentPage,
+    clearPosts,
+    updatePostsQuery,
+    loadPostData
+})(Pagination);

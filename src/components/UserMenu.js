@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { loadPostData, updatePosts } from '../store/posts';
+import {
+    loadPostData,
+    updateFilteredBy,
+    updatePostsQuery,
+    updatePosts
+} from '../store/posts';
 import { showModal } from '../utils/timing';
 import LogoutLink from './LogoutLink';
 import Icon from './Icon';
@@ -36,11 +41,12 @@ class UserMenu extends Component {
             this.props.history.push('/');
         }
 
-        this.props.updatePosts({}); // Trigger loader.
-        this.props.loadPostData('posts', {
-            author: this.props.userID,
-            per_page: 100
-        });
+        var query = { author: this.props.userID };
+
+        this.props.updateFilteredBy('my-posts');
+        this.props.updatePostsQuery(query);
+        this.props.updatePosts({}); // Trigger loader within post list.
+        this.props.loadPostData('posts', query);
     };
 
     /**
@@ -88,6 +94,8 @@ class UserMenu extends Component {
 export default withRouter(
     connect(state => ({ userID: state.profile.id }), {
         loadPostData,
+        updateFilteredBy,
+        updatePostsQuery,
         updatePosts
     })(UserMenu)
 );

@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadPostData, updatePosts } from '../store/posts';
+import {
+    loadPostData,
+    updateFilteredBy,
+    updatePostsQuery,
+    updatePosts
+} from '../store/posts';
 
 /**
  * Post List Filter
@@ -24,17 +29,22 @@ class PostFilter extends Component {
      * contain posts, we don't account for no posts coming
      * back from a request... although we probably should.
      */
-    handleClick = event => {
-        var categoryID = event.target.value;
-
-        this.setState({ current: categoryID });
+    handleClick = value => {
+        this.props.updateFilteredBy(value); // Updates this.props.current.
         this.props.updatePosts({}); // Trigger loader.
 
-        if (categoryID) {
-            this.props.loadPostData('posts', { categories: categoryID });
-        } else {
-            this.props.loadPostData('posts');
+        var query = {};
+
+        if (value) {
+            if (value == 'my-posts') {
+                query.author = this.props.userID;
+            } else {
+                query.categories = value;
+            }
         }
+
+        this.props.updatePostsQuery(query);
+        this.props.loadPostData('posts', query);
     };
 
     /**
@@ -53,20 +63,30 @@ class PostFilter extends Component {
                     !isSearch && (
                         <ul>
                             <li
-                                value=""
-                                onClick={this.handleClick}
-                                className={!this.state.current ? 'active' : ''}
+                                onClick={() => this.handleClick('')}
+                                className={!this.props.current ? 'active' : ''}
                             >
-                                All Categories
+                                All Posts
+                            </li>
+                            <li
+                                onClick={() => this.handleClick('my-posts')}
+                                className={
+                                    this.props.current == 'my-posts'
+                                        ? 'active'
+                                        : ''
+                                }
+                            >
+                                My Posts
                             </li>
                             {categories.map(category => {
                                 return (
                                     <li
                                         key={`category-${category.id}`}
-                                        value={category.id}
-                                        onClick={this.handleClick}
+                                        onClick={() =>
+                                            this.handleClick(category.id)
+                                        }
                                         className={
-                                            this.state.current == category.id
+                                            this.props.current == category.id
                                                 ? 'active'
                                                 : ''
                                         }
@@ -84,11 +104,15 @@ class PostFilter extends Component {
 
 export default connect(
     state => ({
+        current: state.posts.filteredBy,
         categories: state.posts.categories,
-        isSearch: !!state.posts.currentSearchTerm
+        isSearch: !!state.posts.currentSearchTerm,
+        userID: state.profile.id
     }),
     {
         loadPostData,
+        updateFilteredBy,
+        updatePostsQuery,
         updatePosts
     }
 )(PostFilter);
