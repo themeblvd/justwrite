@@ -8,9 +8,9 @@ Here's some working information on using the *&lt;justwrite.app&gt;* application
 
 Conceptually, it's a probably a little weird to see a login screen on a random website that gives you access your own website. So after initially visiting *&lt;justwrite.app&gt;*, you may wondering, "Wait, can I login to *my* website?" Yes, you can!
 
-And you may also be wondering, "Do I want to give some random website my login information?" So it may be helpful to understand how our application works. This is purely a frontend, client-side application.
+And you may also be wondering, "Do I want to give some random website my login information?" So it may be helpful to understand how our application works. This is purely a frontend, client-side application with not backend.
 
-What this all means is that when you submit your WordPress credentials, they aren't sent to us. Our application's login form submits data directly to the REST API of the WordPress site URL you give. If your credentials are verified by your website, then an authentication token is sent back and stored in your local browser storage. Then sending this token in your browser's local storage with each request is how you're able to post to your WordPress site, moving forward.
+What that means is when you submit your WordPress credentials, they aren't sent to us. Our application's login form submits data directly to the REST API of the WordPress site URL you give. If your credentials are verified by your website, then an authentication token is sent back and stored in your local web browser's storage. Then, sending this token with each request is how you're able to post to your WordPress site, moving forward.
 
 ##### Authenticating Yourself
 
