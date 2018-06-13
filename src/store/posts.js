@@ -7,31 +7,31 @@ import { dashboard, endpoints } from '../config';
 const postsAxios = axios.create();
 
 postsAxios.interceptors.request.use(config => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    config.headers.Authorization = `Bearer ${user.token}`;
-    return config;
+  const user = JSON.parse(localStorage.getItem('user'));
+  config.headers.Authorization = `Bearer ${user.token}`;
+  return config;
 });
 
 // Initial State
 
 const initialState = {
-    action: 'add-new', // add-new, update, publish
-    filteredBy: '',
-    query: {}, // Needed for pagination.
-    list: [],
-    totalPages: 0,
-    currentPage: 1,
-    currentSearchTerm: '',
-    current: null,
-    toSave: {
-        id: 0,
-        title: '',
-        content: ''
-        // excerpt: '' // @TODO
-    },
-    authors: [],
-    tags: [],
-    categories: []
+  action: 'add-new', // add-new, update, publish
+  filteredBy: '',
+  query: {}, // Needed for pagination.
+  list: [],
+  totalPages: 0,
+  currentPage: 1,
+  currentSearchTerm: '',
+  current: null,
+  toSave: {
+    id: 0,
+    title: '',
+    content: ''
+    // excerpt: '' // @TODO
+  },
+  authors: [],
+  tags: [],
+  categories: []
 };
 
 // Action Types
@@ -69,278 +69,276 @@ const CLEAR_EDIT_POST = 'CLEAR_EDIT_POST';
 // Reducer
 
 export default function reducer(state = initialState, action) {
-    switch (action.type) {
-        case UPDATE_ACTION:
-            return {
-                ...state,
-                action: action.value
-            };
+  switch (action.type) {
+    case UPDATE_ACTION:
+      return {
+        ...state,
+        action: action.value
+      };
 
-        case UPDATE_AUTHORS:
-            return {
-                ...state,
-                authors: action.authors
-            };
+    case UPDATE_AUTHORS:
+      return {
+        ...state,
+        authors: action.authors
+      };
 
-        case UPDATE_CATEGORIES:
-            return {
-                ...state,
-                categories: action.categories
-            };
+    case UPDATE_CATEGORIES:
+      return {
+        ...state,
+        categories: action.categories
+      };
 
-        case UPDATE_TAGS:
-            return {
-                ...state,
-                tags: action.tags
-            };
+    case UPDATE_TAGS:
+      return {
+        ...state,
+        tags: action.tags
+      };
 
-        case UPDATE_FILTERED_BY:
-            return {
-                ...state,
-                filteredBy: action.value
-            };
+    case UPDATE_FILTERED_BY:
+      return {
+        ...state,
+        filteredBy: action.value
+      };
 
-        case UPDATE_POSTS_QUERY:
-            return {
-                ...state,
-                query: action.query
-            };
+    case UPDATE_POSTS_QUERY:
+      return {
+        ...state,
+        query: action.query
+      };
 
-        case UPDATE_POSTS:
-            return {
-                ...state,
-                list: action.posts
-            };
+    case UPDATE_POSTS:
+      return {
+        ...state,
+        list: action.posts
+      };
 
-        case UPDATE_TOTAL_PAGES:
-            return {
-                ...state,
-                totalPages: parseInt(action.num)
-            };
+    case UPDATE_TOTAL_PAGES:
+      return {
+        ...state,
+        totalPages: parseInt(action.num)
+      };
 
-        case UPDATE_CURRENT_PAGE:
-            return {
-                ...state,
-                currentPage: parseInt(action.num)
-            };
+    case UPDATE_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: parseInt(action.num)
+      };
 
-        case UPDATE_CURRENT_SEARCH_TERM:
-            return {
-                ...state,
-                currentSearchTerm: action.term
-            };
+    case UPDATE_CURRENT_SEARCH_TERM:
+      return {
+        ...state,
+        currentSearchTerm: action.term
+      };
 
-        case EDIT_POST:
-            return {
-                ...state,
-                current: action.post
-            };
+    case EDIT_POST:
+      return {
+        ...state,
+        current: action.post
+      };
 
-        case TO_SAVE:
-            return {
-                ...state,
-                toSave: {
-                    ...state.toSave,
-                    [action.key]: action.value
-                }
-            };
+    case TO_SAVE:
+      return {
+        ...state,
+        toSave: {
+          ...state.toSave,
+          [action.key]: action.value
+        }
+      };
 
-        case CLEAR_POSTS:
-            return {
-                ...state,
-                list: []
-            };
+    case CLEAR_POSTS:
+      return {
+        ...state,
+        list: []
+      };
 
-        case CLEAR_EDIT_POST:
-            return {
-                ...state,
-                current: null
-            };
+    case CLEAR_EDIT_POST:
+      return {
+        ...state,
+        current: null
+      };
 
-        default:
-            return state;
-    }
+    default:
+      return state;
+  }
 }
 
 // Actions
 
 export function updateAction(value) {
-    return {
-        type: UPDATE_ACTION,
-        value
-    };
+  return {
+    type: UPDATE_ACTION,
+    value
+  };
 }
 
 function updateAuthors(authors) {
-    return {
-        type: UPDATE_AUTHORS,
-        authors
-    };
+  return {
+    type: UPDATE_AUTHORS,
+    authors
+  };
 }
 
 function updateCategories(categories) {
-    return {
-        type: UPDATE_CATEGORIES,
-        categories
-    };
+  return {
+    type: UPDATE_CATEGORIES,
+    categories
+  };
 }
 
 function updateTags(tags) {
-    return {
-        type: UPDATE_TAGS,
-        tags
-    };
+  return {
+    type: UPDATE_TAGS,
+    tags
+  };
 }
 
 export function updateFilteredBy(value) {
-    return {
-        type: UPDATE_FILTERED_BY,
-        value
-    };
+  return {
+    type: UPDATE_FILTERED_BY,
+    value
+  };
 }
 
 export function updatePostsQuery(query) {
-    return {
-        type: UPDATE_POSTS_QUERY,
-        query
-    };
+  return {
+    type: UPDATE_POSTS_QUERY,
+    query
+  };
 }
 
 export function updatePosts(posts) {
-    return {
-        type: UPDATE_POSTS,
-        posts
-    };
+  return {
+    type: UPDATE_POSTS,
+    posts
+  };
 }
 
 function updateTotalPages(num) {
-    return {
-        type: UPDATE_TOTAL_PAGES,
-        num
-    };
+  return {
+    type: UPDATE_TOTAL_PAGES,
+    num
+  };
 }
 
 export function updateCurrentPage(num) {
-    return {
-        type: UPDATE_CURRENT_PAGE,
-        num
-    };
+  return {
+    type: UPDATE_CURRENT_PAGE,
+    num
+  };
 }
 
 export function updateCurrentSearchTerm(term) {
-    return {
-        type: UPDATE_CURRENT_SEARCH_TERM,
-        term
-    };
+  return {
+    type: UPDATE_CURRENT_SEARCH_TERM,
+    term
+  };
 }
 
 function editPost(post) {
-    return {
-        type: EDIT_POST,
-        post
-    };
+  return {
+    type: EDIT_POST,
+    post
+  };
 }
 
 export function toSave(key, value) {
-    return {
-        type: TO_SAVE,
-        key,
-        value
-    };
+  return {
+    type: TO_SAVE,
+    key,
+    value
+  };
 }
 
 export function clearPosts() {
-    return {
-        type: CLEAR_POSTS
-    };
+  return {
+    type: CLEAR_POSTS
+  };
 }
 
 export function clearEditPost() {
-    return {
-        type: CLEAR_EDIT_POST
-    };
+  return {
+    type: CLEAR_EDIT_POST
+  };
 }
 
 // Action Dispatchers
 
 export function loadPostData(endpoint, params = {}) {
-    return dispatch => {
-        var user = JSON.parse(localStorage.getItem('user'));
-        var apiUrl = stripSlash(user.website) + '/' + endpoints[endpoint]; // prettier-ignore
+  return dispatch => {
+    var user = JSON.parse(localStorage.getItem('user'));
+    var apiUrl = stripSlash(user.website) + '/' + endpoints[endpoint]; // prettier-ignore
 
-        if (endpoint === 'posts') {
-            params = {
-                per_page: dashboard.perPage,
-                context: 'edit',
-                ...params
-            };
+    if (endpoint === 'posts') {
+      params = {
+        per_page: dashboard.perPage,
+        context: 'edit',
+        ...params
+      };
 
-            if (params.page) {
-                dispatch(updateCurrentPage(params.page));
-            }
+      if (params.page) {
+        dispatch(updateCurrentPage(params.page));
+      }
+    }
+
+    return postsAxios
+      .get(apiUrl, { params })
+      .then(response => {
+        switch (endpoint) {
+          case 'authors':
+            dispatch(updateAuthors(response.data));
+            break;
+          case 'categories':
+            dispatch(updateCategories(response.data));
+            break;
+          case 'tags':
+            dispatch(updateTags(response.data));
+            break;
+          default:
+            dispatch(updateTotalPages(response.headers['x-wp-totalpages'])); // prettier-ignore
+            dispatch(updatePosts(response.data));
         }
-
-        return postsAxios
-            .get(apiUrl, { params })
-            .then(response => {
-                switch (endpoint) {
-                    case 'authors':
-                        dispatch(updateAuthors(response.data));
-                        break;
-                    case 'categories':
-                        dispatch(updateCategories(response.data));
-                        break;
-                    case 'tags':
-                        dispatch(updateTags(response.data));
-                        break;
-                    default:
-                        dispatch(updateTotalPages(response.headers['x-wp-totalpages'])); // prettier-ignore
-                        dispatch(updatePosts(response.data));
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    };
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 }
 
 export function loadPost(postID) {
-    return dispatch => {
-        var user = JSON.parse(localStorage.getItem('user'));
-        var apiUrl = stripSlash(user.website) + '/' + endpoints.posts; // prettier-ignore
+  return dispatch => {
+    var user = JSON.parse(localStorage.getItem('user'));
+    var apiUrl = stripSlash(user.website) + '/' + endpoints.posts; // prettier-ignore
 
-        return postsAxios
-            .get(apiUrl + `/${postID}?context=edit`)
-            .then(response => {
-                dispatch(editPost(response.data));
-            });
-    };
+    return postsAxios.get(apiUrl + `/${postID}?context=edit`).then(response => {
+      dispatch(editPost(response.data));
+    });
+  };
 }
 
 export function savePost(post) {
-    return dispatch => {
-        var user = JSON.parse(localStorage.getItem('user'));
-        var apiUrl = stripSlash(user.website) + '/' + endpoints.posts; // prettier-ignore
-        var postID = post.id;
-        var data = {
-            ...post
-        };
-        delete data.id;
-
-        return postsAxios.put(apiUrl + `/${postID}`, data); // Promise handling in <ActionMenu>
+  return dispatch => {
+    var user = JSON.parse(localStorage.getItem('user'));
+    var apiUrl = stripSlash(user.website) + '/' + endpoints.posts; // prettier-ignore
+    var postID = post.id;
+    var data = {
+      ...post
     };
+    delete data.id;
+
+    return postsAxios.put(apiUrl + `/${postID}`, data); // Promise handling in <ActionMenu>
+  };
 }
 
 export function publishNewPost(post) {
-    return dispatch => {
-        var user = JSON.parse(localStorage.getItem('user'));
-        var apiUrl = stripSlash(user.website) + '/' + endpoints.posts; // prettier-ignore
-        var data = {
-            status: 'publish',
-            ...post
-        };
-        delete data.id;
-
-        return postsAxios.post(apiUrl, data); // Promise handling in <ActionMenu>
+  return dispatch => {
+    var user = JSON.parse(localStorage.getItem('user'));
+    var apiUrl = stripSlash(user.website) + '/' + endpoints.posts; // prettier-ignore
+    var data = {
+      status: 'publish',
+      ...post
     };
+    delete data.id;
+
+    return postsAxios.post(apiUrl, data); // Promise handling in <ActionMenu>
+  };
 }

@@ -8,12 +8,12 @@ import logo from '../assets/img/logo.svg';
  * @return {Component}
  */
 const LoginLogo = () => {
-    return (
-        <div className="login-logo">
-            <img src={logo} alt="Just Write" />
-            <span className="tagline">{project.description}</span>
-        </div>
-    );
+  return (
+    <div className="login-logo">
+      <img src={logo} alt="Just Write" />
+      <span className="tagline">{project.description}</span>
+    </div>
+  );
 };
 
 export default LoginLogo;

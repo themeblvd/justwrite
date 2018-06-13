@@ -10,16 +10,16 @@ import { connect } from 'react-redux';
  * @return {Component}
  */
 const TagList = props => {
-    return (
-        <ul className="tag-list">
-            {props.tags.map(tagID => {
-                let tag = props.tagData.find(tag => tag.id === tagID);
-                if (tag) {
-                    return <li key={`tag-${tagID}`}>{tag.slug}</li>;
-                }
-            })}
-        </ul>
-    );
+  return (
+    <ul className="tag-list">
+      {props.tags.map(tagID => {
+        let tag = props.tagData.find(tag => tag.id === tagID);
+        if (tag) {
+          return <li key={`tag-${tagID}`}>{tag.slug}</li>;
+        }
+      })}
+    </ul>
+  );
 };
 
 export default connect(state => ({ tagData: state.posts.tags }))(TagList);

@@ -5,8 +5,8 @@
  * @return {Boolean}     Whether valid URL or not.
  */
 export function validateUrl(url) {
-    var pattern = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-    return pattern.test(url);
+  var pattern = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+  return pattern.test(url);
 }
 
 /**
@@ -18,39 +18,39 @@ export function validateUrl(url) {
  * @return {Array|String}         Errors for all fields, or error for single field.
  */
 export function validateLoginForm(inputs, value) {
-    var singleInputName = typeof inputs == 'string' ? inputs : null;
+  var singleInputName = typeof inputs == 'string' ? inputs : null;
 
-    if (singleInputName) {
-        var inputs = {
-            [singleInputName]: value
-        };
-    }
-
-    var errors = {
-        website: null,
-        username: null,
-        password: null
+  if (singleInputName) {
+    var inputs = {
+      [singleInputName]: value
     };
+  }
 
-    if (!inputs.website) {
-        errors.website = 'Website URL for your WordPress website is required.';
-    } else if (!validateUrl(inputs.website)) {
-        errors.website = 'Enter a valid Website URL.';
-    } else if (!inputs.website.includes('https')) {
-        errors.website = 'The website must be secured with https.';
-    }
+  var errors = {
+    website: null,
+    username: null,
+    password: null
+  };
 
-    if (!inputs.username) {
-        errors.username = 'Username for your WordPress website is required.';
-    }
+  if (!inputs.website) {
+    errors.website = 'Website URL for your WordPress website is required.';
+  } else if (!validateUrl(inputs.website)) {
+    errors.website = 'Enter a valid Website URL.';
+  } else if (!inputs.website.includes('https')) {
+    errors.website = 'The website must be secured with https.';
+  }
 
-    if (!inputs.password) {
-        errors.password = 'Password for your WordPress website is required.';
-    }
+  if (!inputs.username) {
+    errors.username = 'Username for your WordPress website is required.';
+  }
 
-    if (singleInputName) {
-        return errors[singleInputName];
-    } else {
-        return errors;
-    }
+  if (!inputs.password) {
+    errors.password = 'Password for your WordPress website is required.';
+  }
+
+  if (singleInputName) {
+    return errors[singleInputName];
+  } else {
+    return errors;
+  }
 }

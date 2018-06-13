@@ -20,30 +20,30 @@ import { project } from '../config';
  * @return {String}         Formatted content.
  */
 export function unautop(content) {
-    // Remove existing double line breaks around <p> tags.
-    content = content.replace(/\n\n<p>/g, '<p>');
-    content = content.replace(/<\/p>\n\n/g, '</p>');
+  // Remove existing double line breaks around <p> tags.
+  content = content.replace(/\n\n<p>/g, '<p>');
+  content = content.replace(/<\/p>\n\n/g, '</p>');
 
-    // Remove existing single line breaks around <p> tags.
-    content = content.replace(/\n<p>/g, '<p>');
-    content = content.replace(/<\/p>\n/g, '</p>');
+  // Remove existing single line breaks around <p> tags.
+  content = content.replace(/\n<p>/g, '<p>');
+  content = content.replace(/<\/p>\n/g, '</p>');
 
-    // Remove opening <p> tags.
-    content = content.replace(/<p>/g, '');
+  // Remove opening <p> tags.
+  content = content.replace(/<p>/g, '');
 
-    // Replace all closing </p> tags with two lines breaks.
-    content = content.replace(/<\/p>/g, '\n\n');
+  // Replace all closing </p> tags with two lines breaks.
+  content = content.replace(/<\/p>/g, '\n\n');
 
-    // For the different <br> formats, remove leading and
-    // trailing line breaks, and then replace all of then
-    // with a single new line character.
-    ['<br>', '<br/>', '<br />'].forEach(br => {
-        content.split(br + '\n').join(br);
-        content.split('\n' + br).join(br);
-        content.split(br).join('\n');
-    });
+  // For the different <br> formats, remove leading and
+  // trailing line breaks, and then replace all of then
+  // with a single new line character.
+  ['<br>', '<br/>', '<br />'].forEach(br => {
+    content.split(br + '\n').join(br);
+    content.split('\n' + br).join(br);
+    content.split(br).join('\n');
+  });
 
-    return content;
+  return content;
 }
 
 /**
@@ -57,7 +57,7 @@ export function unautop(content) {
  * @return {String}     URL without trailing slash.
  */
 export function stripSlash(url) {
-    return url.replace(/\/$/, '');
+  return url.replace(/\/$/, '');
 }
 
 /**
@@ -65,11 +65,11 @@ export function stripSlash(url) {
  * footer.
  */
 export function copyright() {
-    var year      = new Date().getFullYear(),
-        copyright = `&copy; ${year} ${project.title}`,
-        version   = `<a href="${project.repo}/releases" target="_blank">${project.version}</a>`, // prettier-ignore
-        open      = `<a href="${project.repo}" target="_blank">open source</a>`, // prettier-ignore
-        author    = `<a href="${project.authorUrl}" target="_blank">${project.authorName}</a>`; // prettier-ignore
+  var year      = new Date().getFullYear(),
+      copyright = `&copy; ${year} ${project.title}`,
+      version   = `<a href="${project.repo}/releases" target="_blank">${project.version}</a>`, // prettier-ignore
+      open      = `<a href="${project.repo}" target="_blank">open source</a>`, // prettier-ignore
+      author    = `<a href="${project.authorUrl}" target="_blank">${project.authorName}</a>`; // prettier-ignore
 
-    return `${copyright} ${version} &mdash; An ${open} project by ${author}.`;
+  return `${copyright} ${version} &mdash; An ${open} project by ${author}.`;
 }

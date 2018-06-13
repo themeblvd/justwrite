@@ -12,62 +12,54 @@ import Icon from './Icon';
  * entire app.
  */
 class DashboardHeader extends Component {
-    /**
-     * Toggles the display of the user menu, for
-     * both desktop and mobile.
-     *
-     * This works by just toggling on and off the
-     * `user-menu-on` class and the rest is handled
-     * through CSS.
-     *
-     * @param {Event} event
-     */
-    handleUserMenuToggle = event => {
-        event.preventDefault();
-        document.body.classList.toggle('user-menu-on');
-    };
+  /**
+   * Toggles the display of the user menu, for
+   * both desktop and mobile.
+   *
+   * This works by just toggling on and off the
+   * `user-menu-on` class and the rest is handled
+   * through CSS.
+   *
+   * @param {Event} event
+   */
+  handleUserMenuToggle = event => {
+    event.preventDefault();
+    document.body.classList.toggle('user-menu-on');
+  };
 
-    /**
-     * Render component.
-     *
-     * @return {Component}
-     */
-    render() {
-        return (
-            <div className="dashboard-header">
-                <div className="header-content">
-                    <a
-                        href="#"
-                        className="menu-icon"
-                        onClick={this.handleUserMenuToggle}
-                    >
-                        <span />
-                        <span />
-                        <span />
-                    </a>
-                    <a
-                        href="#"
-                        className="user-menu-trigger"
-                        onClick={this.handleUserMenuToggle}
-                    >
-                        <img src={this.props.avatar} />
-                        {this.props.first_name} {this.props.last_name}
-                        <Icon icon="chevron-down" />
-                    </a>
-                    <ActionMenu />
-                </div>
-                <UserMenu
-                    name={`${this.props.first_name} ${this.props.last_name}`}
-                    avatar={this.props.avatar}
-                    website={this.props.website}
-                    handleClose={this.handleUserMenuToggle}
-                />
-            </div>
-        );
-    }
+  /**
+   * Render component.
+   *
+   * @return {Component}
+   */
+  render() {
+    return (
+      <div className="dashboard-header">
+        <div className="header-content">
+          <a href="#" className="menu-icon" onClick={this.handleUserMenuToggle}>
+            <span />
+            <span />
+            <span />
+          </a>
+          <a href="#" className="user-menu-trigger" onClick={this.handleUserMenuToggle}>
+            <img src={this.props.avatar} />
+            {this.props.first_name} {this.props.last_name}
+            <Icon icon="chevron-down" />
+          </a>
+          <ActionMenu />
+        </div>
+        <UserMenu
+          name={`${this.props.first_name} ${this.props.last_name}`}
+          avatar={this.props.avatar}
+          website={this.props.website}
+          handleClose={this.handleUserMenuToggle}
+        />
+      </div>
+    );
+  }
 }
 
 export default connect(state => ({
-    ...state.auth,
-    ...state.profile
+  ...state.auth,
+  ...state.profile
 }))(DashboardHeader);

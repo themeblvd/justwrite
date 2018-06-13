@@ -11,17 +11,17 @@ import classNames from 'classnames';
  * @return {Component}
  */
 const Button = props => {
-    const classes = classNames({
-        'has-loader': true,
-        loading: props.isLoading,
-        primary: props.isPrimary
-    });
+  const classes = classNames({
+    'has-loader': true,
+    loading: props.isLoading,
+    primary: props.isPrimary
+  });
 
-    return (
-        <button onClick={props.onClick} className={classes}>
-            {props.children}
-        </button>
-    );
+  return (
+    <button onClick={props.onClick} className={classes}>
+      {props.children}
+    </button>
+  );
 };
 
 export default Button;

@@ -8,11 +8,8 @@ import './assets/scss/main.scss';
 import { connect } from 'react-redux';
 import { verify } from './store/auth';
 
-// Utilities
-import classNames from 'classnames';
-
 // Routing & Transitions
-import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 
 // Components
@@ -26,84 +23,77 @@ import InfoModal from './components/InfoModal';
  * Top Level Application
  */
 class App extends Component {
-    /**
-     * App classes.
-     *
-     * The application monitors a global status in
-     * the store, and this triggers the CSS class
-     * changes here.
-     *
-     * For the most part, this just toggles the
-     * top-level applicatoin loader and handles its
-     * animation.
-     */
-    getAppClassNames = () => {
-        switch (this.props.appStatus) {
-            case 'showing-loader':
-            case 'is-loading':
-                return 'app is-loading show-loader';
+  /**
+   * App classes.
+   *
+   * The application monitors a global status in
+   * the store, and this triggers the CSS class
+   * changes here.
+   *
+   * For the most part, this just toggles the
+   * top-level applicatoin loader and handles its
+   * animation.
+   */
+  getAppClassNames = () => {
+    switch (this.props.appStatus) {
+      case 'showing-loader':
+      case 'is-loading':
+        return 'app is-loading show-loader';
 
-            case 'hiding-loader':
-                return 'app is-loading hide-loader';
+      case 'hiding-loader':
+        return 'app is-loading hide-loader';
 
-            default:
-                return 'app';
-        }
-    };
-
-    /**
-     * Verify the user data.
-     *
-     * If there is user data saved in local storage
-     * (i.e. the user has already logged in), we'll
-     * do an API request to make sure the JWT token
-     * is still valid. And if it's not valid, they
-     * need to login again.
-     */
-    componentDidMount() {
-        this.props.verify();
+      default:
+        return 'app';
     }
+  };
 
-    /**
-     * Render component.
-     *
-     * @return {Component}
-     */
-    render() {
-        const {
-            isLoading,
-            hasVerified,
-            hasNotification,
-            isAuthenticated
-        } = this.props;
+  /**
+   * Verify the user data.
+   *
+   * If there is user data saved in local storage
+   * (i.e. the user has already logged in), we'll
+   * do an API request to make sure the JWT token
+   * is still valid. And if it's not valid, they
+   * need to login again.
+   */
+  componentDidMount() {
+    this.props.verify();
+  }
 
-        return (
-            <div className={this.getAppClassNames()}>
-                {hasVerified && (
-                    <Switch>
-                        <Route path="/login" component={Login} />
-                        <PrivateRoute path="/" component={Dashboard} />
-                    </Switch>
-                )}
-                <InfoModal id="help" />
-                <InfoModal id="privacy" />
-                <div className="modal-backdrop" />
-                {hasNotification && <Notification />}
-                <Loading className="app-loader" />
-            </div>
-        );
-    }
+  /**
+   * Render component.
+   *
+   * @return {Component}
+   */
+  render() {
+    const { hasVerified, hasNotification } = this.props;
+
+    return (
+      <div className={this.getAppClassNames()}>
+        {hasVerified && (
+          <Switch>
+            <Route path="/login" component={Login} />
+            <PrivateRoute path="/" component={Dashboard} />
+          </Switch>
+        )}
+        <InfoModal id="help" />
+        <InfoModal id="privacy" />
+        <div className="modal-backdrop" />
+        {hasNotification && <Notification />}
+        <Loading className="app-loader" />
+      </div>
+    );
+  }
 }
 
 export default withRouter(
-    connect(
-        state => ({
-            ...state.auth,
-            hasNotification: !!state.status.notification.message,
-            appStatus: state.status.app
-        }),
-        {
-            verify
-        }
-    )(App)
+  connect(
+    state => ({
+      ...state.auth,
+      hasNotification: !!state.status.notification.message,
+      appStatus: state.status.app
+    }),
+    { verify }
+  )(App)
 );

@@ -13,13 +13,13 @@ import classNames from 'classnames';
  * @return {Component}
  */
 const Loading = props => {
-    const classes = classNames('loader', props.className);
+  const classes = classNames('loader', props.className);
 
-    return (
-        <div className={classes}>
-            <span />
-        </div>
-    );
+  return (
+    <div className={classes}>
+      <span />
+    </div>
+  );
 };
 
 export default Loading;

@@ -13,46 +13,46 @@ import Icon from './Icon';
  * @return {Component}
  */
 const EditorViewToolbar = props => {
-    return (
-        <ul className="view-toolbar">
-            <li className={props.current == 'edit' ? 'active' : ''}>
-                <a
-                    href="#"
-                    title="Edit View"
-                    onClick={event => {
-                        event.preventDefault();
-                        props.handleChange('edit');
-                    }}
-                >
-                    <Icon icon="pencil-alt" />
-                </a>
-            </li>
-            <li className={props.current == 'split' ? 'active' : ''}>
-                <a
-                    title="Split View"
-                    href="#"
-                    onClick={event => {
-                        event.preventDefault();
-                        props.handleChange('split');
-                    }}
-                >
-                    <Icon icon="columns" />
-                </a>
-            </li>
-            <li className={props.current == 'preview' ? 'active' : ''}>
-                <a
-                    title="Preview View"
-                    href="#"
-                    onClick={event => {
-                        event.preventDefault();
-                        props.handleChange('preview');
-                    }}
-                >
-                    <Icon icon="eye" />
-                </a>
-            </li>
-        </ul>
-    );
+  return (
+    <ul className="view-toolbar">
+      <li className={props.current == 'edit' ? 'active' : ''}>
+        <a
+          href="#"
+          title="Edit View"
+          onClick={event => {
+            event.preventDefault();
+            props.handleChange('edit');
+          }}
+        >
+          <Icon icon="pencil-alt" />
+        </a>
+      </li>
+      <li className={props.current == 'split' ? 'active' : ''}>
+        <a
+          title="Split View"
+          href="#"
+          onClick={event => {
+            event.preventDefault();
+            props.handleChange('split');
+          }}
+        >
+          <Icon icon="columns" />
+        </a>
+      </li>
+      <li className={props.current == 'preview' ? 'active' : ''}>
+        <a
+          title="Preview View"
+          href="#"
+          onClick={event => {
+            event.preventDefault();
+            props.handleChange('preview');
+          }}
+        >
+          <Icon icon="eye" />
+        </a>
+      </li>
+    </ul>
+  );
 };
 
 export default EditorViewToolbar;

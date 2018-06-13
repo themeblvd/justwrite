@@ -12,14 +12,14 @@ import fecha from 'fecha';
  * @return {Component}
  */
 const Meta = props => {
-    const date = fecha.format(new Date(props.date), 'shortDate');
-    const author = props.authorData.find(author => author.id == props.author);
+  const date = fecha.format(new Date(props.date), 'shortDate');
+  const author = props.authorData.find(author => author.id == props.author);
 
-    return (
-        <p>
-            {author && `By ${author.name}`} on {date}
-        </p>
-    );
+  return (
+    <p>
+      {author && `By ${author.name}`} on {date}
+    </p>
+  );
 };
 
 export default connect(state => ({ authorData: state.posts.authors }))(Meta);

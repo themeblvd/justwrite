@@ -23,52 +23,51 @@ import DashboardFooter from './DashboardFooter';
  * displaying the top-level dashboard.
  */
 class Dashboard extends Component {
-    /**
-     * Pull async data.
-     *
-     * Once the component has mounted, we can
-     * start pulling all the data needed from
-     * the separate endpoints of the WordPress site.
-     */
-    componentDidMount() {
-        this.props.loadProfile();
-        this.props.loadPostData('authors');
-        this.props.loadPostData('categories');
-        this.props.loadPostData('tags');
-        this.props.loadPostData('posts');
-    }
+  /**
+   * Pull async data.
+   *
+   * Once the component has mounted, we can
+   * start pulling all the data needed from
+   * the separate endpoints of the WordPress site.
+   */
+  componentDidMount() {
+    this.props.loadProfile();
+    this.props.loadPostData('authors');
+    this.props.loadPostData('categories');
+    this.props.loadPostData('tags');
+    this.props.loadPostData('posts');
+  }
 
-    /**
-     * Render component.
-     *
-     * @return {Component}
-     */
-    render() {
-        return (
-            <div className="dashboard-page">
-                <DashboardHeader />
-                <TransitionGroup component={null}>
-                    <CSSTransition
-                        key={this.props.location.key}
-                        classNames="fade"
-                        timeout={250}
-                    >
-                        <Switch location={this.props.location}>
-                            <Route exact path="/" component={Home} />
-                            <Route path="/edit/:id" component={EditPost} />
-                            <Route path="/new/" component={EditPost} />
-                            <Redirect to="/" />
-                        </Switch>
-                    </CSSTransition>
-                </TransitionGroup>
-                <EditProfile />
-                <DashboardFooter />
-            </div>
-        );
-    }
+  /**
+   * Render component.
+   *
+   * @return {Component}
+   */
+  render() {
+    return (
+      <div className="dashboard-page">
+        <DashboardHeader />
+        <TransitionGroup component={null}>
+          <CSSTransition key={this.props.location.key} classNames="fade" timeout={250}>
+            <Switch location={this.props.location}>
+              <Route exact path="/" component={Home} />
+              <Route path="/edit/:id" component={EditPost} />
+              <Route path="/new/" component={EditPost} />
+              <Redirect to="/" />
+            </Switch>
+          </CSSTransition>
+        </TransitionGroup>
+        <EditProfile />
+        <DashboardFooter />
+      </div>
+    );
+  }
 }
 
-export default connect(state => ({ appStatus: state.status.app }), {
+export default connect(
+  state => ({ appStatus: state.status.app }),
+  {
     loadProfile,
     loadPostData
-})(Dashboard);
+  }
+)(Dashboard);

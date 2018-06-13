@@ -41,54 +41,57 @@ import { Redirect, withRouter, Link } from 'react-router-dom';
  *    origial state every couple of hours.
  */
 class LoginToSandbox extends Component {
-    /**
-     * When "Play in the sandbox" link is
-     * clicked, login through exernal sandbox
-     * API.
-     */
-    handleLogin = event => {
-        event.preventDefault();
+  /**
+   * When "Play in the sandbox" link is
+   * clicked, login through exernal sandbox
+   * API.
+   */
+  handleLogin = event => {
+    event.preventDefault();
 
-        this.props.startLoading('app');
+    this.props.startLoading('app');
 
-        axios
-            .get(sandbox.auth)
-            .then(response => {
-                var user = {
-                    ...response.data,
-                    website: sandbox.url
-                };
+    axios
+      .get(sandbox.auth)
+      .then(response => {
+        var user = {
+          ...response.data,
+          website: sandbox.url
+        };
 
-                localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('user', JSON.stringify(user));
 
-                this.props.authenticate(user);
+        this.props.authenticate(user);
 
-                setTimeout(() => {
-                    this.props.history.push('/');
-                }, animationDuration.fadeApp);
-            })
-            .catch(error => {
-                this.props.authError('login', 'Could not log in.');
-            });
-    };
+        setTimeout(() => {
+          this.props.history.push('/');
+        }, animationDuration.fadeApp);
+      })
+      .catch(error => {
+        this.props.authError('login', 'Could not log in.');
+      });
+  };
 
-    /**
-     * Render component.
-     *
-     * @return {Component}
-     */
-    render() {
-        return (
-            <span className="sandbox-link">
-                Or{' '}
-                <a href="#" onClick={this.handleLogin}>
-                    play in the sandbox
-                </a>
-            </span>
-        );
-    }
+  /**
+   * Render component.
+   *
+   * @return {Component}
+   */
+  render() {
+    return (
+      <span className="sandbox-link">
+        Or{' '}
+        <a href="#" onClick={this.handleLogin}>
+          play in the sandbox
+        </a>
+      </span>
+    );
+  }
 }
 
 export default withRouter(
-    connect(null, { authenticate, authError, startLoading })(LoginToSandbox)
+  connect(
+    null,
+    { authenticate, authError, startLoading }
+  )(LoginToSandbox)
 );
