@@ -20,7 +20,8 @@
         "build": "NODE_ENV=development webpack",
         "build:prod": "NODE_ENV=production webpack",
         "js-lint": "eslint src/**/*.js",
-        "js-lint:fix": "eslint src/**/*.js --fix"
+        "js-lint:fix": "eslint src/**/*.js --fix",
+        "format": "prettier --write --single-quote --print-width=100 --tab-width=2 \"{*.js,src/**/*.js}\""
     },
     "license": "ISC",
     "dependencies": {
@@ -63,7 +64,8 @@
     "devDependencies": {
         "browser-sync": "^2.24.4",
         "concurrently": "^3.5.1",
-        "connect-history-api-fallback": "^1.5.0"
+        "connect-history-api-fallback": "^1.5.0",
+        "prettier": "^1.13.5"
     },
     "browserslist": [
         "last 1 major version",
