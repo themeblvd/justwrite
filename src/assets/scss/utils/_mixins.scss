@@ -1,0 +1,28 @@
+//
+// Button in a group, with the
+// "pill" style.
+//
+
+@mixin pill {
+  background: #fff;
+  border-bottom: 2px solid transparent;
+  border-radius: 2px;
+  color: $clr-text;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  margin: 4px;
+  padding: 6px 8px 4px 8px;
+  transition: color 0.2s ease-in, border-color 0.2s ease-in,
+    background-color 0.2s ease-in;
+
+  &:hover {
+    border-color: $clr-border;
+  }
+}
+
+@mixin pill-active {
+  background-color: $clr-primary;
+  border-color: transparent;
+  color: #fff;
+}
