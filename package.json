@@ -19,8 +19,8 @@
         "server": "node server.js",
         "build": "NODE_ENV=development webpack",
         "build:prod": "NODE_ENV=production webpack",
-        "js-lint": "eslint src/**/*.js",
-        "js-lint:fix": "eslint src/**/*.js --fix",
+        "js-lint": "eslint \"{*.js,src/**/*.js}\"",
+        "js-lint:fix": "eslint \"{*.js,src/**/*.js}\" --fix",
         "format": "prettier --write --single-quote --print-width=100 --tab-width=2 \"{*.js,src/**/*.js}\""
     },
     "license": "ISC",
@@ -62,9 +62,17 @@
         "webpack-cli": "^2.1.3"
     },
     "devDependencies": {
+        "babel-eslint": "^8.1.0",
         "browser-sync": "^2.24.4",
         "concurrently": "^3.5.1",
         "connect-history-api-fallback": "^1.5.0",
+        "eslint": "^4.19.1",
+        "eslint-config-react-app": "^2.1.0",
+        "eslint-loader": "^2.0.0",
+        "eslint-plugin-flowtype": "^2.49.3",
+        "eslint-plugin-import": "^2.12.0",
+        "eslint-plugin-jsx-a11y": "^5.1.1",
+        "eslint-plugin-react": "^7.9.1",
         "prettier": "^1.13.5"
     },
     "browserslist": [
@@ -78,9 +86,5 @@
         "Safari >= 9",
         "Android >= 4.4",
         "Opera >= 30"
-    ],
-    "prettier": {
-        "tabWidth": 4,
-        "singleQuote": true
-    }
+    ]
 }
