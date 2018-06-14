@@ -3,37 +3,37 @@
 //
 
 .editor {
-    border-top: 1px solid $clr-border;
-    padding-top: 45px;
+  border-top: 1px solid $clr-border;
+  padding-top: 45px;
 
-    .react-mde {
-        border: none;
-        border-bottom: 1px solid $clr-border;
+  .react-mde {
+    border: none;
+    border-bottom: 1px solid $clr-border;
+  }
+  .mde-header {
+    background: darken($clr-bg-body, 2.5%);
+    border-bottom: 1px solid $clr-border;
+    border-radius: 0;
+    padding: 0 30px;
+    position: absolute;
+    top: 1px;
+    right: 0;
+    left: 0;
+    z-index: 1;
+  }
+  .react-mde-horizontal-layout .mde-content .mde-preview {
+    border-left: 1px solid $clr-border;
+  }
+  .mde-text .public-DraftEditor-content,
+  .mde-preview .mde-preview-content {
+    padding: 30px 50px;
+  }
+  .mde-header ul.mde-header-group li.mde-header-item button {
+    color: $clr-text;
+    &:hover {
+      color: $clr-text-darken;
     }
-    .mde-header {
-        background: darken($clr-bg-body, 2.5%);
-        border-bottom: 1px solid $clr-border;
-        border-radius: 0;
-        padding: 0 30px;
-        position: absolute;
-        top: 1px;
-        right: 0;
-        left: 0;
-        z-index: 1;
-    }
-    .react-mde-horizontal-layout .mde-content .mde-preview {
-        border-left: 1px solid $clr-border;
-    }
-    .mde-text .public-DraftEditor-content,
-    .mde-preview .mde-preview-content {
-        padding: 30px 50px;
-    }
-    .mde-header ul.mde-header-group li.mde-header-item button {
-        color: $clr-text;
-        &:hover {
-            color: $clr-text-darken;
-        }
-    }
+  }
 }
 
 //
@@ -41,38 +41,38 @@
 //
 
 .editor .view-toolbar {
-    display: none;
+  display: none;
 }
 
 @media (min-width: 1000px) {
-    .editor .view-toolbar {
-        font-size: 12px;
-        display: flex;
-        align-items: center;
-        height: 45px;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        top: 0;
-        right: 40px;
-        z-index: 2;
+  .editor .view-toolbar {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 40px;
+    z-index: 2;
 
-        li {
-            margin: 0 4px;
-        }
-        a {
-            color: $clr-text;
-            display: block;
-            padding: 4px;
-            &:hover {
-                color: $clr-text-darken;
-            }
-        }
-        li.active a {
-            color: darken($clr-primary, 20%);
-        }
+    li {
+      margin: 0 4px;
     }
+    a {
+      color: $clr-text;
+      display: block;
+      padding: 4px;
+      &:hover {
+        color: $clr-text-darken;
+      }
+    }
+    li.active a {
+      color: darken($clr-primary, 20%);
+    }
+  }
 }
 
 //
@@ -80,18 +80,18 @@
 //
 
 @media (min-width: 992px) {
-    .stick-editor-toolbar .editor {
-        .mde-header {
-            position: fixed;
-            top: $height-header;
-            right: 0;
-            left: 0;
-        }
-        .view-toolbar {
-            position: fixed;
-            top: $height-header;
-        }
+  .stick-editor-toolbar .editor {
+    .mde-header {
+      position: fixed;
+      top: $height-header;
+      right: 0;
+      left: 0;
     }
+    .view-toolbar {
+      position: fixed;
+      top: $height-header;
+    }
+  }
 }
 
 //
@@ -99,38 +99,38 @@
 //
 
 @media (min-width: 1000px) {
-    .editor {
-        &.view-edit {
-            .mde-preview {
-                display: none;
-            }
-            .mde-text {
-                font-size: 18px;
-                width: 100%;
-            }
-            .public-DraftEditor-content {
-                margin: 0 auto;
-                max-width: 800px;
-                padding-right: 0;
-                padding-left: 0;
-            }
-        }
-        &.view-preview {
-            .mde-text {
-                display: none;
-            }
-            .mde-preview {
-                font-size: 18px;
-                width: 100%;
-            }
-            .mde-preview-content {
-                margin: 0 auto;
-                max-width: 800px;
-                padding-right: 0;
-                padding-left: 0;
-            }
-        }
+  .editor {
+    &.view-edit {
+      .mde-preview {
+        display: none;
+      }
+      .mde-text {
+        font-size: 18px;
+        width: 100%;
+      }
+      .public-DraftEditor-content {
+        margin: 0 auto;
+        max-width: 800px;
+        padding-right: 0;
+        padding-left: 0;
+      }
     }
+    &.view-preview {
+      .mde-text {
+        display: none;
+      }
+      .mde-preview {
+        font-size: 18px;
+        width: 100%;
+      }
+      .mde-preview-content {
+        margin: 0 auto;
+        max-width: 800px;
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
 }
 
 //
@@ -138,59 +138,59 @@
 //
 
 .mde-preview .mde-preview-content {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    border: none;
+    font-weight: 600;
+    margin: 30px 0 24px 0;
+    padding: 0;
+  }
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 2.25rem;
+    }
+    h2 {
+      font-size: 1.75rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+    h4 {
+      font-size: 1.25rem;
+    }
+    h5 {
+      font-size: 1rem;
+    }
     h6 {
-        border: none;
-        font-weight: 600;
-        margin: 30px 0 24px 0;
-        padding: 0;
+      font-size: 0.85rem;
     }
-    @media (min-width: 768px) {
-        h1 {
-            font-size: 2.25rem;
-        }
-        h2 {
-            font-size: 1.75rem;
-        }
-        h3 {
-            font-size: 1.5rem;
-        }
-        h4 {
-            font-size: 1.25rem;
-        }
-        h5 {
-            font-size: 1rem;
-        }
-        h6 {
-            font-size: 0.85rem;
-        }
-    }
-    p,
-    ul,
-    ol {
-        margin-bottom: 24px;
-    }
-    img,
-    blockquote {
-        margin: 30px 0;
-    }
-    p > img,
-    p > blockquote {
-        margin: 0;
-    }
-    ul,
-    ol {
-        padding: 0 0 0 40px;
-    }
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-    hr {
-        margin: 30px 0;
-    }
+  }
+  p,
+  ul,
+  ol {
+    margin-bottom: 24px;
+  }
+  img,
+  blockquote {
+    margin: 30px 0;
+  }
+  p > img,
+  p > blockquote {
+    margin: 0;
+  }
+  ul,
+  ol {
+    padding: 0 0 0 40px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  hr {
+    margin: 30px 0;
+  }
 }

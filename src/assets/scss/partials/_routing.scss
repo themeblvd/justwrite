@@ -4,44 +4,44 @@
 
 .dashboard-home,
 .dashboard-edit-post {
-    &.fade-exit {
-        display: none;
-    }
+  &.fade-exit {
+    display: none;
+  }
 }
 
 @media (min-width: 992px) {
-    .dashboard-home,
-    .dashboard-edit-post {
-        background: $clr-bg-body;
-        overflow: scroll;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+  .dashboard-home,
+  .dashboard-edit-post {
+    background: $clr-bg-body;
+    overflow: scroll;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-        &.fade-enter {
-            opacity: 0;
-            transform: translate(0, 20px);
-        }
-        &.fade-enter-active,
-        &.fade-enter-done {
-            opacity: 1;
-            transform: translate(0, 0);
-            transition: opacity 0.2s ease-in, transform 0.2s ease-in;
-        }
-        &.fade-exit {
-            display: block;
-            opacity: 1;
-            transform: translate(0, 0);
-        }
-        &.fade-exit-active {
-            opacity: 0;
-            transform: translate(0, 20px);
-            transition: opacity 0.2s ease-in, transform 0.2s ease-in;
-        }
-        &.fade-exit-done {
-            display: none;
-        }
+    &.fade-enter {
+      opacity: 0;
+      transform: translate(0, 20px);
     }
+    &.fade-enter-active,
+    &.fade-enter-done {
+      opacity: 1;
+      transform: translate(0, 0);
+      transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+    }
+    &.fade-exit {
+      display: block;
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+    &.fade-exit-active {
+      opacity: 0;
+      transform: translate(0, 20px);
+      transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+    }
+    &.fade-exit-done {
+      display: none;
+    }
+  }
 }

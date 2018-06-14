@@ -4,44 +4,44 @@
 
 button,
 .button {
-    background-color: $clr-bg-hover;
-    border: none;
-    border-bottom: 1px solid darken($clr-bg-hover, 20%);
-    border-radius: 2px;
-    color: $clr-text-darken;
-    cursor: pointer;
-    display: inline-block;
-    font-size: $font-size-btn;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    line-height: 1;
-    padding: 13px 18px 12px 18px;
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: none;
-    touch-action: manipulation;
-    transition: background-color 0.2s ease-in-out;
-    user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;
+  background-color: $clr-bg-hover;
+  border: none;
+  border-bottom: 1px solid darken($clr-bg-hover, 20%);
+  border-radius: 2px;
+  color: $clr-text-darken;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $font-size-btn;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  padding: 13px 18px 12px 18px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: background-color 0.2s ease-in-out;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
 
-    &:active,
-    &.active,
-    &:focus {
-        outline: none;
-    }
-    &:hover {
-        background-color: darken($clr-bg-hover, 5%);
-    }
+  &:active,
+  &.active,
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: darken($clr-bg-hover, 5%);
+  }
 }
 
 button.primary,
 .button.primary {
-    background-color: $clr-primary;
-    border-bottom-color: darken($clr-primary, 20%);
-    color: #fff;
+  background-color: $clr-primary;
+  border-bottom-color: darken($clr-primary, 20%);
+  color: #fff;
 
-    &:hover {
-        background-color: lighten($clr-primary, 5%);
-    }
+  &:hover {
+    background-color: lighten($clr-primary, 5%);
+  }
 }

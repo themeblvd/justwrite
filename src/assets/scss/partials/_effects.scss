@@ -8,47 +8,47 @@ $key-frame-offset: $gradient-width / 10;
 
 button.has-loader,
 .button.has-loader {
-    overflow: hidden;
-    position: relative;
+  overflow: hidden;
+  position: relative;
 
-    &.loading {
-        cursor: wait;
-    }
-    &:after {
-        content: '';
-        animation-name: btn-loading;
-        animation-duration: 1s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        background: repeating-linear-gradient(
-            45deg,
-            rgba(255, 255, 255, 0.25) 0,
-            rgba(255, 255, 255, 0.25) ($gradient-width/2),
-            rgba(0, 0, 0, 0) ($gradient-width/2),
-            rgba(0, 0, 0, 0) $gradient-width
-        );
-        display: block;
-        opacity: 0;
-        position: absolute;
-        left: -$total-width;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        z-index: 1;
-        transition: opacity 0.25s ease-in;
-    }
-    &.loading:after {
-        opacity: 1;
-    }
+  &.loading {
+    cursor: wait;
+  }
+  &:after {
+    content: '';
+    animation-name: btn-loading;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.25) 0,
+      rgba(255, 255, 255, 0.25) ($gradient-width/2),
+      rgba(0, 0, 0, 0) ($gradient-width/2),
+      rgba(0, 0, 0, 0) $gradient-width
+    );
+    display: block;
+    opacity: 0;
+    position: absolute;
+    left: -$total-width;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    transition: opacity 0.25s ease-in;
+  }
+  &.loading:after {
+    opacity: 1;
+  }
 }
 
 @keyframes btn-loading {
-    from {
-        transform: translate(0, 0);
-    }
-    to {
-        transform: translate($total-width - $key-frame-offset, 0);
-    }
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate($total-width - $key-frame-offset, 0);
+  }
 }
 
 //
@@ -56,23 +56,23 @@ button.has-loader,
 //
 
 .error-shake {
-    animation-name: error-shake;
-    animation-duration: 0.2s;
-    animation-timing-function: linear;
-    // animation-iteration-count: infinite;
+  animation-name: error-shake;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  // animation-iteration-count: infinite;
 }
 
 @keyframes error-shake {
-    0% {
-        transform: translate(0, 0);
-    }
-    50% {
-        transform: translate(-2px, 0);
-    }
-    75% {
-        transform: translate(2px, 0);
-    }
-    100% {
-        transform: translate(0, 0);
-    }
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-2px, 0);
+  }
+  75% {
+    transform: translate(2px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }

@@ -3,41 +3,41 @@
 //
 
 .loader {
-    position: relative;
-    width: 50px;
-    height: 50px;
+  position: relative;
+  width: 50px;
+  height: 50px;
 
-    span {
-        display: block;
-    }
-    span:before,
-    span:after {
-        content: '';
-        border-radius: 100%;
-        border: 10px solid transparent;
-        border-top-color: #fff;
-        position: absolute;
-        top: -10px;
-        left: -10px;
-        width: 100%;
-        height: 100%;
-    }
-    span:before {
-        z-index: 100;
-        animation: loader-spin 1s infinite;
-    }
-    span:after {
-        border: 10px solid rgba(0, 0, 0, 0.1);
-    }
+  span {
+    display: block;
+  }
+  span:before,
+  span:after {
+    content: '';
+    border-radius: 100%;
+    border: 10px solid transparent;
+    border-top-color: #fff;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 100%;
+    height: 100%;
+  }
+  span:before {
+    z-index: 100;
+    animation: loader-spin 1s infinite;
+  }
+  span:after {
+    border: 10px solid rgba(0, 0, 0, 0.1);
+  }
 }
 
 @keyframes loader-spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 //
@@ -45,33 +45,33 @@
 //
 
 .app {
-    .app-loader {
-        background: $clr-primary;
-        position: fixed;
-        top: 0;
-        left: -9999px;
-        opacity: 0;
-        transition: opacity 0.5s ease-in;
-        width: 100vw;
-        height: 100vh;
-        z-index: $z-index-app-loader;
-    }
-    .app-loader span {
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, 0);
-        width: 100px;
-        height: 100px;
-    }
-    &.is-loading .app-loader {
-        left: 0;
-    }
-    &.show-loader .app-loader {
-        opacity: 1;
-        transition: none;
-    }
-    &.hide-loader .app-loader {
-        opacity: 0;
-    }
+  .app-loader {
+    background: $clr-primary;
+    position: fixed;
+    top: 0;
+    left: -9999px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+    width: 100vw;
+    height: 100vh;
+    z-index: $z-index-app-loader;
+  }
+  .app-loader span {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100px;
+    height: 100px;
+  }
+  &.is-loading .app-loader {
+    left: 0;
+  }
+  &.show-loader .app-loader {
+    opacity: 1;
+    transition: none;
+  }
+  &.hide-loader .app-loader {
+    opacity: 0;
+  }
 }

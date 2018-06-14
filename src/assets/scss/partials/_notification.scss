@@ -3,43 +3,43 @@
 //
 
 .notification {
-    background: #fff;
-    border-bottom: 5px solid transparent;
-    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.25);
-    border-radius: 4px;
-    font-size: 20px;
+  background: #fff;
+  border-bottom: 5px solid transparent;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  font-size: 20px;
+  opacity: 0;
+  padding: 30px 40px;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -10px);
+  transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+  z-index: $z-index-notification;
+
+  &.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  &.hide {
     opacity: 0;
-    padding: 30px 40px;
-    position: fixed;
-    top: 10%;
-    left: 50%;
-    text-align: center;
-    transform: translate(-50%, -10px);
-    transition: opacity 0.2s ease-in, transform 0.2s ease-in;
-    z-index: $z-index-notification;
+    transform: translate(-50%, 10px);
+  }
+  &.success {
+    background-color: rgba(lighten($clr-success, 60%), 0.95);
+    border-color: $clr-success;
+    color: $clr-success;
 
-    &.show {
-        opacity: 1;
-        transform: translate(-50%, 0);
+    p {
+      margin: 0 0 20px 0;
     }
-    &.hide {
-        opacity: 0;
-        transform: translate(-50%, 10px);
-    }
-    &.success {
-        background-color: rgba(lighten($clr-success, 60%), 0.95);
-        border-color: $clr-success;
-        color: $clr-success;
-
-        p {
-            margin: 0 0 20px 0;
-        }
-    }
-    &.error {
-        background-color: rgba(lighten($clr-error, 50%), 0.95);
-        border-color: $clr-error;
-        color: $clr-error;
-    }
+  }
+  &.error {
+    background-color: rgba(lighten($clr-error, 50%), 0.95);
+    border-color: $clr-error;
+    color: $clr-error;
+  }
 }
 
 //
@@ -54,68 +54,68 @@ $check-thickness: 3px;
 $check-color: $clr-success;
 
 .notification {
-    .circle {
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        border-left-color: $check-color;
-        border-radius: 50%;
-        position: relative;
-        display: inline-block;
-        width: $loader-size;
-        height: $loader-size;
-        vertical-align: top;
-    }
-    &.apply-check .circle {
-        animation: none;
-        border-color: $check-color;
-        transition: border 500ms ease-out;
-    }
-    .checkmark {
-        display: none;
+  .circle {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-left-color: $check-color;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    width: $loader-size;
+    height: $loader-size;
+    vertical-align: top;
+  }
+  &.apply-check .circle {
+    animation: none;
+    border-color: $check-color;
+    transition: border 500ms ease-out;
+  }
+  .checkmark {
+    display: none;
 
-        &.draw:after {
-            animation-duration: 800ms;
-            animation-timing-function: ease;
-            animation-name: checkmark;
-            transform: scaleX(-1) rotate(135deg);
-        }
+    &.draw:after {
+      animation-duration: 800ms;
+      animation-timing-function: ease;
+      animation-name: checkmark;
+      transform: scaleX(-1) rotate(135deg);
+    }
 
-        &:after {
-            opacity: 1;
-            height: $check-height;
-            width: $check-width;
-            transform-origin: left top;
-            border-right: $check-thickness solid $check-color;
-            border-top: $check-thickness solid $check-color;
-            content: '';
-            left: $check-left;
-            top: $check-height;
-            position: absolute;
-        }
+    &:after {
+      opacity: 1;
+      height: $check-height;
+      width: $check-width;
+      transform-origin: left top;
+      border-right: $check-thickness solid $check-color;
+      border-top: $check-thickness solid $check-color;
+      content: '';
+      left: $check-left;
+      top: $check-height;
+      position: absolute;
     }
-    &.apply-check .checkmark {
-        display: block;
-    }
+  }
+  &.apply-check .checkmark {
+    display: block;
+  }
 }
 
 @keyframes checkmark {
-    0% {
-        height: 0;
-        width: 0;
-        opacity: 1;
-    }
-    20% {
-        height: 0;
-        width: $check-width;
-        opacity: 1;
-    }
-    40% {
-        height: $check-height;
-        width: $check-width;
-        opacity: 1;
-    }
-    100% {
-        height: $check-height;
-        width: $check-width;
-        opacity: 1;
-    }
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+  20% {
+    height: 0;
+    width: $check-width;
+    opacity: 1;
+  }
+  40% {
+    height: $check-height;
+    width: $check-width;
+    opacity: 1;
+  }
+  100% {
+    height: $check-height;
+    width: $check-width;
+    opacity: 1;
+  }
 }

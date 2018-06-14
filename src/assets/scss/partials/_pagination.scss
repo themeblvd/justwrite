@@ -3,21 +3,21 @@
 //
 
 .post-list .pagination {
-    display: block;
-    margin: 20px 0 0 0;
-    padding: 0;
-    list-style: none;
+  display: block;
+  margin: 20px 0 0 0;
+  padding: 0;
+  list-style: none;
 
-    .button {
-        background-color: #fff;
-        margin: 0 2px;
-        padding: 6px 12px;
-    }
-    .button:hover {
-        background-color: $clr-bg-hover;
-    }
-    .button.active {
-        background-color: $clr-primary;
-        color: #fff;
-    }
+  .button {
+    background-color: #fff;
+    margin: 0 2px;
+    padding: 6px 12px;
+  }
+  .button:hover {
+    background-color: $clr-bg-hover;
+  }
+  .button.active {
+    background-color: $clr-primary;
+    color: #fff;
+  }
 }

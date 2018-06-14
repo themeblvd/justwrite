@@ -3,35 +3,35 @@
 //
 
 .filter-menu {
-    margin: 0 auto;
-    max-width: 1000px;
+  margin: 0 auto;
+  max-width: 1000px;
 
-    ul {
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-        margin: -4px;
-        padding: 0 0 20px 0;
-    }
-    li {
-        background: #fff;
-        border-bottom: 2px solid transparent;
-        border-radius: 2px;
-        cursor: pointer;
-        font-size: 15px;
-        line-height: 1;
-        margin: 4px;
-        padding: 6px 8px 4px 8px;
-        transition: color 0.2s ease-in, border-color 0.2s ease-in,
-            background-color 0.2s ease-in;
-    }
-    li:hover {
-        border-color: $clr-border;
-    }
-    li.active,
-    li.active:hover {
-        background-color: $clr-primary;
-        border-color: transparent;
-        color: #fff;
-    }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: -4px;
+    padding: 0 0 20px 0;
+  }
+  li {
+    background: #fff;
+    border-bottom: 2px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 1;
+    margin: 4px;
+    padding: 6px 8px 4px 8px;
+    transition: color 0.2s ease-in, border-color 0.2s ease-in,
+      background-color 0.2s ease-in;
+  }
+  li:hover {
+    border-color: $clr-border;
+  }
+  li.active,
+  li.active:hover {
+    background-color: $clr-primary;
+    border-color: transparent;
+    color: #fff;
+  }
 }

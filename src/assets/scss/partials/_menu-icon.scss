@@ -3,24 +3,24 @@
 //
 
 .menu-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transform: translate(0, 0);
-    transition: transform 0.25s ease-in-out;
-    width: 20px;
-    height: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translate(0, 0);
+  transition: transform 0.25s ease-in-out;
+  width: 20px;
+  height: 16px;
 
-    span {
-        background-color: $clr-text;
-        border-radius: 1px;
-        display: block;
-        height: 2px;
-    }
-    &:hover span {
-        background-color: $clr-text-darken;
-    }
-    span:last-child {
-        width: 75%;
-    }
+  span {
+    background-color: $clr-text;
+    border-radius: 1px;
+    display: block;
+    height: 2px;
+  }
+  &:hover span {
+    background-color: $clr-text-darken;
+  }
+  span:last-child {
+    width: 75%;
+  }
 }

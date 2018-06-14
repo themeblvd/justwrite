@@ -3,79 +3,79 @@
 //
 
 .dashboard-edit-post {
-    padding: (40px + $height-mobile-header) 40px $height-footer 40px;
+  padding: (40px + $height-mobile-header) 40px $height-footer 40px;
 
-    .field {
-        margin: 0 auto 24px auto;
-        max-width: 800px;
-    }
-    textarea {
-        line-height: 1.5;
-        min-height: 100px;
-    }
-    .title-field {
-        margin-bottom: 10px;
+  .field {
+    margin: 0 auto 24px auto;
+    max-width: 800px;
+  }
+  textarea {
+    line-height: 1.5;
+    min-height: 100px;
+  }
+  .title-field {
+    margin-bottom: 10px;
 
-        .post-title {
-            color: $clr-heading;
-            font-size: 20px;
-            font-weight: 300;
-        }
+    .post-title {
+      color: $clr-heading;
+      font-size: 20px;
+      font-weight: 300;
     }
-    .permalink-field {
-        font-size: 14px;
-        margin-bottom: 0;
-        padding: 0 10px;
+  }
+  .permalink-field {
+    font-size: 14px;
+    margin-bottom: 0;
+    padding: 0 10px;
 
-        .svg-inline--fa {
-            display: none;
-        }
+    .svg-inline--fa {
+      display: none;
     }
-    .content-field {
-        background: #fff;
-        margin: 30px -40px;
-        max-width: none;
-        padding: 0;
-        position: relative;
+  }
+  .content-field {
+    background: #fff;
+    margin: 30px -40px;
+    max-width: none;
+    padding: 0;
+    position: relative;
 
-        &:last-child {
-            margin-bottom: 0;
-        }
-        .toggle-view {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-        }
-        .markdown-editor,
-        .raw-editor {
-            border: none;
-            margin: 0 auto;
-            max-width: 800px;
-            padding: 0;
-        }
-        .raw-editor {
-            min-height: 400px;
-        }
+    &:last-child {
+      margin-bottom: 0;
     }
+    .toggle-view {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+    }
+    .markdown-editor,
+    .raw-editor {
+      border: none;
+      margin: 0 auto;
+      max-width: 800px;
+      padding: 0;
+    }
+    .raw-editor {
+      min-height: 400px;
+    }
+  }
 }
 
 @media (min-width: 768px) {
-    .dashboard-edit-post {
-        .title-field .post-title {
-            font-size: 28px;
-            padding: 34px 20px;
-        }
-        .permalink-field .svg-inline--fa {
-            display: inline;
-            margin-right: 10px;
-        }
+  .dashboard-edit-post {
+    .title-field .post-title {
+      font-size: 28px;
+      padding: 34px 20px;
     }
+    .permalink-field .svg-inline--fa {
+      display: inline;
+      margin-right: 10px;
+    }
+  }
 }
 
 @media (min-width: 992px) {
-    .dashboard-edit-post {
-        padding-top: 40px + $height-header;
-    }
+  .dashboard-edit-post {
+    padding-top: 40px + $height-header;
+  }
 }
 
 //
@@ -83,10 +83,10 @@
 //
 
 .edit-error {
-    background: lighten($clr-error, 50%);
-    border-left: 5px solid lighten($clr-error, 25%);
-    color: $clr-error;
-    padding: 10px 14px;
-    margin: 80px auto 0 auto;
-    max-width: 800px;
+  background: lighten($clr-error, 50%);
+  border-left: 5px solid lighten($clr-error, 25%);
+  color: $clr-error;
+  padding: 10px 14px;
+  margin: 80px auto 0 auto;
+  max-width: 800px;
 }
