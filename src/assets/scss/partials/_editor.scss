@@ -4,7 +4,7 @@
 
 .editor {
   border-top: 1px solid $clr-border;
-  padding-top: 45px;
+  padding-top: $height-editor-toolbar;
 
   .react-mde {
     border: none;
@@ -49,7 +49,7 @@
     font-size: 12px;
     display: flex;
     align-items: center;
-    height: 45px;
+    height: $height-editor-toolbar;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -100,6 +100,19 @@
 
 @media (min-width: 1000px) {
   .editor {
+    &.view-split {
+      .mde-text {
+        width: 50%;
+      }
+      .mde-preview {
+        overflow: scroll;
+        position: absolute;
+        top: $height-editor-toolbar;
+        right: 0;
+        bottom: 0;
+        width: 50%;
+      }
+    }
     &.view-edit {
       .mde-preview {
         display: none;
@@ -145,7 +158,7 @@
   h5,
   h6 {
     border: none;
-    font-weight: 600;
+    font-weight: $font-weight-heading;
     margin: 30px 0 24px 0;
     padding: 0;
   }
