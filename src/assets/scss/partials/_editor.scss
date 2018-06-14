@@ -48,10 +48,12 @@
   .mde-tabs .mde-tab {
     border: none;
     @include pill;
+    opacity: 0.75;
   }
   .mde-tabs .mde-tab.mde-tab-activated,
   .mde-tabs .mde-tab.mde-tab-activated:hover {
     @include pill-active;
+    opacity: 1;
   }
 }
 
@@ -108,12 +110,13 @@
 
     a {
       @include pill;
-      color: $clr-text-lighten; // Icon color.
       display: block;
+      opacity: 0.75;
       font-size: 14px;
     }
     .active a {
       @include pill-active;
+      opacity: 1;
     }
   }
 }

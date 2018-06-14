@@ -7,7 +7,7 @@
   background: #fff;
   border-bottom: 2px solid transparent;
   border-radius: 2px;
-  color: $clr-text;
+  color: $clr-text-lighten;
   cursor: pointer;
   font-size: 15px;
   line-height: 1;
@@ -22,7 +22,6 @@
 }
 
 @mixin pill-active {
-  background-color: $clr-primary;
-  border-color: transparent;
-  color: #fff;
+  border-color: $clr-primary;
+  color: $clr-text-darken;
 }
