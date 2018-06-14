@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 
+# report
+report.txt
+
 # build
 public/*
 !public/README.md

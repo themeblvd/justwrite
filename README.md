@@ -21,6 +21,8 @@ If you'd like to fork or clone the project, after installing all of the node mod
 * `npm run start` - Start development server, watch for changes & continuously build into the `/public` directory.
 * `npm run build:prod` - Re-build the `/public` directory for production.
 
+Note: For a full list of terminal commands, see my [React boilerplate](https://github.com/themeblvd/react-boilerplate), which this project is based from.
+
 ## Screenshots
 
 ### Dashboard Home
