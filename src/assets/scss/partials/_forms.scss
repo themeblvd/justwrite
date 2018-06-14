@@ -42,7 +42,7 @@ label,
 .label {
   color: $clr-heading;
   display: inline-block;
-  font-weight: 600;
+  font-weight: $font-weight-label;
   margin: 0 4px 10px 4px;
   max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
 

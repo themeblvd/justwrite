@@ -25,7 +25,7 @@
 body {
   color: $clr-text;
   font-family: 'Source Sans Pro';
-  font-weight: 400;
+  font-weight: $font-weight-base;
   font-size: $font-size-base;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -50,13 +50,13 @@ h6 {
 }
 h1,
 h2 {
-  font-weight: 300;
+  font-weight: $font-weight-lg-heading;
 }
 h3,
 h4,
 h5,
 h6 {
-  font-weight: 600;
+  font-weight: $font-weight-heading;
 }
 
 //
@@ -108,7 +108,7 @@ h6 {
 //
 
 strong {
-  font-weight: 600;
+  font-weight: $font-weight-bold;
 }
 
 //

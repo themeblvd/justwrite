@@ -23,6 +23,21 @@ $height-footer: 48px;
 $font-size-base: 16px;
 $font-size-btn: 12px;
 
+//
+// Font Weights
+//
+
+$font-weight-base: 400;
+$font-weight-thin: 300;
+$font-weight-thick: 600;
+
+$font-weight-base: $font-weight-base;
+$font-weight-bold: $font-weight-thick;
+$font-weight-heading: $font-weight-thick;
+$font-weight-lg-heading: $font-weight-thin;
+$font-weight-btn: $font-weight-thick;
+$font-weight-label: $font-weight-thick;
+
 // ==========================================================================
 // Colors
 // ==========================================================================
