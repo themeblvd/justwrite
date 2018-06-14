@@ -52,7 +52,7 @@ class Editor extends Component {
         markdown: rawMarked,
         draftEditorState: draftEditorState
       },
-      layout: window.innerWidth >= 1000 ? 'horizontal' : 'vertical',
+      layout: window.innerWidth >= 1000 ? 'horizontal' : 'tabbed',
       view: localStorage.getItem('editorView') ? localStorage.getItem('editorView') : 'split' // edit, split, preview
     };
 
@@ -108,7 +108,7 @@ class Editor extends Component {
    */
   handleLayoutChange = event => {
     this.setState({
-      layout: event.target.innerWidth >= 1000 ? 'horizontal' : 'vertical'
+      layout: event.target.innerWidth >= 1000 ? 'horizontal' : 'tabbed'
     });
   };
 
@@ -144,8 +144,7 @@ class Editor extends Component {
         className={classNames({
           editor: true,
           [`view-${this.state.view}`]: true
-        })}
-      >
+        })}>
         <EditorViewToolbar current={this.state.view} handleChange={this.handleViewChange} />
         <ReactMde
           layout={this.state.layout}

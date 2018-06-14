@@ -4,7 +4,7 @@
 
 .editor {
   border-top: 1px solid $clr-border;
-  padding-top: $height-editor-toolbar;
+  padding-top: $height-mobile-editor-toolbar;
 
   .react-mde {
     border: none;
@@ -30,8 +30,56 @@
   }
   .mde-header ul.mde-header-group li.mde-header-item button {
     color: $clr-text;
+    line-height: 1;
     &:hover {
       color: $clr-text-darken;
+    }
+  }
+  // Hide most controls at REALLY small viewport.
+  .mde-header-group:nth-child(2),
+  .mde-header-group:nth-child(3) {
+    display: none;
+  }
+  .mde-header .mde-toolbar-children {
+    display: block;
+    padding: 0 10px 10px 10px;
+    width: 100%;
+  }
+  .mde-tabs .mde-tab {
+    border: none;
+    @include pill;
+  }
+  .mde-tabs .mde-tab.mde-tab-activated,
+  .mde-tabs .mde-tab.mde-tab-activated:hover {
+    @include pill-active;
+  }
+}
+
+@media (min-width: 350px) {
+  .editor {
+    // Hide only some controls at small viewport.
+    .mde-header-group:nth-child(2) {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .editor {
+    .mde-header-group:nth-child(3) {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .editor {
+    padding-top: $height-editor-toolbar;
+
+    .mde-header .mde-toolbar-children {
+      display: flex;
+      padding: 5px;
+      width: auto;
     }
   }
 }
@@ -54,23 +102,18 @@
     margin: 0;
     padding: 0;
     position: absolute;
-    top: 0;
+    top: 1px; // Inside top border.
     right: 40px;
     z-index: 2;
 
-    li {
-      margin: 0 4px;
-    }
     a {
-      color: $clr-text;
+      @include pill;
+      color: $clr-text-lighten; // Icon color.
       display: block;
-      padding: 4px;
-      &:hover {
-        color: $clr-text-darken;
-      }
+      font-size: 14px;
     }
-    li.active a {
-      color: darken($clr-primary, 20%);
+    .active a {
+      @include pill-active;
     }
   }
 }
@@ -79,18 +122,22 @@
 // Sticky Toolbar
 //
 
+.stick-editor-toolbar .editor {
+  .mde-header {
+    position: fixed;
+    top: $height-mobile-header;
+    right: 0;
+    left: 0;
+  }
+  .view-toolbar {
+    position: fixed;
+    top: $height-header;
+  }
+}
+
 @media (min-width: 992px) {
   .stick-editor-toolbar .editor {
-    .mde-header {
-      position: fixed;
-      top: $height-header;
-      right: 0;
-      left: 0;
-    }
-    .view-toolbar {
-      position: fixed;
-      top: $height-header;
-    }
+    top: $height-header;
   }
 }
 

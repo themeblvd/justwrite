@@ -39,8 +39,13 @@ class EditPost extends Component {
    * 2. If no post ID was given, we're creating a new
    * post. All form fields are blank. Global action is
    * set to `publish`.
+   *
+   * And after all that, we also need to take care of
+   * event listeners for sticking the editor toolbar.
    */
   componentDidMount() {
+    // Determine data for editing post, depending on if
+    // it's a new post or udpating an existing one.
     this.postID = 0;
     if (this.props.match.params.id) {
       this.postID = this.props.match.params.id;
@@ -57,6 +62,13 @@ class EditPost extends Component {
       this.isNewPost = true;
       this.props.updateAction('publish');
     }
+
+    // Listen for scroll on desktop only. For desktop, we
+    // binds to scroll for dashboard-edit-post.
+    window.addEventListener('scroll', this.stickEditorToolbar);
+
+    // And handle the window re-size on all viewports.
+    window.addEventListener('resize', this.stickEditorToolbar);
   }
 
   /**
@@ -69,6 +81,8 @@ class EditPost extends Component {
    */
   componentWillUnmount() {
     this.props.clearEditPost();
+    window.removeEventListener('resize', this.stickEditorToolbar);
+    window.removeEventListener('scroll', this.stickEditorToolbar);
   }
 
   /**
