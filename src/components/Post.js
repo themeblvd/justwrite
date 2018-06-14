@@ -17,7 +17,8 @@ class Post extends Component {
    *
    * @param {Event} event
    */
-  handleClick = () => {
+  handleClick = event => {
+    event.preventDefault();
     this.props.history.push(`edit/${this.props.id}`);
   };
 

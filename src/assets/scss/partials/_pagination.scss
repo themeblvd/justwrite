@@ -8,15 +8,16 @@
   padding: 0;
   list-style: none;
 
-  button {
+  .button {
     background-color: #fff;
+    font-weight: $font-weight-base;
     margin: 0 2px;
     padding: 6px 12px;
   }
-  button:hover {
+  .button:hover {
     background-color: $clr-bg-hover;
   }
-  .active button {
+  .active .button {
     background-color: $clr-primary;
     color: #fff;
   }

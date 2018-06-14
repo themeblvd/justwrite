@@ -12,6 +12,7 @@ import classNames from 'classnames';
  */
 const Button = props => {
   const classes = classNames({
+    button: true,
     'has-loader': true,
     loading: props.isLoading,
     primary: props.isPrimary

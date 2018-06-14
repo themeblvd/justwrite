@@ -44,7 +44,9 @@ class Pagination extends Component {
 
       items.push(
         <li key={`paginate-button-${i}`} className={className}>
-          <button onClick={() => this.handleClick(i)}>{i}</button>
+          <button className="button" onClick={() => this.handleClick(i)}>
+            {i}
+          </button>
         </li>
       );
     }

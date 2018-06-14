@@ -1,8 +1,27 @@
 //
-// Buttons
+// Native Button Reset
 //
 
-button,
+button {
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:active,
+  &.active,
+  &:focus {
+    outline: none;
+  }
+}
+
+//
+// Styled Buttons
+//
+
 .button {
   background-color: $clr-bg-hover;
   border: none;
@@ -12,7 +31,7 @@ button,
   cursor: pointer;
   display: inline-block;
   font-size: $font-size-btn;
-  font-weight: 700;
+  font-weight: $font-weight-btn;
   letter-spacing: 0.12em;
   line-height: 1;
   padding: 13px 18px 12px 18px;
@@ -34,8 +53,6 @@ button,
     background-color: darken($clr-bg-hover, 5%);
   }
 }
-
-button.primary,
 .button.primary {
   background-color: $clr-primary;
   border-bottom-color: darken($clr-primary, 20%);

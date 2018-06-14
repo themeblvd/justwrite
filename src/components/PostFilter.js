@@ -58,25 +58,17 @@ class PostFilter extends Component {
           !isSearch && (
             <ul>
               <li className={!this.props.current ? 'active' : ''}>
-                <a onClick={() => this.handleClick('')} href="#all-posts">
-                  All Posts
-                </a>
+                <button onClick={() => this.handleClick('')}>All Posts</button>
               </li>
               <li className={this.props.current === 'my-posts' ? 'active' : ''}>
-                <a href="#my-posts" onClick={() => this.handleClick('my-posts')}>
-                  My Posts
-                </a>
+                <button onClick={() => this.handleClick('my-posts')}>My Posts</button>
               </li>
               {categories.map(category => {
                 return (
                   <li
                     key={`category-${category.id}`}
                     className={this.props.current === category.id ? 'active' : ''}>
-                    <a
-                      href={`#category-${category.id}`}
-                      onClick={() => this.handleClick(category.id)}>
-                      {category.name}
-                    </a>
+                    <button onClick={() => this.handleClick(category.id)}>{category.name}</button>
                   </li>
                 );
               })}

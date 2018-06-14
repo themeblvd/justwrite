@@ -13,7 +13,7 @@
     margin: -4px;
     padding: 0 0 24px 0;
   }
-  a {
+  button {
     background: #fff;
     border-bottom: 2px solid transparent;
     border-radius: 2px;
@@ -26,11 +26,11 @@
     transition: color 0.2s ease-in, border-color 0.2s ease-in,
       background-color 0.2s ease-in;
   }
-  a:hover {
+  button:hover {
     border-color: $clr-border;
   }
-  .active a,
-  .active a:hover {
+  .active button,
+  .active button:hover {
     background-color: $clr-primary;
     border-color: transparent;
     color: #fff;
