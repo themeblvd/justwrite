@@ -40,16 +40,11 @@ class Pagination extends Component {
     var items = [];
 
     for (let i = 1; i <= total; i++) {
-      let className = current === i ? 'button active' : 'button';
+      let className = current === i ? 'active' : '';
 
       items.push(
-        <li
-          key={`paginate-button-${i}`}
-          className={className}
-          onClick={() => this.handleClick(i)}
-          onKeyPress={() => this.handleClick(i)}
-        >
-          {i}
+        <li key={`paginate-button-${i}`} className={className}>
+          <button onClick={() => this.handleClick(i)}>{i}</button>
         </li>
       );
     }

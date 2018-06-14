@@ -3,20 +3,20 @@
 //
 
 .post-list .pagination {
-  display: block;
+  display: flex;
   margin: 20px 0 0 0;
   padding: 0;
   list-style: none;
 
-  .button {
+  button {
     background-color: #fff;
     margin: 0 2px;
     padding: 6px 12px;
   }
-  .button:hover {
+  button:hover {
     background-color: $clr-bg-hover;
   }
-  .button.active {
+  .active button {
     background-color: $clr-primary;
     color: #fff;
   }
