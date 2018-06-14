@@ -52,7 +52,7 @@ class Notification extends Component {
     return (
       <div id="app-notification" className={`notification ${type}`}>
         <p>{message}</p>
-        {type == 'success' && (
+        {type === 'success' && (
           <div className="circle">
             <div className="checkmark draw" />
           </div>

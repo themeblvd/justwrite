@@ -25,7 +25,7 @@ class Pagination extends Component {
 
     this.props.clearPosts();
     this.props.updatePostsQuery(query);
-    this.props.updateCurrentPage(event.target.value);
+    this.props.updateCurrentPage(page);
     this.props.loadPostData('posts', query);
   };
 
@@ -40,10 +40,15 @@ class Pagination extends Component {
     var items = [];
 
     for (let i = 1; i <= total; i++) {
-      let className = current == i ? 'button active' : 'button';
+      let className = current === i ? 'button active' : 'button';
 
       items.push(
-        <li key={`paginate-button-${i}`} className={className} onClick={() => this.handleClick(i)}>
+        <li
+          key={`paginate-button-${i}`}
+          className={className}
+          onClick={() => this.handleClick(i)}
+          onKeyPress={() => this.handleClick(i)}
+        >
           {i}
         </li>
       );

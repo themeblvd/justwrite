@@ -15,9 +15,9 @@ import Icon from './Icon';
 const EditorViewToolbar = props => {
   return (
     <ul className="view-toolbar">
-      <li className={props.current == 'edit' ? 'active' : ''}>
+      <li className={props.current === 'edit' ? 'active' : ''}>
         <a
-          href="#"
+          href="#view-edit"
           title="Edit View"
           onClick={event => {
             event.preventDefault();
@@ -27,10 +27,10 @@ const EditorViewToolbar = props => {
           <Icon icon="pencil-alt" />
         </a>
       </li>
-      <li className={props.current == 'split' ? 'active' : ''}>
+      <li className={props.current === 'split' ? 'active' : ''}>
         <a
           title="Split View"
-          href="#"
+          href="#view-split"
           onClick={event => {
             event.preventDefault();
             props.handleChange('split');
@@ -39,10 +39,10 @@ const EditorViewToolbar = props => {
           <Icon icon="columns" />
         </a>
       </li>
-      <li className={props.current == 'preview' ? 'active' : ''}>
+      <li className={props.current === 'preview' ? 'active' : ''}>
         <a
           title="Preview View"
-          href="#"
+          href="#view-preview"
           onClick={event => {
             event.preventDefault();
             props.handleChange('preview');

@@ -19,7 +19,7 @@ class Login extends Component {
    * the store everything is done loading.
    */
   componentDidMount = () => {
-    if (this.props.appStatus == 'is-loading') {
+    if (this.props.appStatus === 'is-loading') {
       this.props.endLoading('app');
     }
   };

@@ -46,7 +46,7 @@ class EditPost extends Component {
       this.postID = this.props.match.params.id;
       this.props.updateAction('update');
       this.props.loadPost(this.postID).catch(error => {
-        if (this.props.appStatus != 'has-loaded') {
+        if (this.props.appStatus !== 'has-loaded') {
           this.props.endLoading('app');
         }
         this.setState({

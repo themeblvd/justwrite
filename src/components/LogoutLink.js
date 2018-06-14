@@ -12,7 +12,7 @@ import { logout } from '../store/auth';
  */
 const LogoutLink = props => {
   return (
-    <a href="#" className="logout-link" title="Log out" onClick={props.logout}>
+    <a href="#logout" className="logout-link" title="Log out" onClick={props.logout}>
       {props.children ? props.children : 'Log out'}
     </a>
   );

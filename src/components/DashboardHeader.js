@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ActionMenu from './ActionMenu';
 import UserMenu from './UserMenu';
-import Button from './Button';
 import Icon from './Icon';
 
 /**
@@ -36,13 +35,13 @@ class DashboardHeader extends Component {
     return (
       <div className="dashboard-header">
         <div className="header-content">
-          <a href="#" className="menu-icon" onClick={this.handleUserMenuToggle}>
+          <a href="#user-menu" className="menu-icon" onClick={this.handleUserMenuToggle}>
             <span />
             <span />
             <span />
           </a>
-          <a href="#" className="user-menu-trigger" onClick={this.handleUserMenuToggle}>
-            <img src={this.props.avatar} />
+          <a href="#user-menu" className="user-menu-trigger" onClick={this.handleUserMenuToggle}>
+            <img src={this.props.avatar} alt="User Avatar" />
             {this.props.first_name} {this.props.last_name}
             <Icon icon="chevron-down" />
           </a>

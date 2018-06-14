@@ -14,9 +14,7 @@ const TagList = props => {
     <ul className="tag-list">
       {props.tags.map(tagID => {
         let tag = props.tagData.find(tag => tag.id === tagID);
-        if (tag) {
-          return <li key={`tag-${tagID}`}>{tag.slug}</li>;
-        }
+        return <li key={`tag-${tagID}`}>{tag.slug}</li>;
       })}
     </ul>
   );

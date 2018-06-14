@@ -13,7 +13,7 @@ import fecha from 'fecha';
  */
 const Meta = props => {
   const date = fecha.format(new Date(props.date), 'shortDate');
-  const author = props.authorData.find(author => author.id == props.author);
+  const author = props.authorData.find(author => author.id === props.author);
 
   return (
     <p>

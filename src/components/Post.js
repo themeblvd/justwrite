@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-import { connect } from 'react-redux';
 import ReactHtmlParser from 'react-html-parser';
 import Meta from './Meta';
 import TagList from './TagList';
@@ -29,7 +28,12 @@ class Post extends Component {
    */
   render() {
     return (
-      <li id={`post-${this.props.id}`} className="post" onClick={this.handleClick}>
+      <li
+        id={`post-${this.props.id}`}
+        className="post"
+        onClick={this.handleClick}
+        onKeyPress={this.handleClick}
+      >
         <h2 className="post-title">{ReactHtmlParser(this.props.title)}</h2>
         <div className="post-meta">
           <Meta author={this.props.author} date={this.props.date} />

@@ -11,7 +11,11 @@ const LoginInfo = () => {
       <h1>Start Writing</h1>
       <p>
         Manage posts from any WordPress website that's secured with <em>https</em> and has{' '}
-        <a href="https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/" target="_blank">
+        <a
+          href="https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           JWT Authentication for WP REST API
         </a>{' '}
         setup.

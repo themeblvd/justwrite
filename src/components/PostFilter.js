@@ -31,7 +31,7 @@ class PostFilter extends Component {
     var query = {};
 
     if (value) {
-      if (value == 'my-posts') {
+      if (value === 'my-posts') {
         query.author = this.props.userID;
       } else {
         query.categories = value;
@@ -59,13 +59,15 @@ class PostFilter extends Component {
             <ul>
               <li
                 onClick={() => this.handleClick('')}
+                onKeyPress={() => this.handleClick('')}
                 className={!this.props.current ? 'active' : ''}
               >
                 All Posts
               </li>
               <li
                 onClick={() => this.handleClick('my-posts')}
-                className={this.props.current == 'my-posts' ? 'active' : ''}
+                onKeyPress={() => this.handleClick('my-posts')}
+                className={this.props.current === 'my-posts' ? 'active' : ''}
               >
                 My Posts
               </li>
@@ -74,7 +76,8 @@ class PostFilter extends Component {
                   <li
                     key={`category-${category.id}`}
                     onClick={() => this.handleClick(category.id)}
-                    className={this.props.current == category.id ? 'active' : ''}
+                    onKeyPress={() => this.handleClick(category.id)}
+                    className={this.props.current === category.id ? 'active' : ''}
                   >
                     {category.name}
                   </li>

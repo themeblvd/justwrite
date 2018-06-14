@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { endLoading } from '../store/status';
 import Post from './Post';
@@ -17,7 +17,7 @@ import Pagination from './Pagination';
  * @return {Component}
  */
 const PostList = props => {
-  if (props.posts == 'no-results') {
+  if (props.posts === 'no-results') {
     return <p className="no-results">Dagnabit! No posts matched your search query.</p>;
   }
 
@@ -30,7 +30,7 @@ const PostList = props => {
     return <Loading className="post-list-loader" />;
   }
 
-  if (props.appStatus != 'has-loaded') {
+  if (props.appStatus !== 'has-loaded') {
     props.endLoading('app');
   }
 

@@ -45,7 +45,7 @@ class ActionMenu extends Component {
    */
   handlePrimaryAction = () => {
     // Make sure post has a title before trying to save/publish.
-    if (this.props.action == 'update' || this.props.action == 'publish') {
+    if (this.props.action === 'update' || this.props.action === 'publish') {
       if (!this.props.toSave.title) {
         this.props.addNotification('Your post must have a title.', 'error');
         return;
@@ -135,7 +135,7 @@ class ActionMenu extends Component {
   render() {
     return (
       <ul className="action-menu">
-        {(this.props.action == 'update' || this.props.action == 'publish') && (
+        {(this.props.action === 'update' || this.props.action === 'publish') && (
           <li>
             <Button onClick={this.handleGoBack}>Go Back</Button>
           </li>

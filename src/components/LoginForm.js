@@ -11,7 +11,7 @@ import { login } from '../store/auth';
 import { startLoading } from '../store/status';
 
 // Routing
-import { Redirect, withRouter, Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 // Components
 import Button from './Button';
@@ -69,7 +69,7 @@ class LoginForm extends Component {
     }
 
     // Handle validation passed from submit event.
-    if (event.type == 'submit') {
+    if (event.type === 'submit') {
       var errors = validateLoginForm(this.state.inputs);
 
       this.setState({

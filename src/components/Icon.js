@@ -19,8 +19,8 @@ import React from 'react';
  * @return {Component}
  */
 const Icon = props => {
-  const style = props.style ? props.style : 'fas';
-  return <i className={`${style} fa-${props.icon}`} />;
+  const type = props.type ? props.type : 'fas';
+  return <i className={`${type} fa-${props.icon}`} />;
 };
 
 export default Icon;

@@ -46,7 +46,7 @@ class EditPostForm extends Component {
 
     this.setState({ isDataReady: true });
 
-    if (this.props.appStatus != 'has-loaded') {
+    if (this.props.appStatus !== 'has-loaded') {
       this.props.endLoading('app');
     }
   }
@@ -95,7 +95,7 @@ class EditPostForm extends Component {
         {!isNewPost && (
           <div className="field permalink-field">
             <Icon icon="external-link-alt" />
-            <a href={this.props.link} target="_blank">
+            <a href={this.props.link} target="_blank" rel="noopener noreferrer">
               {this.props.link}
             </a>
           </div>

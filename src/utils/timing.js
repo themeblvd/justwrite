@@ -25,7 +25,7 @@ export function timeoutPromise(delay, callback) {
 export function showModal(type) {
   const body = document.body;
 
-  if (type == 'profile') {
+  if (type === 'profile') {
     body.classList.remove('user-menu-on');
   }
 

@@ -26,7 +26,7 @@ class DashboardFooter extends Component {
     return (
       <div className="dashboard-footer">
         <div className="item">
-          <img src={logo} className="site-logo" />
+          <img src={logo} className="site-logo" alt="Logo for Just Write" />
         </div>
         <div className="item">
           <span className="copyright" dangerouslySetInnerHTML={{ __html: copyright() }} />
@@ -34,18 +34,26 @@ class DashboardFooter extends Component {
         <div className="item">
           <ul>
             <li>
-              <a href="#" value="help" onClick={event => this.handleOpenModal(event, 'help')}>
+              <a href="#help" value="help" onClick={event => this.handleOpenModal(event, 'help')}>
                 Help
               </a>
             </li>
             <li>
-              <a href="" value="privacy" onClick={event => this.handleOpenModal(event, 'privacy')}>
+              <a
+                href="#privacy"
+                value="privacy"
+                onClick={event => this.handleOpenModal(event, 'privacy')}
+              >
                 Privacy
               </a>
             </li>
             <li className="has-icon">
-              <a href="https://github.com/themeblvd/just-write" target="_blank">
-                <Icon style="fab" icon="github" />
+              <a
+                href="https://github.com/themeblvd/just-write"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon type="fab" icon="github" />
               </a>
             </li>
           </ul>

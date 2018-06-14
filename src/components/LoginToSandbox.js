@@ -4,7 +4,7 @@ import { sandbox, animationDuration } from '../config';
 import { connect } from 'react-redux';
 import { authenticate, authError } from '../store/auth';
 import { startLoading } from '../store/status';
-import { Redirect, withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 /**
  * Link to "play in the sandbox".
@@ -81,7 +81,7 @@ class LoginToSandbox extends Component {
     return (
       <span className="sandbox-link">
         Or{' '}
-        <a href="#" onClick={this.handleLogin}>
+        <a href="#sandbox" onClick={this.handleLogin}>
           play in the sandbox
         </a>
       </span>

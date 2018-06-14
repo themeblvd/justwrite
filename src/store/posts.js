@@ -60,8 +60,6 @@ const EDIT_POST = 'EDIT_POST';
 
 const TO_SAVE = 'TO_SAVE';
 
-const SAVE_POST = 'SAVE_POST';
-
 const CLEAR_POSTS = 'CLEAR_POSTS';
 
 const CLEAR_EDIT_POST = 'CLEAR_EDIT_POST';
@@ -115,13 +113,13 @@ export default function reducer(state = initialState, action) {
     case UPDATE_TOTAL_PAGES:
       return {
         ...state,
-        totalPages: parseInt(action.num)
+        totalPages: Number(action.num)
       };
 
     case UPDATE_CURRENT_PAGE:
       return {
         ...state,
-        currentPage: parseInt(action.num)
+        currentPage: Number(action.num)
       };
 
     case UPDATE_CURRENT_SEARCH_TERM:

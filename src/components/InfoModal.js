@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 import { hideModal } from '../utils/timing';
 import InfoHelp from './InfoHelp';
 import InfoPrivacy from './InfoPrivacy';
@@ -34,13 +33,15 @@ class InfoModal extends Component {
       case 'privacy':
         page = <InfoPrivacy />;
         break;
+      default:
+        page = null;
     }
 
     return (
       <div className={`modal info-modal ${this.props.id}`}>
         <div className="wrap">
           <a
-            href="#"
+            href="#close"
             onClick={event => this.handleCloseModal(event, this.props.id)}
             className="close-btn"
           >

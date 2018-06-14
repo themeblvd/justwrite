@@ -32,7 +32,7 @@ class UserMenu extends Component {
 
     document.body.classList.remove('user-menu-on');
 
-    if (this.props.history.location.pathname != '/') {
+    if (this.props.history.location.pathname !== '/') {
       this.props.history.push('/');
     }
 
@@ -52,22 +52,22 @@ class UserMenu extends Component {
   render() {
     return (
       <div className="user-menu">
-        <a href="#" className="close-sub-menu" onClick={this.props.handleClose}>
+        <a href="#close" className="close-sub-menu" onClick={this.props.handleClose}>
           <Icon icon="times" className="close-sub-menu" />
         </a>
         <ul>
           <li>
-            <a href="#" onClick={this.handleShowPosts}>
+            <a href="#my-posts" onClick={this.handleShowPosts}>
               <Icon icon="file-alt" />My Posts
             </a>
           </li>
           <li>
-            <a href="#" onClick={this.handleShowProfile}>
+            <a href="#edit-profile" onClick={this.handleShowProfile}>
               <Icon icon="user" />Edit Profile
             </a>
           </li>
           <li>
-            <a href={this.props.website} target="_blank">
+            <a href={this.props.website} target="_blank" rel="noopener noreferrer">
               <Icon icon="external-link-alt" />View Website
             </a>
           </li>

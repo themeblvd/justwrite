@@ -69,10 +69,10 @@ class EditProfile extends Component {
       <div id="edit-profile" className="modal edit-profile">
         <div className="wrap">
           <header>
-            <img className="avatar" src={avatar} />
+            <img className="avatar" src={avatar} alt="User Avatar" />
             <h2>Edit Profile</h2>
           </header>
-          <a href="#" onClick={this.handleClose} className="close-btn">
+          <a href="#close" onClick={this.handleClose} className="close-btn">
             <Icon icon="times" />
           </a>
           <form onSubmit={this.handleSubmit}>
