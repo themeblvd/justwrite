@@ -3,8 +3,6 @@
 //
 
 .login-page {
-  padding: 0 0 48px 0;
-
   .login-header {
     background-image: $gradient-primary;
     display: flex;
@@ -25,6 +23,7 @@
   .login-page {
     display: flex;
     min-height: 100vh;
+    padding: 0 0 48px 0;
 
     .login-header {
       width: 33.33%;
