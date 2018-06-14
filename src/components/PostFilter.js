@@ -57,29 +57,26 @@ class PostFilter extends Component {
         {categories.length &&
           !isSearch && (
             <ul>
-              <li
-                onClick={() => this.handleClick('')}
-                onKeyPress={() => this.handleClick('')}
-                className={!this.props.current ? 'active' : ''}
-              >
-                All Posts
+              <li className={!this.props.current ? 'active' : ''}>
+                <a onClick={() => this.handleClick('')} href="#all-posts">
+                  All Posts
+                </a>
               </li>
-              <li
-                onClick={() => this.handleClick('my-posts')}
-                onKeyPress={() => this.handleClick('my-posts')}
-                className={this.props.current === 'my-posts' ? 'active' : ''}
-              >
-                My Posts
+              <li className={this.props.current === 'my-posts' ? 'active' : ''}>
+                <a href="#my-posts" onClick={() => this.handleClick('my-posts')}>
+                  My Posts
+                </a>
               </li>
               {categories.map(category => {
                 return (
                   <li
                     key={`category-${category.id}`}
-                    onClick={() => this.handleClick(category.id)}
-                    onKeyPress={() => this.handleClick(category.id)}
-                    className={this.props.current === category.id ? 'active' : ''}
-                  >
-                    {category.name}
+                    className={this.props.current === category.id ? 'active' : ''}>
+                    <a
+                      href={`#category-${category.id}`}
+                      onClick={() => this.handleClick(category.id)}>
+                      {category.name}
+                    </a>
                   </li>
                 );
               })}
