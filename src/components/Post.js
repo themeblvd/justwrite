@@ -17,7 +17,7 @@ class Post extends Component {
    *
    * @param {Event} event
    */
-  handleClick = event => {
+  handleClick = () => {
     this.props.history.push(`edit/${this.props.id}`);
   };
 
@@ -28,19 +28,16 @@ class Post extends Component {
    */
   render() {
     return (
-      <li
-        id={`post-${this.props.id}`}
-        className="post"
-        onClick={this.handleClick}
-        onKeyPress={this.handleClick}
-      >
-        <h2 className="post-title">{ReactHtmlParser(this.props.title)}</h2>
-        <div className="post-meta">
-          <Meta author={this.props.author} date={this.props.date} />
-        </div>
-        <div className="post-tags">
-          <TagList tags={this.props.tags} />
-        </div>
+      <li id={`post-${this.props.id}`} className="post">
+        <a href={`#edit-${this.props.id}`} className="post-link" onClick={this.handleClick}>
+          <span className="h2 post-title">{ReactHtmlParser(this.props.title)}</span>
+          <span className="post-meta">
+            <Meta author={this.props.author} date={this.props.date} />
+          </span>
+          <span className="post-tags">
+            <TagList tags={this.props.tags} />
+          </span>
+        </a>
       </li>
     );
   }

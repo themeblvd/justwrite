@@ -35,15 +35,19 @@
 //
 
 .post {
-  background: #fff;
-  box-shadow: $shadow-card;
-  border-radius: 4px;
-  cursor: pointer;
   margin-bottom: 20px;
-  padding: 30px;
-  position: relative;
 
-  &:before {
+  .post-link {
+    background: #fff;
+    box-shadow: $shadow-card;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    padding: 30px;
+    position: relative;
+  }
+  .post-link:before {
     content: 'Edit Post';
     color: #fff;
     display: block;
@@ -59,10 +63,10 @@
     transition: opacity 0.2s ease-in-out;
     z-index: 2;
   }
-  &:hover:before {
+  .post-link:hover:before {
     opacity: 1;
   }
-  &:after {
+  .post-link:after {
     content: '';
     background-color: $clr-primary;
     border-radius: 4px;
@@ -76,10 +80,12 @@
     transition: opacity 0.2s ease-in-out;
     z-index: 1;
   }
-  &:hover:after {
+  .post-link:hover:after {
     opacity: 0.95;
   }
   .post-title {
+    color: $clr-text-darken;
+    display: block;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 5px;
@@ -113,6 +119,7 @@
   li {
     background: $clr-bg-body;
     border-radius: 2px;
+    color: $clr-text;
     font-size: 14px;
     line-height: 1;
     margin: 4px;
