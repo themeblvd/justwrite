@@ -19,12 +19,10 @@
     "server": "node server.js",
     "build": "NODE_ENV=development webpack",
     "build:prod": "NODE_ENV=production webpack",
-    "report":
-      "NODE_ENV=development webpack --json | webpack-bundle-size-analyzer >> ./report.txt",
+    "report": "NODE_ENV=development webpack --json | webpack-bundle-size-analyzer >> ./report.txt",
     "js-lint": "eslint \"{*.js,src/**/*.js}\"",
     "js-lint:fix": "eslint \"{*.js,src/**/*.js}\" --fix",
-    "format":
-      "prettier --write --single-quote --print-width=100 --tab-width=2 \"{*.js,src/**/*.js}\""
+    "format": "prettier --write --single-quote --print-width=100 --tab-width=2 \"{*.js,src/**/*.js}\""
   },
   "license": "ISC",
   "dependencies": {
