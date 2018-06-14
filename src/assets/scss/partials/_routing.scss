@@ -35,8 +35,7 @@
             opacity: 1;
             transform: translate(0, 0);
         }
-        &.fade-exit-active,
-        &.fade-exit-done {
+        &.fade-exit-active {
             opacity: 0;
             transform: translate(0, 20px);
             transition: opacity 0.2s ease-in, transform 0.2s ease-in;
