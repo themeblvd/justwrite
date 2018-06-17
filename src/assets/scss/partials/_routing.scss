@@ -24,8 +24,7 @@
       opacity: 0;
       transform: translate(0, 20px);
     }
-    &.fade-enter-active,
-    &.fade-enter-done {
+    &.fade-enter-active {
       opacity: 1;
       transform: translate(0, 0);
       transition: opacity 0.2s ease-in, transform 0.2s ease-in;

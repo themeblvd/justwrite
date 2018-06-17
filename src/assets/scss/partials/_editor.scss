@@ -139,7 +139,7 @@
 }
 
 @media (min-width: 992px) {
-  .stick-editor-toolbar .editor {
+  .stick-editor-toolbar .editor .mde-header {
     top: $height-header;
   }
 }
