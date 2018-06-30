@@ -1,7 +1,7 @@
 {
   "name": "justwrite",
   "title": "&lt;justwrite.app&gt;",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Decoupled WordPress Blogging",
   "main": "index.js",
   "author": {
