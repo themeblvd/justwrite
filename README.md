@@ -53,9 +53,9 @@ When designing the application's flow, I toyed with how literal I wanted this sp
 
 ![Animated Screenshot of Primary View Transitions](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/flow-primary.gif)
 
-With the spacial design centering around that primary objective, there needs to be room in the space for *extras*, or secondary objectives. In this application, we've just got the user's profile but this could potentially grow to more things in the future. And so this is where our space begins to transform into something more three-dimensional.
+With the spacial design centering around that primary objective, there needs to be room in the space for *extras*, or secondary objectives. In this application, we've just got the user's profile but this could potentially grow to more things in the future. This is where our space begins to transform into something more three-dimensional.
 
-And so editing the profile, or potentially anything else secondary that could be added in the future, can be stacked beneath the application, waiting to be revealed by bringing it forward along the z-axis in front of the application's base plane.
+And so the panel to edit the profile can be stacked beneath the application, waiting to be revealed by bringing it forward along the z-axis in front of the application's base plane. This idea of "stacking" is also useful because it will allow our application to easily grow in the future to accommodate more secondary objectives.
 
 ![Animated Screenshot of Secondary View Transitions](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/flow-secondary.gif)
 
