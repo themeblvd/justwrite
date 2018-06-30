@@ -51,7 +51,7 @@ Consider the above diagram. I want the physical space and overall flow through i
 2. *Edit* - Adding or editing content.
 3. *Published* - More of a *metaphysical* space that the user is inevitably always traveling towards.
 
-When designing the application's flow, I toyed with how literal I wanted this spacial representation to actual feel to the user. I initially had it extremely literal with the entire view shifting in the direction of the space. But this proved to be way too jarring on a large desktop view. The screenshot below shows how the transitions between primary views inevitably took form.
+When designing the application's flow, I toyed with how literal I wanted this spacial representation to actually feel to the user. I initially had it extremely literal with the entire view shifting in the direction of the space. But this was just too jarring on a large desktop view. The screenshot below shows how the transitions between primary views inevitably took form.
 
 ![Animated Screenshot of Primary View Transitions](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/flow-primary.gif)
 
