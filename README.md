@@ -8,7 +8,9 @@ I completed the bulk of this project's design and development in about 10 days. 
 
 ## Using the Application
 
-In order for a user to log in through the application, their WordPress website needs to be secured on `https` and have the [JWT Authentication for WP REST API](https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/) plugin set up.
+You can use the application at [justwrite.app](https://justwrite.app).
+
+In order to log in through the application, your WordPress website needs to be secured on `https` and have the [JWT Authentication for WP REST API](https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/) plugin set up.
 
 **Curious to try it, but don't trust it enough to put in your actual WordPress site?**
 
