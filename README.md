@@ -2,7 +2,7 @@
 
 [Just Write](https://justwrite.app) is a client-side web application built in [React](https://reactjs.org/). It allows a user from any WordPress website to log in and manage posts via its REST API. The project structure and build process come from my personal [React boilerplate](https://github.com/themeblvd/react-boilerplate).
 
-I completed the bulk of this project's design and development in about 10 days. So while no software is ever complete, to say Just Write is "ready to ship" would be a bit of a stretch. This project is about exploring React, the WordPress API, and the potential possibilities.
+I completed the bulk of this project's design and development in about 10 days. So while no software is ever complete, to say *Just Write* is "ready to ship" would be a bit of a stretch. This project is about exploring React, the WordPress API, and the potential possibilities.
 
 ![](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/login.jpg)
 
@@ -35,7 +35,7 @@ Note: For a full list of terminal commands, see my [React boilerplate](https://g
 
 When browsing Github repos, you may not be used to seeing a section like this called "Application Design" but this section is so important. When building any application, we have to think about why we're doing what we're doing, and how that relates to who's using it
 
-So, in this section, let's explore the various parts of the application, and the motivation behind how they, look, feel, and function.
+So in this section, let's explore the various parts of the application, and the motivation behind how all of the pieces look, feel and function.
 
 ### Spatial Design and Flow
 
@@ -43,19 +43,19 @@ Before starting any application, although it in the end it may not be completely
 
 ![Diagram of Spacial Design and Flow](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/spacial.png)
 
-Consider the above diagram. I want the physical space and overall flow through it to be determined by the primary application's objective. While in most cases this can be extremely difficult, it's pretty straight forward here. I want the user to be able to view their posts, edit them (or add new ones), and publish them.
+Consider the above diagram. I want the physical space and overall flow through it to be determined by the primary application's objective. In more complex applications, this can be pretty difficult to determine. However, it's pretty straight forward here. I want the user to view their posts, then edit one (or add a new one), and finally, publish that post.
 
-1. Dashboard: Application's starting point. An overview of all posts.
-2. Edit: Adding or editing content.
-3. Publish: More of a *metaphysical* space that the user is inevitably always traveling towards.
+1. *Dashboard* - Application's starting point. An overview of all posts.
+2. *Edit* - Adding or editing content.
+3. *Published* - More of a *metaphysical* space that the user is inevitably always traveling towards.
 
 When designing the application's flow, I toyed with how literal I wanted this spacial representation to actual feel to the user. I initially had it extremely literal with the entire view shifting in the direction of the space. But this proved to be way too jarring on a large desktop view. The screenshot below shows how the transitions between primary views inevitably took form.
 
 ![Animated Screenshot of Primary View Transitions](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/flow-primary.gif)
 
-With the spacial design centering around that primary objective, there needs to be room in the space for "extras". In this application, we've just got the user's profile but this could potentially grow to more things in the future. And so this is where our space begins to transform into something more three-dimensional.
+With the spacial design centering around that primary objective, there needs to be room in the space for *extras*, or secondary objectives. In this application, we've just got the user's profile but this could potentially grow to more things in the future. And so this is where our space begins to transform into something more three-dimensional.
 
-Now, editing the profile, or potentially anything else secondary I add in the future, can be stacked beneath the application, waiting to be revealed by bringing forward along the z-axis above the application's base plane.
+And so editing the profile, or potentially anything else secondary that could be added in the future, can be stacked beneath the application, waiting to be revealed by bringing it forward along the z-axis in front of the application's base plane.
 
 ![Animated Screenshot of Secondary View Transitions](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/flow-secondary.gif)
 
@@ -63,7 +63,7 @@ Now, editing the profile, or potentially anything else secondary I add in the fu
 
 The ultimate goal of the dashboard is to motivate the user to do one thing - to *just write*.
 
-A more common CMS design (like what I've done in [Back Road](https://github.com/themeblvd/backroad)) would be to present the editable content in a more "top-level" accessible manner, like in a table or list. This allows the user to get a better visual overview of all things they have available to edit.
+A more common CMS design (like what I've done in [Back Road](https://github.com/themeblvd/backroad)) would be to present the editable content in a more "top-level" accessible manner, like in a table or list. This would allow the user to get a better visual overview of all things available to edit.
 
 However, in encouraging the user to "just write" I wanted to foster this concept of presenting the user with what they're currently passionate about. And for most people, this is often what they're in the process of writing or what they've written recently. So I prominently display the user's most recent posts, but in a more interesting and pleasing way than a simple list or table.
 
@@ -73,9 +73,9 @@ The downside to this in a "content management" sense is that it's difficult to d
 
 ### Profile
 
-With an application that focuses on writing, it's understandable that the primary goal would be to decouple that experience away from the other complications of the WordPress admin. So, with all of the additional things I could potentially pluck from WordPress to make editable, you may be wondering why I chose the user's profile information?
+With an application that focuses on writing, it's understandable that the primary goal would be to decouple that experience away from the other complications of the WordPress admin. So with all of the additional things I could potentially pluck from WordPress to make editable, you may be wondering why I chose the user's profile information.
 
-In trying to relate to my target user, I'm making the assumption that someone passionate about writing and blogging is most likely proud of things they're spending all this time to write. And since most WordPress themes tend to display the post author's name, bio, and links below single posts, I believe this is an important things many users will want to tweak and edit, over time.
+In trying to empathize with my target user, I'm making the assumption that someone passionate about writing and blogging is most likely proud of things they're spending all this time to write. And since most WordPress themes tend to display the post author's name, bio, links, etc, somewhere in single posts, it makes sense that the user will want to tweak and edit this over time.
 
 ![Animated Profile Screenshot](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/profile.gif)
 
@@ -99,9 +99,9 @@ When implementing the editor, it became apparent that having the toolbar stick w
 
 After showing this application to a few colleagues, it was pointed out to me that the editing experience was very similar to [Ghost](https://ghost.org). Now while I've definitely heard of the infamous NodeJS blogging application, I had admittedly never used it or seen its admin panel. So this was sort of a coincidence.
 
-But then after looking at Ghost's editing experience to compare, I quickly realized it had a fantastic feature Just Write's editor was sorely missing. And that was the ability to scroll the preview panel independently of the editor panel. Adding this made the editor so much more usable.
+But then after looking at Ghost's editing experience to compare, I quickly realized it had a fantastic feature *Just Write's* editor was sorely missing. And that was the ability to scroll the preview panel independently of the editor panel. Adding this made the editor so much more usable.
 
-![Animated Editor Screenshot with Panel Scrolling](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/editor-panel-scroll.gif)
+![Animated Editor Screenshot with Panel Scrolling](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/editor-scroll.gif)
 
 And lastly, this often gets overlooked, but let's not count out the importance of a smooth update flow to keep the user engaged in the application.
 
