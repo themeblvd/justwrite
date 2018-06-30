@@ -48,7 +48,7 @@ class Dashboard extends Component {
       <div className="dashboard-page">
         <DashboardHeader />
         <TransitionGroup component={null}>
-          <CSSTransition key={this.props.location.key} classNames="fade" timeout={250}>
+          <CSSTransition key={this.props.location.key} classNames="primary" timeout={250}>
             <Switch location={this.props.location}>
               <Route exact path="/" component={Home} />
               <Route path="/edit/:id" component={EditPost} />

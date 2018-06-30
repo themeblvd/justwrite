@@ -4,7 +4,7 @@
 
 .dashboard-home,
 .dashboard-edit-post {
-  &.fade-exit {
+  &.primary-exit {
     display: none;
   }
 }
@@ -20,26 +20,26 @@
     bottom: 0;
     left: 0;
 
-    &.fade-enter {
+    &.primary-enter {
       opacity: 0;
       transform: translate(0, 20px);
     }
-    &.fade-enter-active {
+    &.primary-enter-active {
       opacity: 1;
       transform: translate(0, 0);
       transition: opacity 0.2s ease-in, transform 0.2s ease-in;
     }
-    &.fade-exit {
+    &.primary-exit {
       display: block;
       opacity: 1;
       transform: translate(0, 0);
     }
-    &.fade-exit-active {
+    &.primary-exit-active {
       opacity: 0;
       transform: translate(0, 20px);
       transition: opacity 0.2s ease-in, transform 0.2s ease-in;
     }
-    &.fade-exit-done {
+    &.primary-exit-done {
       display: none;
     }
   }
