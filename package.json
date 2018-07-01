@@ -57,7 +57,6 @@
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.0.1",
     "showdown": "^1.8.6",
-    "slate": "^0.33.6",
     "turndown": "^4.0.2",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3"
