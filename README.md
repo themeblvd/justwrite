@@ -51,15 +51,17 @@ Consider the above diagram. I want the physical space and overall flow through i
 2. *Edit* - Adding or editing content.
 3. *Published* - More of a *metaphysical* space that the user is inevitably always traveling towards.
 
-When designing the application's flow, I toyed with how literal I wanted this spacial representation to actually feel to the user. I initially had it extremely literal with the entire view shifting in the direction of the space. But this was just too jarring on a large desktop view. The screenshot below shows how the transitions between primary views inevitably took form.
+When designing the application's flow, I toyed with how literal I wanted this spacial representation to actually feel to the user. I initially had it extremely literal with the entire view shifting in the direction of the space across the screen. But this was just too jarring on a large desktop view.
 
-![Animated Screenshot of Primary View Transitions](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/flow-primary.gif)
+The screenshot below shows how the transitions between primary views inevitably took form. While it's subtle, you can see that the dashboard enters from, and exits to, the left. And the edit view enters from, and exits to, the right.
+
+![Animated Screenshot of Primary View Transitions](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/primary-flow.gif)
 
 With the spacial design centering around that primary objective, there needs to be room in the space for *extras*, or secondary objectives. In this application, we've just got the user's profile but this could potentially grow to more things in the future. This is where our space begins to transform into something more three-dimensional.
 
 And so the panel to edit the profile can be stacked beneath the application, waiting to be revealed by bringing it forward along the z-axis in front of the application's base plane. This idea of "stacking" is also useful because it will allow our application to easily grow in the future to accommodate more secondary objectives.
 
-![Animated Screenshot of Secondary View Transitions](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/flow-secondary.gif)
+![Animated Screenshot of Secondary View Transitions](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/secondary-flow.gif)
 
 ### Dashboard
 
@@ -71,7 +73,7 @@ However, in encouraging the user to "just write" I wanted to foster this concept
 
 The downside to this in a "content management" sense is that it's difficult to drill down and find older things. To combat this, I've added the giant, can't miss search box and the filtering options below it.
 
-![Dashboard Screenshot](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/dashboard.jpg)
+![Dashboard Screenshot](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/home.jpg)
 
 ### Profile
 
