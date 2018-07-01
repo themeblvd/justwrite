@@ -8,6 +8,7 @@ import { loadPostData } from '../store/posts';
 // Routing
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { animationDuration } from '../config';
 
 // Components
 import DashboardHeader from './DashboardHeader';
@@ -48,7 +49,11 @@ class Dashboard extends Component {
       <div className="dashboard-page">
         <DashboardHeader />
         <TransitionGroup component={null}>
-          <CSSTransition key={this.props.location.key} classNames="primary" timeout={250}>
+          <CSSTransition
+            key={this.props.location.key}
+            classNames="primary"
+            timeout={animationDuration.primaryRouting}
+          >
             <Switch location={this.props.location}>
               <Route exact path="/" component={Home} />
               <Route path="/edit/:id" component={EditPost} />

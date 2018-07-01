@@ -98,3 +98,9 @@ $z-index-modal-backdrop: 200;
 $z-index-modal: 300;
 $z-index-notification: 400;
 $z-index-app-loader: 500;
+
+// ==========================================================================
+// Animations
+// ==========================================================================
+
+$timing-ease-in-out: cubic-bezier(0.455, 0.03, 0.515, 0.955); // easeInOutQuad

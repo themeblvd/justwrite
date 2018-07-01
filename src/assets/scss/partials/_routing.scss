@@ -22,25 +22,51 @@
 
     &.primary-enter {
       opacity: 0;
-      transform: translate(0, 20px);
     }
     &.primary-enter-active {
       opacity: 1;
-      transform: translate(0, 0);
-      transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+      transition: opacity 0.25s $timing-ease-in-out, transform 0.25s $timing-ease-in-out;
     }
     &.primary-exit {
       display: block;
       opacity: 1;
-      transform: translate(0, 0);
     }
     &.primary-exit-active {
       opacity: 0;
-      transform: translate(0, 20px);
-      transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+      transition: opacity 0.25s $timing-ease-in-out, transform 0.25s $timing-ease-in-out;
     }
     &.primary-exit-done {
       display: none;
+    }
+  }
+  // Enter from, exit to, the LEFT.
+  .dashboard-home {
+    &.primary-enter {
+      transform: translate(-10px, 0);
+    }
+    &.primary-enter-active {
+      transform: translate(0, 0);
+    }
+    &.primary-exit {
+      transform: translate(0, 0);
+    }
+    &.primary-exit-active {
+      transform: translate(-10px, 0);
+    }
+  }
+  // Enter from, exit to, the RIGHT.
+  .dashboard-edit-post {
+    &.primary-enter {
+      transform: translate(10px, 0);
+    }
+    &.primary-enter-active {
+      transform: translate(0, 0);
+    }
+    &.primary-exit {
+      transform: translate(0, 0);
+    }
+    &.primary-exit-active {
+      transform: translate(10px, 0);
     }
   }
 }

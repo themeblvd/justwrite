@@ -51,6 +51,7 @@ export const endpoints = {
  * timing functions.
  */
 export const animationDuration = {
+  primaryRouting: 250,
   errorShake: 250,
   fadeApp: 500,
   toggleUserMenu: 500,
