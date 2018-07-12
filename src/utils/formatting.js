@@ -35,13 +35,16 @@ export function unautop(content) {
   content = content.replace(/<\/p>/g, '\n\n');
 
   // For the different <br> formats, remove leading and
-  // trailing line breaks, and then replace all of then
-  // with a single new line character.
+  // trailing line breaks, and then replace all of them
+  // with a single new-line character.
   ['<br>', '<br/>', '<br />'].forEach(br => {
-    content.split(br + '\n').join(br);
-    content.split('\n' + br).join(br);
-    content.split(br).join('\n');
+    content = content.split(br + '\n').join(br);
+    content = content.split('\n' + br).join(br);
+    content = content.split(br).join('\n');
   });
+
+  // Remove any spacing/line breaks from start and end.
+  content = content.replace(/^\s+|\s+$/g, '');
 
   return content;
 }
