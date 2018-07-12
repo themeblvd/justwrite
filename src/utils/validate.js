@@ -5,7 +5,7 @@
  * @return {Boolean}     Whether valid URL or not.
  */
 export function validateUrl(url) {
-  var pattern = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/;
+  const pattern = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/;
   return pattern.test(url);
 }
 
@@ -17,7 +17,7 @@ export function validateUrl(url) {
  * @param  {String}        value  For single field, the value.
  * @return {Array|String}         Errors for all fields, or error for single field.
  */
-export function validateLoginForm(inputs, value) {
+export function loginFormErrors(inputs, value) {
   var singleInputName = typeof inputs === 'string' ? inputs : null;
 
   if (singleInputName) {
