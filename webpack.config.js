@@ -42,11 +42,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/,
-        options: {
-          babelrc: false,
-          presets: ['babel-preset-react-app']
-        }
+        exclude: /node_modules/
       },
       /*
        * Process images that were imported from
