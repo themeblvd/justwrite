@@ -10,6 +10,9 @@ report.txt
 public/*
 !public/README.md
 
+# tests
+coverage
+
 # misc
 .DS_Store
 .env.local
