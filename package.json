@@ -23,7 +23,7 @@
     "js-lint": "eslint \"{*.js,src/**/*.js}\"",
     "js-lint:fix": "eslint \"{*.js,src/**/*.js}\" --fix",
     "format": "prettier --write --single-quote --print-width=100 --tab-width=2 \"{*.js,src/**/*.js}\"",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "license": "ISC",
   "dependencies": {
