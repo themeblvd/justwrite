@@ -6,6 +6,8 @@ I completed the bulk of this project's design and development in about 10 days. 
 
 ![](https://s3-us-west-2.amazonaws.com/themeblvd-projects/justwrite/login.jpg)
 
+Featured on WP Tavern: [Just Write: A Client-Side React App for Writing and Editing WordPress Posts](https://wptavern.com/just-write-a-client-side-react-app-for-writing-and-editing-wordpress-posts)
+
 ## Using the Application
 
 You can use the application at [justwrite.app](https://justwrite.app).
