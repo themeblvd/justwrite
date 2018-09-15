@@ -276,6 +276,11 @@ export function loadPostData(endpoint, params = {}) {
       if (params.page) {
         dispatch(updateCurrentPage(params.page));
       }
+    } else {
+      params = {
+        per_page: 100,
+        ...params
+      };
     }
 
     return postsAxios
