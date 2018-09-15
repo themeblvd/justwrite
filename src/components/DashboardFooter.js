@@ -49,7 +49,7 @@ class DashboardFooter extends Component {
             </li>
             <li className="has-icon">
               <a
-                href="https://github.com/themeblvd/just-write"
+                href="https://github.com/themeblvd/justwrite"
                 target="_blank"
                 rel="noopener noreferrer"
               >
