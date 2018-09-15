@@ -6,6 +6,9 @@
 # report
 report.txt
 
+#tests
+coverage
+
 # build
 public/*
 !public/README.md
